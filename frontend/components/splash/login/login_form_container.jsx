@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import LoginForm from './login_form';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/session/session_actions';
@@ -13,4 +15,13 @@ const mdp = (dispatch) => ({
     loginUser: (user) => dispatch(login(user))
 });
 
-export default connect(msp, mdp)(LoginForm);
+const ConnectedForm = connect(msp, mdp)(LoginForm);
+
+export default () => {
+    return (
+        <div>
+            <Link to="/">Sign Up</Link>
+            <ConnectedForm />
+        </div>
+    );
+};
