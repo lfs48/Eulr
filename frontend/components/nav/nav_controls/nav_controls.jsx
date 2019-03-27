@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import AccountControlsIndex from './account_controls_index_container';
 
 class NavControls extends React.Component {
@@ -18,6 +19,12 @@ class NavControls extends React.Component {
         return (
             <div>
                 <ul>
+                    <li>
+                        <Link to="/dashboard">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/explore">Radar</Link>
+                    </li>
                     <li>
                         <AccountControlsIndex />
                     </li>
