@@ -1,4 +1,5 @@
 import React from 'react';
+import { Redirect } from 'react-router-dom';
 
 class LoginForm extends React.Component {
 
@@ -10,7 +11,8 @@ class LoginForm extends React.Component {
         this.state = {
             email: "",
             password: "",
-            stage: 1
+            stage: 1,
+            redirect: false
         };
     }
 
@@ -28,6 +30,9 @@ class LoginForm extends React.Component {
             password: this.state.password
         };
         this.props.login(user);
+        this.setState({
+            redirect: true
+        });
     }
 
     handleInput(type) {
@@ -39,6 +44,11 @@ class LoginForm extends React.Component {
     }
 
     render() {
+        if (this.state.redirect) {
+            return(
+                <Redirect to="/dashboard" />
+            );
+        }
         if (this.state.stage === 1) {
             return (
                 <form onSubmit={this.handleNext}>
