@@ -38,6 +38,7 @@ class RegisterForm extends React.Component {
         event.preventDefault();
         const user = this.buildUser();
         this.props.createUser(user);
+        this.props.login(user);
         this.setState({
             redirect: true
         });
