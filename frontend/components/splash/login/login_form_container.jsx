@@ -21,7 +21,7 @@ export default () => {
     return (
         <div>
             <Link to="/">Sign Up</Link>
-            <ConnectedForm />
+            <ConnectedForm className="login-form"/>
         </div>
     );
 };
