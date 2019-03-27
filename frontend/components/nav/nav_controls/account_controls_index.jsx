@@ -1,10 +1,14 @@
 import React from 'react';
 
-class NavControls extends React.Component {
+class AccountControls extends React.Component {
 
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
+        this.state = {
+            open: false
+        };
     }
 
     handleLogout() {
@@ -13,16 +17,29 @@ class NavControls extends React.Component {
         });
     }
 
+    handleToggle() {
+        this.setState({
+            open: !this.state.open
+        });
+    }
+
     render() {
-        return (
-            <div>
-                <h5>Account</h5>
-                <button onClick={this.handleLogout}>Log Out</button>
-                <ul>
-                </ul>
-            </div>
-        );
+        if (this.state.open) {
+            return (
+                <div>
+                    <button onClick={this.handleToggle}>Account</button>
+                    <h5>Account</h5>
+                    <button onClick={this.handleLogout}>Log Out</button>
+                    <ul>
+                    </ul>
+                </div>
+            );
+        } else {
+            return (
+                <button onClick={this.handleToggle}>Account</button>
+            );
+        }
     }
 }
 
-export default NavControls;
+export default AccountControls;
