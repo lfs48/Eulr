@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import AccountControls from './nav_controls';
+import AccountControls from './account_controls_index';
 import { logout } from "../../../actions/session/session_actions";
 import { withRouter } from 'react-router-dom';
 
