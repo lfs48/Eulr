@@ -1,7 +1,7 @@
-import { combineReducers } from 'redux';
+// import { combineReducers } from 'redux';
 
-const errorsReducer = combineReducers({
+// const errorsReducer = combineReducers({
 
-});
+// });
 
-export default errorsReducer;
+// export default errorsReducer;
