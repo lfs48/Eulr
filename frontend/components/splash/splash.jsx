@@ -9,6 +9,7 @@ class Splash extends React.Component {
             <h1>Euler</h1>
             <p>An infinite series of possibilities converges here.</p>
             <RegisterForm />
+            <Link to="/login">Log In</Link>
             </div>
         );
     }
