@@ -7,7 +7,6 @@ const Navbar = (props) => {
         return(
             <div className="eulr-nav">
                 <Search />
-                <h1>Welcome to Euler, esteemed user!</h1>
                 <NavControls />
             </div>
         );
@@ -15,7 +14,6 @@ const Navbar = (props) => {
         return(
             <div className="eulr-nav">
                 <Search />
-                <h1>Welcome to Euler!</h1>
             </div>
         );
     }
