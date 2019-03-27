@@ -3,11 +3,7 @@ import { connect } from 'react-redux';
 import { createUser } from '../../../actions/entities/user_actions';
 
 const msp = (state) => ({
-    user: {
-        username: "",
-        email: "",
-        password: ""
-    }
+
 });
 
 const mdp = (dispatch) => ({
