@@ -12,7 +12,7 @@ const msp = (state) => ({
 });
 
 const mdp = (dispatch) => ({
-    loginUser: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user))
 });
 
 const ConnectedForm = connect(msp, mdp)(LoginForm);
