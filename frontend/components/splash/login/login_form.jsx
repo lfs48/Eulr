@@ -12,15 +12,22 @@ class LoginForm extends React.Component {
             email: "",
             password: "",
             stage: 1,
-            redirect: false
+            errors: []
         };
     }
 
     handleNext(event) {
         event.preventDefault();
-        this.setState({
-            stage: 2
-        });
+        const errs = this.validateEmail();
+        if (errs.length > 0) {
+            this.setState({
+                errors: errs
+            });
+        } else {
+            this.setState({
+                stage: 2
+            });
+        }
     }
 
     handleSubmit(event) {
@@ -29,10 +36,9 @@ class LoginForm extends React.Component {
             email: this.state.email,
             password: this.state.password
         };
-        this.props.login(user);
-        this.setState({
-            redirect: true
-        });
+        this.props.login(user).then( () => 
+            this.props.history.push("/dashboard")
+        );
     }
 
     handleInput(type) {
@@ -43,26 +49,48 @@ class LoginForm extends React.Component {
         };
     }
 
-    render() {
-        if (this.state.redirect) {
-            return(
-                <Redirect to="/dashboard" />
-            );
+    validateEmail() {
+        const errors = [];
+        const re = /\S+@\S+\.\S+/;
+        if (this.state.email === "") {
+            errors.push("Oops. There was an error. Try again.");
+        } else if (!re.test(this.state.email)) {
+            errors.push("That's not a valid email address. Please try again.");
         }
+        return errors;
+    }
+
+    validatePassword() {
+
+    }
+
+    render() {
+        const errs = this.state.errors.map((error, idx) =>
+            <li key={idx}>{error}</li>
+        );
         if (this.state.stage === 1) {
             return (
-                <form onSubmit={this.handleNext}>
-                    <input
-                        type="text"
-                        placeholder="Email"
-                        value={this.state.email}
-                        onChange={this.handleInput("email")}
-                    ></input>
-                    <input
-                        type="submit"
-                        value="Next"
-                    ></input>
-                </form>
+                <div>
+                    <form onSubmit={this.handleNext}>
+                        <input
+                            type="text"
+                            placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.handleInput("email")}
+                        ></input>
+                        <input
+                            type="submit"
+                            value="Next"
+                        ></input>
+                    </form>
+                    {errs.length > 0 ?
+                        <ul>
+                            {errs}
+                        </ul>
+                        :
+                        <></>
+                    }
+                </div>
             );
         } else if (this.state.stage === 2) {
             return (

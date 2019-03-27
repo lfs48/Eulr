@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import LoginForm from './login_form';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/session/session_actions';
@@ -15,7 +15,7 @@ const mdp = (dispatch) => ({
     login: (user) => dispatch(login(user))
 });
 
-const ConnectedForm = connect(msp, mdp)(LoginForm);
+const ConnectedForm = withRouter(connect(msp, mdp)(LoginForm));
 
 export default () => {
     return (
