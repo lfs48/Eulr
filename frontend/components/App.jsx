@@ -7,11 +7,15 @@ import {
     HashRouter
 } from 'react-router-dom';
 import Splash from './splash/splash_container';
+import LoginForm from './splash/login/login_form_container';
 
 const App = (props) => (
     <div>
         <h1>Welcome to Euler!</h1>
-        <Route path="/" component={Splash} />
+        <Switch>
+            <Route path="/login" component={LoginForm} />
+            <Route path="/" component={Splash} />
+        </Switch>
     </div>
 );
 
