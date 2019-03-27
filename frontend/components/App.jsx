@@ -11,7 +11,7 @@ import LoginForm from './splash/login/login_form_container';
 import Explore from './dash/explore/explore_container';
 
 const App = (props) => (
-    <div>
+    <div className="app-container">
         <h1>Welcome to Euler!</h1>
         <Switch>
             <Route path="/explore" component={Explore} />
