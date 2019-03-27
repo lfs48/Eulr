@@ -12,6 +12,7 @@ import LoginForm from './splash/login/login_form_container';
 import Explore from './dash/explore/explore_container';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
+import Logout from './session/logout';
 
 const App = (props) => (
     <div className="app-container">
@@ -19,6 +20,7 @@ const App = (props) => (
         <Switch>
             <Route path="/explore" component={Explore} />
             <AuthRoute path="/login" component={LoginForm} />
+            <ProtectedRoute path="/logout" component={Logout} />
             <ProtectedRoute path="/dashboard" component={Dash} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
