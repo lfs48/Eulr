@@ -10,11 +10,11 @@ const sessionReducer = (state = {}, action) => {
 
         case(LOGIN_USER): {
             newState.id = action.user.id;
-            return newState
+            return newState;
         }
 
         case(LOGOUT_USER): {
-            newState.id = null;
+            delete newState.id;
             return newState;
         }
     }
