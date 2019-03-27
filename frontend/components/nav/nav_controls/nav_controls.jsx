@@ -1,4 +1,5 @@
 import React from 'react';
+import AccountControlsIndex from './account_controls_index_container';
 
 class NavControls extends React.Component {
     
@@ -16,10 +17,11 @@ class NavControls extends React.Component {
     render() {
         return (
             <div>
-                <h5>Account</h5>
-                <button onClick={this.handleLogout}>Log Out</button>
-            <ul>
-            </ul>
+                <ul>
+                    <li>
+                        <AccountControlsIndex />
+                    </li>
+                </ul>
             </div>
         );
     }
