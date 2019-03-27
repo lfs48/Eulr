@@ -5,7 +5,7 @@ const Navbar = (props) => {
     return(
         <div className="eulr-nav">
             <Search />
-            <h1>Welcome to Euler!</h1>
+            <h1>Welcome to Euler{props.loggedIn ? `, esteemed user` : '!'}</h1>
         </div>
     );
 };
