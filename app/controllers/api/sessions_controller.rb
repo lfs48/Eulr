@@ -1,9 +1,9 @@
 class Api::SessionsController < ApplicationController
 
     def create
-        username = params[:user][:username]
+        email = params[:user][:email]
         pw = params[:user][:password]
-        @user = User.find_by_credentials(username, pw)
+        @user = User.find_by_credentials(email, pw)
         if @user
             log_user_in!(@user)
             render "api/users/show"
