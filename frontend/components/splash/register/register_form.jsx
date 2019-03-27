@@ -15,7 +15,7 @@ class RegisterForm extends React.Component {
             username: "",
             password: "",
             open: false,
-            redirect: false
+            errors: []
         };
     }
 
@@ -36,12 +36,18 @@ class RegisterForm extends React.Component {
 
     handleSubmit(event) {
         event.preventDefault();
-        const user = this.buildUser();
-        this.props.createUser(user);
-        this.props.login(user);
-        this.setState({
-            redirect: true
-        });
+        const errorsArr = this.validateInput();
+        if (errorsArr.length > 0) {
+            this.setState({
+                errors: errorsArr
+            });
+        } else {
+            const user = this.buildUser();
+            this.props.createUser(user);
+            this.props.login(user).then( () =>
+                this.props.history.push("/dashboard")
+            );
+        }
     }
 
     handleInput(type) {
@@ -52,14 +58,29 @@ class RegisterForm extends React.Component {
         };
     }
 
-    render() {
-        if (this.state.redirect) {
-            return (
-                <Redirect to="/dashboard" />
-            );
+    validateInput() {
+        const errors = [];
+        const weakPasswords = ["password", "12345678"];
+        if (this.state.email === "") {
+            errors.push("You forgot to enter your email address!");
         }
+        if (this.state.password === "") {
+            errors.push("Don't forget your password!");
+        } else if (this.state.password.length < 8) {
+            errors.push("The password must be at least 8 characters.");
+        } else if (weakPasswords.includes(this.state.password)) {
+            errors.push("Please choose a stronger password.");
+        }
+        return errors;
+    }
+
+    render() {
         if (this.state.open) {
+            const errs = this.state.errors.map( (error, idx) => 
+                <li key={idx}>{error}</li>
+            );
             return (
+                    <div>
                     <form onSubmit={this.handleSubmit}>
                         <input
                             type="text"
@@ -84,6 +105,14 @@ class RegisterForm extends React.Component {
                             value="Sign Up"
                         ></input>
                     </form>
+                    {errs.length > 0 ?
+                        <ul>
+                            {errs}
+                        </ul>
+                        :
+                        <></>
+                    }
+                    </div>
                 );
         } else {
             return (

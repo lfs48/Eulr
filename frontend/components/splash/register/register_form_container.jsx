@@ -2,6 +2,7 @@ import RegisterForm from './register_form';
 import { connect } from 'react-redux';
 import { createUser } from '../../../actions/entities/user_actions';
 import { login } from '../../../actions/session/session_actions';
+import { withRouter } from 'react-router-dom';
 
 const msp = (state) => ({
 
@@ -12,4 +13,4 @@ const mdp = (dispatch) => ({
     login: (user) => dispatch( login(user) )
 });
 
-export default connect(msp, mdp)(RegisterForm);
+export default withRouter(connect(msp, mdp)(RegisterForm));
