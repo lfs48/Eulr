@@ -6,6 +6,7 @@ import {
     Link,
     HashRouter
 } from 'react-router-dom';
+import { AuthRoute, ProtectedRoute } from '../util/routes/routes_util';
 import Splash from './splash/splash_container';
 import LoginForm from './splash/login/login_form_container';
 import Explore from './dash/explore/explore_container';
@@ -17,9 +18,9 @@ const App = (props) => (
         <Navbar />
         <Switch>
             <Route path="/explore" component={Explore} />
-            <Route path="/login" component={LoginForm} />
-            <Route path="/dashboard" component={Dash} />
-            <Route path="/" component={Splash} />
+            <AuthRoute path="/login" component={LoginForm} />
+            <ProtectedRoute path="/dashboard" component={Dash} />
+            <AuthRoute path="/" component={Splash} />
         </Switch>
     </div>
 );
