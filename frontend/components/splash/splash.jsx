@@ -23,6 +23,7 @@ class Splash extends React.Component {
         return(
             <div className="splash-container">
             <h1>Euler</h1>
+            <img src={window.eulrLogo}></img>
             <p>An infinite series of possibilities converges here.</p>
             <RegisterForm className="register-form"/>
             <Link to="/login">Log In</Link>

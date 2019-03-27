@@ -6,6 +6,7 @@ const Navbar = (props) => {
     if (props.loggedIn) {
         return(
             <div className="eulr-nav">
+                <img src={window.eulrLogoSmall}></img>
                 <Search />
                 <NavControls />
             </div>
@@ -13,6 +14,7 @@ const Navbar = (props) => {
     } else {
         return(
             <div className="eulr-nav">
+                <img src={window.eulrLogoSmall}></img>
                 <Search />
             </div>
         );
