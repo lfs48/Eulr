@@ -107,7 +107,7 @@ class RegisterForm extends React.Component {
                             value="Sign Up"
                         ></input>
                     </form>
-                    <ErrorsList errorsClass="register-errors" errors={this.state.errors} />
+                    <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                     </div>
                 );
         } else {
