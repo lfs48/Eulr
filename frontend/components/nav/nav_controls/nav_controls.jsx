@@ -20,10 +20,14 @@ class NavControls extends React.Component {
             <div className="nav-controls-container">
                 <ul>
                     <li>
-                        <Link to="/dashboard">Home</Link>
+                        <Link to="/dashboard">
+                            <i className="fas fa-home"></i>
+                        </Link>
                     </li>
                     <li>
-                        <Link to="/explore">Radar</Link>
+                        <Link to="/explore">
+                            <i className="far fa-compass"></i>
+                        </Link>
                     </li>
                     <li>
                         <AccountControlsIndex />

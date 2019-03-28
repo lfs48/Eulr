@@ -30,7 +30,10 @@ class Splash extends React.Component {
                 <span>Log In</span>
             </Link>
             <button className="demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
-            <Link className="splash-explore-link" to="/explore">Here's what's trending</Link>
+            <Link className="splash-explore-link" to="/explore">
+                    <i className="far fa-compass"></i>
+                    Here's what's trending
+            </Link>
             </div>
         );
     }

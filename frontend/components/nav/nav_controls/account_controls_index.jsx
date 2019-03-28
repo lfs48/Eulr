@@ -27,16 +27,22 @@ class AccountControls extends React.Component {
         if (this.state.open) {
             return (
                 <div>
-                    <button onClick={this.handleToggle}>Account</button>
-                    <h5>Account</h5>
-                    <button onClick={this.handleLogout}>Log Out</button>
-                    <ul>
-                    </ul>
+                    <button onClick={this.handleToggle}>
+                        <i className="fas fa-user"></i>
+                    </button>
+                    <div className="account-menu">
+                        <h5>Account</h5>
+                        <button onClick={this.handleLogout}>Log Out</button>
+                        <ul>
+                        </ul>
+                    </div>
                 </div>
             );
         } else {
             return (
-                <button onClick={this.handleToggle}>Account</button>
+                <button onClick={this.handleToggle}>
+                    <i className="fas fa-user"></i>
+                </button>
             );
         }
     }
