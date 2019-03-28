@@ -4,7 +4,7 @@ const ErrorsList = (props) => {
     if (props.errors.length > 0) {
         const errorLis = props.errors.map( (error, idx) =>
             (<li key={idx}>
-                {error}
+                <span>{error}</span>
             </li>)
         );
         return(
