@@ -25,6 +25,7 @@ class LoginForm extends React.Component {
             });
         } else {
             this.setState({
+                errors: [],
                 stage: 2
             });
         }
@@ -90,26 +91,26 @@ class LoginForm extends React.Component {
             );
         } else if (this.state.stage === 2) {
             return (
-                <div className="login-form-container">
-                <h1 className="eulr-header">eulr</h1>
-                <form className="login-form" onSubmit={this.handleSubmit}>
-                    <input
-                            type="text"
-                            placeholder="Email"
-                            value={this.state.email}
-                            onChange={this.handleInput("email")}
-                    ></input>
-                    <input
-                        type="password"
-                        placeholder="Password"
-                        value={this.state.password}
-                        onChange={this.handleInput("password")}
-                    ></input>
-                    <input
-                        type="submit"
-                        value="Log In"
-                    ></input>
-                </form>
+                <div className="login-container">
+                    <h1 className="eulr-header">eulr</h1>
+                    <form className="login-form" onSubmit={this.handleSubmit}>
+                        <input
+                                type="text"
+                                placeholder="Email"
+                                value={this.state.email}
+                                onChange={this.handleInput("email")}
+                        ></input>
+                        <input
+                            type="password"
+                            placeholder="Password"
+                            value={this.state.password}
+                            onChange={this.handleInput("password")}
+                        ></input>
+                        <input
+                            type="submit"
+                            value="Log In"
+                        ></input>
+                    </form>
                     <ErrorsList errors={this.state.errors} />
                 </div>
             );
