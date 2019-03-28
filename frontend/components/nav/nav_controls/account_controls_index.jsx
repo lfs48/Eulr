@@ -39,21 +39,39 @@ class AccountControls extends React.Component {
                         <ul>
                             <li>
                                 <i className="fas fa-heart"></i>
-                                <Link to="/likes">Likes</Link>
+                                <Link className="account-menu-link" to="/likes">Likes</Link>
                             </li>
                             <li>
                                 <i className="fas fa-user-plus"></i>
-                                <Link to="/following">Following</Link>
+                                <Link className="account-menu-link" to="/following">Following</Link>
                             </li>
                             <li>
                                 <i className="fas fa-cog"></i>
-                                <Link to="/settings">Settings</Link>
+                                <Link className="account-menu-link" to="/settings">Settings</Link>
                             </li>
                             <li>
                                 <i className="fas fa-question-circle"></i>
-                                <Link to="help">Help</Link>
+                                <Link className="account-menu-link" to="help">Help</Link>
                             </li>
                         </ul>
+                        <header>
+                            <h5>Tumblrs</h5>
+                            <button>+ New</button>
+                        </header>
+                            <ul>
+                                <li>
+                                    <span>Posts</span>
+                                </li>
+                                <li>
+                                    <span>Followers</span>
+                                </li>
+                                <li>
+                                    <span>Activity</span>
+                                </li>
+                                <li>
+                                    <span>Drafts</span>
+                                </li>
+                            </ul>
                     </div>
                 </div>
             );
