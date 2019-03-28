@@ -42,10 +42,13 @@ class RegisterForm extends React.Component {
             });
         } else {
             const user = this.buildUser();
-            this.props.createUser(user);
-            this.props.login(user).then( () =>
-                this.props.history.push("/dashboard")
-            );
+            this.props.createUser(user)
+            .then( (user) => this.props.login(user),
+                () => this.setState({
+                    errors: this.props.stateErrors
+                })
+            )
+            .then( () => this.props.history.push("/dashboard") );
         }
     }
 

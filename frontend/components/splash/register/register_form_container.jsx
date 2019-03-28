@@ -5,7 +5,7 @@ import { login } from '../../../actions/session/session_actions';
 import { withRouter } from 'react-router-dom';
 
 const msp = (state) => ({
-
+    stateErrors: state.errors.session
 });
 
 const mdp = (dispatch) => ({
