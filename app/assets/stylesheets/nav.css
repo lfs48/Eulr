@@ -1,0 +1,14 @@
+.eulr-nav-container {
+    display: flex;
+}
+
+.eulr-nav-container > * {
+    margin-top: 10px;
+}
+
+.nav-search {
+    height: 31px;
+    width: 491px;
+    border: 0px;
+    border-radius: 2px;
+}

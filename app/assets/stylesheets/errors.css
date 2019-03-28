@@ -1,0 +1,24 @@
+.register-errors-container {
+    opacity: 0.5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 10px 0px;
+}
+
+.register-errors {
+    list-style: none;
+}
+
+.register-errors > li {
+    background: gray;
+    height: 16px;
+    width: 300px;
+    box-sizing: border-box;
+    color: white;
+    padding: 15px;
+    font-size: 15px;
+    line-height: 16px;
+    text-align: center;
+    vertical-align: middle;
+}
