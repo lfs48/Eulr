@@ -32,6 +32,12 @@
 }
 
 .nav-controls-container > ul {
+    height: 100%;
     display: flex;
     justify-content: flex-end;
+    align-items: center;
+}
+
+.nav-controls-container > ul > * {
+    margin: 5px;
 }
