@@ -13,6 +13,7 @@ import Explore from './dash/explore/explore_container';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
+import UnderConstruction from  './under_construction/under_construction';
 
 const App = (props) => (
     <main className="app-container">
@@ -22,6 +23,10 @@ const App = (props) => (
             <AuthRoute path="/login" component={LoginForm} />
             <ProtectedRoute path="/logout" component={Logout} />
             <ProtectedRoute path="/dashboard" component={Dash} />
+            <ProtectedRoute path="/following" component={UnderConstruction} />
+            <ProtectedRoute path="/likes" component={UnderConstruction} />
+            <ProtectedRoute path="/settings" component={UnderConstruction} />
+            <ProtectedRoute path="/help" component={UnderConstruction} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
     </main>
