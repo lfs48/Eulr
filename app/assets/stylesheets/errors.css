@@ -10,15 +10,19 @@
     list-style: none;
 }
 
-.session-errors > li {
-    background: gray 0.8;
+.session-errors li {
+    background: rgb(0, 0, 0, 0.1);
     height: 16px;
     width: 300px;
     box-sizing: border-box;
-    color: white;
     padding: 15px;
     font-size: 15px;
     line-height: 16px;
+    display: flex;
+    align-items: center;
+}
+
+.session-errors span {
     text-align: center;
-    vertical-align: middle;
+    color: white;
 }
