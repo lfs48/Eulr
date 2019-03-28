@@ -1,0 +1,40 @@
+.account-menu-icon {
+    background: none;
+    border: none;
+}
+
+.account-menu {
+    background-color: white;
+	position: absolute;
+	top: 50px;
+	right: 10px;
+	border: 1px solid gray;
+	border-radius: 3px;
+	padding: 10px;
+	width: 225px;
+	z-index: 1;
+	color: darkgray;
+	font-family: sans-serif;
+	text-align: left;
+	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+    font-weight: initial;
+    padding: 0;
+}
+
+.account-menu-header {
+    display: flex;
+    justify-content: space-between;
+    background: lightgray;
+}
+
+.account-menu-header > h5 {
+    font-weight: bold;
+    color: black;
+}
+
+.account-menu-header > button {
+    background: none;
+    border: none;
+    color: gray;
+}
+
