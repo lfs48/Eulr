@@ -37,7 +37,7 @@ class LoginForm extends React.Component {
             password: this.state.password
         };
         this.props.login(user).then( () => 
-            this.props.history.push("/dashboard")
+                this.props.history.push("/dashboard")
         );
     }
 
@@ -61,7 +61,7 @@ class LoginForm extends React.Component {
     }
 
     validatePassword() {
-
+        
     }
 
     render() {

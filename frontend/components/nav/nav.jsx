@@ -5,7 +5,7 @@ import NavControls from './nav_controls/nav_controls_container';
 const Navbar = (props) => {
     if (props.loggedIn) {
         return(
-            <div className="eulr-nav">
+            <div className="eulr-nav-container">
                 <img src={window.eulrLogoSmall}></img>
                 <Search />
                 <NavControls />
@@ -13,7 +13,7 @@ const Navbar = (props) => {
         );
     } else {
         return(
-            <div className="eulr-nav">
+            <div className="eulr-nav-container">
                 <img src={window.eulrLogoSmall}></img>
                 <Search />
             </div>

@@ -76,37 +76,42 @@ class RegisterForm extends React.Component {
     render() {
         if (this.state.open) {
             return (
-                    <div>
-                    <form onSubmit={this.handleSubmit}>
-                        <input
-                            type="text"
-                            placeholder="Email"
-                            value={this.state.email}
-                            onChange={this.handleInput("email")}
-                        ></input>
-                        <input
-                            type="password"
-                            placeholder="Password"
-                            value={this.state.password}
-                            onChange={this.handleInput("password")}
-                        ></input>
-                        <input
-                            type="text"
-                            placeholder="Username"
-                            value={this.state.username}
-                            onChange={this.handleInput("username")}
-                        ></input>
-                        <input
+                    <div className="register-container">
+                    <form className="register-form" onSubmit={this.handleSubmit }>
+                        <div className="register-inputs-container">
+                            <input
+                                type="text"
+                                placeholder="Email"
+                                value={this.state.email}
+                                onChange={this.handleInput("email")}
+                            ></input>
+                            <input
+                                type="password"
+                                placeholder="Password"
+                                value={this.state.password}
+                                onChange={this.handleInput("password")}
+                            ></input>
+                            <input
+                                type="text"
+                                placeholder="Username"
+                                value={this.state.username}
+                                onChange={this.handleInput("username")}
+                            ></input>
+                        </div>
+                        <input 
+                            className="register-submit"
                             type="submit"
                             value="Sign Up"
                         ></input>
                     </form>
-                    <ErrorsList errors={this.state.errors} />
+                    <ErrorsList errorsClass="register-errors" errors={this.state.errors} />
                     </div>
                 );
         } else {
             return (
-                <button onClick={this.handleOpen}>Get Started</button>
+                <button className="register-button" onClick={this.handleOpen}>
+                    <span>Get Started</span>
+                </button>
             );
         }
     }

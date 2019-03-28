@@ -22,13 +22,15 @@ class Splash extends React.Component {
     render() {
         return(
             <div className="splash-container">
-            <h1>Euler</h1>
-            <img src={window.eulrLogo}></img>
+            <h1>eulr</h1>
+            <img className="splash-logo" src={window.eulrLogo}></img>
             <p>An infinite series of possibilities converges here.</p>
-            <RegisterForm className="register-form"/>
-            <Link to="/login">Log In</Link>
-            <button onClick={this.handleDemoLogin}>Demo Login</button>
-            <Link to="/explore">Here's what's trending</Link>
+            <RegisterForm />
+            <Link className="splash-login" to="/login">
+                <span>Log In</span>
+            </Link>
+            <button className="demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
+            <Link className="splash-explore-link" to="/explore">Here's what's trending</Link>
             </div>
         );
     }

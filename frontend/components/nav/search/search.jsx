@@ -17,6 +17,7 @@ class Search extends React.Component {
     render() {
         return(
             <input
+                className="nav-search"
                 type="text"
                 placeholder="Search Tumblr"
                 value={this.state.search}

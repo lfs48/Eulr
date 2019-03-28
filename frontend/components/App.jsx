@@ -15,7 +15,7 @@ import Dash from './dash/dash_container';
 import Logout from './session/logout';
 
 const App = (props) => (
-    <div className="app-container">
+    <main className="app-container">
         <Navbar />
         <Switch>
             <Route path="/explore" component={Explore} />
@@ -24,7 +24,7 @@ const App = (props) => (
             <ProtectedRoute path="/dashboard" component={Dash} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
-    </div>
+    </main>
 );
 
 export default App;
