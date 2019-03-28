@@ -10,6 +10,7 @@
     "@fortawesome/react-fontawesome": "^0.1.4",
     "babel-loader": "^8.0.5",
     "react": "^16.8.5",
+    "react-addons-css-transition-group": "^15.6.2",
     "react-dom": "^16.8.5",
     "react-redux": "^6.0.1",
     "react-router-dom": "^5.0.0",
