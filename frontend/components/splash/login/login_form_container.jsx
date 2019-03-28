@@ -8,7 +8,8 @@ const msp = (state) => ({
     user: {
         email: "",
         password: ""
-    }
+    },
+    stateErrors: state.errors.session
 });
 
 const mdp = (dispatch) => ({
