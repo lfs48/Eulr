@@ -86,7 +86,7 @@ class LoginForm extends React.Component {
                             value="Next"
                         ></input>
                     </form>
-                    <ErrorsList errors={this.state.errors} />
+                    <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                 </div>
             );
         } else if (this.state.stage === 2) {
@@ -111,7 +111,7 @@ class LoginForm extends React.Component {
                             value="Log In"
                         ></input>
                     </form>
-                    <ErrorsList errors={this.state.errors} />
+                    <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                 </div>
             );
         }
