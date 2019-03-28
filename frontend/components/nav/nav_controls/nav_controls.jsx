@@ -17,7 +17,7 @@ class NavControls extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="nav-controls-container">
                 <ul>
                     <li>
                         <Link to="/dashboard">Home</Link>
