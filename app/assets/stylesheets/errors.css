@@ -1,4 +1,4 @@
-.register-errors-container {
+.session-errors-container {
     opacity: 0.5;
     display: flex;
     flex-direction: column;
@@ -6,12 +6,12 @@
     margin: 10px 0px;
 }
 
-.register-errors {
+.session-errors {
     list-style: none;
 }
 
-.register-errors > li {
-    background: gray;
+.session-errors > li {
+    background: gray 0.8;
     height: 16px;
     width: 300px;
     box-sizing: border-box;
