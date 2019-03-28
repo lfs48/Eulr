@@ -1,5 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
+import ErrorsList from '../../errors/errors_list_container';
 
 class LoginForm extends React.Component {
 
@@ -65,9 +65,6 @@ class LoginForm extends React.Component {
     }
 
     render() {
-        const errs = this.state.errors.map((error, idx) =>
-            <li key={idx}>{error}</li>
-        );
         if (this.state.stage === 1) {
             return (
                 <div>
@@ -83,17 +80,12 @@ class LoginForm extends React.Component {
                             value="Next"
                         ></input>
                     </form>
-                    {errs.length > 0 ?
-                        <ul>
-                            {errs}
-                        </ul>
-                        :
-                        <></>
-                    }
+                    <ErrorsList errors={this.state.errors} />
                 </div>
             );
         } else if (this.state.stage === 2) {
             return (
+                <div>
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="password"
@@ -106,6 +98,8 @@ class LoginForm extends React.Component {
                         value="Log In"
                     ></input>
                 </form>
+                    <ErrorsList errors={this.state.errors} />
+                </div>
             );
         }
     }

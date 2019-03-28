@@ -1,6 +1,5 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
-import { merge } from 'lodash';
+import ErrorsList from '../../errors/errors_list_container';
 
 class RegisterForm extends React.Component {
     
@@ -76,9 +75,6 @@ class RegisterForm extends React.Component {
 
     render() {
         if (this.state.open) {
-            const errs = this.state.errors.map( (error, idx) => 
-                <li key={idx}>{error}</li>
-            );
             return (
                     <div>
                     <form onSubmit={this.handleSubmit}>
@@ -105,13 +101,7 @@ class RegisterForm extends React.Component {
                             value="Sign Up"
                         ></input>
                     </form>
-                    {errs.length > 0 ?
-                        <ul>
-                            {errs}
-                        </ul>
-                        :
-                        <></>
-                    }
+                    <ErrorsList errors={this.state.errors} />
                     </div>
                 );
         } else {
