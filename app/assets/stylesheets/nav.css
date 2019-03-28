@@ -33,11 +33,22 @@
 
 .nav-controls-container > ul {
     height: 100%;
+    width: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
 .nav-controls-container > ul > * {
-    margin: 5px;
+    margin: 5px 15px;
+}
+
+.account-menu-icon {
+    background: none;
+    border: none;
+}
+
+.nav-controls-container i{
+    color: rgb(196, 181, 181);
+    font-size: 25px;
 }
