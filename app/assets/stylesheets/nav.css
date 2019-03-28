@@ -1,9 +1,27 @@
-.eulr-nav-container {
+.nav-container {
     display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid gray;
 }
 
-.eulr-nav-container > * {
-    margin-top: 10px;
+.nav-left {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.nav-left > img {
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+.nav-left > .static {
+  position:absolute;
+  background: white;
+}
+
+.nav-left > .static:hover {
+  opacity:0;
 }
 
 .nav-search {
@@ -11,4 +29,9 @@
     width: 491px;
     border: 0px;
     border-radius: 2px;
+}
+
+.nav-controls-container > ul {
+    display: flex;
+    justify-content: flex-end;
 }
