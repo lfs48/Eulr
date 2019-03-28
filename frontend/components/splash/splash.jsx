@@ -22,7 +22,7 @@ class Splash extends React.Component {
     render() {
         return(
             <div className="splash-container">
-            <h1>eulr</h1>
+            <h1 className="eulr-header">eulr</h1>
             <img className="splash-logo" src={window.eulrLogo}></img>
             <p>An infinite series of possibilities converges here.</p>
             <RegisterForm />

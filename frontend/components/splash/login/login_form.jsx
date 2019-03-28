@@ -67,8 +67,9 @@ class LoginForm extends React.Component {
     render() {
         if (this.state.stage === 1) {
             return (
-                <div>
-                    <form onSubmit={this.handleNext}>
+                <div className="login-container">
+                    <h1 className="eulr-header">eulr</h1>
+                    <form className="login-form" onSubmit={this.handleNext}>
                         <input
                             type="text"
                             placeholder="Email"
@@ -76,6 +77,7 @@ class LoginForm extends React.Component {
                             onChange={this.handleInput("email")}
                         ></input>
                         <input
+                            className="login-submit"
                             type="submit"
                             value="Next"
                         ></input>
@@ -85,8 +87,15 @@ class LoginForm extends React.Component {
             );
         } else if (this.state.stage === 2) {
             return (
-                <div>
-                <form onSubmit={this.handleSubmit}>
+                <div className="login-form-container">
+                <h1 className="eulr-header">eulr</h1>
+                <form className="login-form" onSubmit={this.handleSubmit}>
+                    <input
+                            type="text"
+                            placeholder="Email"
+                            value={this.state.email}
+                            onChange={this.handleInput("email")}
+                    ></input>
                     <input
                         type="password"
                         placeholder="Password"
