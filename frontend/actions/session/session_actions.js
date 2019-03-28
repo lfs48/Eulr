@@ -25,7 +25,7 @@ const receiveLoginErrors = (errors) => ({
 export const login = (formUser) => (dispatch) => {
     return SessionAPIUtil.login(formUser).then(
         (user) => dispatch( loginUser(user) ),
-        (errors) => dispatch( receiveLoginErrors(errors) )
+        (errors) => dispatch( receiveLoginErrors(errors.responseText) )
     );
 };
 
