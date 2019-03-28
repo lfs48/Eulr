@@ -3,13 +3,14 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-top: 13%;
 }
 
 .splash-container > * {
     margin: 10px;
 }
 
-.splash-container > h1 {
+.eulr-header {
     font-weight: bold;
     color: white;
     text-align: center;
@@ -31,12 +32,14 @@
     text-decoration: none;
     text-align: center;
     font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .splash-login > span {
     color: black;
     text-align: center;
-    margin-top: 10px;
 }
 
 .register-button, 

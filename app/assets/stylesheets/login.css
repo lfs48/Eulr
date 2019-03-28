@@ -1,0 +1,26 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25%;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-form > input {
+    border: none;
+    height: 45px;
+    width: 300px;
+    font-size: 20px;
+    margin: 10px 0px;
+}
+
+.login-submit {
+    background: blue;
+    color: white;
+}
