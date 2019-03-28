@@ -21,20 +21,46 @@
     padding: 0;
 }
 
-.account-menu-header {
+.account-menu > header {
     display: flex;
     justify-content: space-between;
     background: lightgray;
 }
 
-.account-menu-header > h5 {
+.account-menu > header  > * {
+    margin: 5px;
+}
+
+.account-menu > header > h5 {
     font-weight: bold;
+    color: rgb(80, 76, 76);
+}
+
+.account-menu > header > button {
+    background: none;
+    border: none;
+    color: gray;
+}
+
+.account-menu > ul > li:hover {
+    background-color: rgb(198, 203, 209);
+}
+
+.account-menu > ul > li {
+    padding: 10px;
+    color: gray;
+}
+
+.account-menu > ul > li > * {
+    margin-right: 6px;
+}
+
+.account-menu i {
     color: black;
 }
 
-.account-menu-header > button {
-    background: none;
-    border: none;
+.account-menu-link {
+    text-decoration: none;
     color: gray;
 }
 
