@@ -26,12 +26,7 @@ class PostForm extends React.Component {
         const content = JSON.stringify(this.state.content);
         const post = merge({}, this.state.post);
         post.content = content;
-        this.props.createPost(post)
-        .then( () => 
-            this.props.closeModal() )
-        .then( () => 
-            this.props.history.push("/dashboard")
-        );
+        this.props.createPost(post);
     }
 
     handleInput(type) {
