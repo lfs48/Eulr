@@ -7,13 +7,11 @@ class RegisterForm extends React.Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
-        this.handleOpen = this.handleOpen.bind(this);
         this.buildUser = this.buildUser.bind(this);
         this.state = {
             email: "",
             username: "",
             password: "",
-            open: false,
             errors: []
         };
     }
@@ -25,12 +23,6 @@ class RegisterForm extends React.Component {
             password: this.state.password
         };
         return user;
-    }
-
-    handleOpen() {
-        this.setState({
-            open: true
-        });
     }
 
     handleSubmit(event) {
@@ -77,7 +69,6 @@ class RegisterForm extends React.Component {
     }
 
     render() {
-        if (this.state.open) {
             return (
                     <div className="register-container">
                     <form className="register-form" onSubmit={this.handleSubmit }>
@@ -110,13 +101,6 @@ class RegisterForm extends React.Component {
                     <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                     </div>
                 );
-        } else {
-            return (
-                <button className="register-button" onClick={this.handleOpen}>
-                    <span>Get Started</span>
-                </button>
-            );
-        }
     }
 }
 
