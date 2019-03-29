@@ -19,6 +19,16 @@ class User < ApplicationRecord
     validates :username, :email, :avatar_url, :password_digest, :session_token, presence: true
     validates :username, :email, :session_token, uniqueness: true
 
+    has_many :authored_posts,
+        class_name: :Post,
+        primary_key: :id,
+        foreign_key: :author_id
+
+    has_many :posts,
+        class_name: :Post,
+        primary_key: :id,
+        foreign_key: :poster_id
+
     attr_reader :password
 
     def self.find_by_credentials(email, password)
