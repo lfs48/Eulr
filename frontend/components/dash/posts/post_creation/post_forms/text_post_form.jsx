@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from "react-redux";
 
 class PostForm extends React.Component {
     
@@ -27,6 +28,12 @@ class PostForm extends React.Component {
                 <form onSubmit={this.handleSubmit}>
                     <input
                         type="text"
+                        placeholder="Title"
+                        value={this.state.title}
+                        onChange={this.handleInput("title")}
+                    ></input>
+                    <input
+                        type="text"
                         placeholder="Your text here"
                         value={this.state.content}
                         onChange={this.handleInput("content")}
@@ -41,4 +48,15 @@ class PostForm extends React.Component {
     } 
 }
 
-export default PostForm;
+const msp = (state) => ({
+    post: {
+        title: "",
+        content: ""
+    }
+});
+
+const mdp = (dispatch) => ({
+    createPost: (post) => dispatch(createPost(post))
+});
+
+export default connect(msp, mdp)(PostForm);
