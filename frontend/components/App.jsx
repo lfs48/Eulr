@@ -28,7 +28,7 @@ const App = (props) => (
             <ProtectedRoute path="/likes" component={UnderConstruction} />
             <ProtectedRoute path="/settings" component={UnderConstruction} />
             <ProtectedRoute path="/help" component={UnderConstruction} />
-            <ProtectedRoute path="/new" component={PostCreateForm} />
+            <ProtectedRoute path="/new/text" component={PostCreateForm} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
     </main>
