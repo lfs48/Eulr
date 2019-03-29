@@ -10,11 +10,11 @@ const PostCreationBar = (props) => {
         ["fas fa-headphones", "Audio"],
         ["fas fa-video", "Video"]
     ];
-    const lis = iconLabels.map( (icon, label, idx) => {
+    const lis = iconLabels.map( (el, idx) => {
         return (
                 <li key={idx}>
-                    <i className={icon}></i>
-                    <span>{label}</span>
+                    <i className={el[0]}></i>
+                    <span>{el[1]}</span>
                 </li>
             );
     })
