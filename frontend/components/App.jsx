@@ -14,6 +14,7 @@ import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
 import TextPostForm from './dash/posts/post_creation/post_forms/text_post_form';
+import PhotoPostForm from './dash/posts/post_creation/post_forms/photo_post_form';
 import UnderConstruction from  './under_construction/under_construction';
 
 const App = (props) => (
@@ -29,6 +30,7 @@ const App = (props) => (
             <ProtectedRoute path="/settings" component={UnderConstruction} />
             <ProtectedRoute path="/help" component={UnderConstruction} />
             <ProtectedRoute path="/new/text" component={TextPostForm} />
+            <ProtectedRoute path="/new/photo" component={PhotoPostForm} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
     </main>
