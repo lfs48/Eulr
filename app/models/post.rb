@@ -10,6 +10,6 @@ class Post < ApplicationRecord
     belongs_to :poster,
         class_name: :User,
         primary_key: :id,
-        foreign_key: :poster
+        foreign_key: :poster_id
 
 end
