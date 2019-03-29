@@ -1,5 +1,5 @@
 import React from 'react';
-import PostCreationBarItem from './post_creation_bar_item';
+import PostCreationBarItem from './post_creation_bar_item_container';
 
 const PostCreationBar = (props) => {
     const iconLabels = [
