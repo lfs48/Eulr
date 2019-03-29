@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import PostCreationBar from './posts_creation_bar';
+import PostCreationBar from './post_creation_bar';
 
 const msp = () => ({
 
