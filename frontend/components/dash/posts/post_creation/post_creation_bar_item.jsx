@@ -8,7 +8,7 @@ class PostCreationBarItem extends React.Component {
     }
 
     handleOpen() {
-        this.props.history.push("/new");
+        this.props.history.push(`/new/${this.props.postType}`);
     }
 
     render() {
