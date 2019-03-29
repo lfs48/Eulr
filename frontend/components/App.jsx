@@ -13,7 +13,7 @@ import Explore from './dash/explore/explore_container';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
-import PostCreateForm from './dash/posts/post_creation/post_creation_form_container';
+import PostCreateForm from './dash/posts/post_creation/post_forms/post_creation_form_container';
 import UnderConstruction from  './under_construction/under_construction';
 
 const App = (props) => (
