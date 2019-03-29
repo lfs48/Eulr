@@ -13,7 +13,7 @@ import Explore from './dash/explore/explore_container';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
-import PostCreateForm from './dash/posts/post_creation/post_forms/post_creation_form_container';
+import TextPostForm from './dash/posts/post_creation/post_forms/text_post_form';
 import UnderConstruction from  './under_construction/under_construction';
 
 const App = (props) => (
@@ -28,7 +28,7 @@ const App = (props) => (
             <ProtectedRoute path="/likes" component={UnderConstruction} />
             <ProtectedRoute path="/settings" component={UnderConstruction} />
             <ProtectedRoute path="/help" component={UnderConstruction} />
-            <ProtectedRoute path="/new/text" component={PostCreateForm} />
+            <ProtectedRoute path="/new/text" component={TextPostForm} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
     </main>
