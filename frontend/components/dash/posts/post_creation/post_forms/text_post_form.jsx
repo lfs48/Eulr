@@ -7,7 +7,6 @@ import { openModal, closeModal } from '../../../../../actions/ui/modal_actions';
 class PostForm extends React.Component {
     
     constructor(props) {
-        debugger
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
@@ -17,16 +16,14 @@ class PostForm extends React.Component {
         };
     }
 
-    componentDidMount() {
-        this.props.openModal();
-    }
-
     handleSubmit(event) {
         event.preventDefault();
         const content = JSON.stringify(this.state.content);
         const post = merge({}, this.state.post);
         post.content = content;
-        this.props.createPost(post);
+        this.props.createPost(post).then( () =>
+            this.props.history.push("/dashboard")
+        );
     }
 
     handleInput(type) {
@@ -83,9 +80,7 @@ const msp = (state) => ({
 });
 
 const mdp = (dispatch) => ({
-    createPost: (post) => dispatch(createPost(post)),
-    openModal: () => dispatch( openModal("textpost") ),
-    closeModal: () => dispatch( closeModal() )
+    createPost: (post) => dispatch(createPost(post))
 });
 
 export default connect(msp, mdp)(PostForm);
