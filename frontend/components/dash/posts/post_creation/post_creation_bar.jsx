@@ -1,4 +1,5 @@
 import React from 'react';
+import PostCreationBarItem from './post_creation_bar_item';
 
 const PostCreationBar = (props) => {
     const iconLabels = [
@@ -13,8 +14,7 @@ const PostCreationBar = (props) => {
     const lis = iconLabels.map( (el, idx) => {
         return (
                 <li key={idx}>
-                    <i className={el[0]}></i>
-                    <span>{el[1]}</span>
+                    <PostCreationBarItem icon={el[0]} label={el[1]} />
                 </li>
             );
     })
