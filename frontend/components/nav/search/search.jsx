@@ -19,7 +19,7 @@ class Search extends React.Component {
             <input
                 className="nav-search"
                 type="text"
-                placeholder="Search Tumblr"
+                placeholder="Search Eulr"
                 value={this.state.search}
                 onChange={this.handleInput}
             ></input>
