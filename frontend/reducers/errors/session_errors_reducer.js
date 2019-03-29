@@ -3,7 +3,6 @@ import { RECEIVE_SIGNUP_ERRORS } from '../../actions/entities/user_actions';
 import { RECEIVE_LOGIN_ERRORS } from '../../actions/session/session_actions';
 
 const sessionErrorsReducer = (state = {}, action) => {
-    debugger
     const newState = merge({}, state);
     Object.freeze(state);
 
