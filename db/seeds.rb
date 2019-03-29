@@ -10,16 +10,16 @@ user_list.each do |username, email, pw|
     User.create(username: username, email: email, password: pw)
 end
 
-# fermats_first_post = "It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers. I have discovered a truly marvelous proof of this, which the character limit on this post is too small to contain."
+fermats_first_post = "It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers. I have discovered a truly marvelous proof of this, which the character limit on this post is too small to contain."
 
-# post_list = [
-#     [User.first, User.first, "anyone else read ln as latural nogarithmn", "text"],
-#     [User.second.id, User.second.id, fermats_first_post, "text"],
-# ]
+post_list = [
+    [User.first.id, User.first.id, "anyone else read ln as latural nogarithmn", "text"],
+    [User.second.id, User.second.id, fermats_first_post, "text"],
+]
 
-# post_list.each do |author_id, user_id, body, type|
-#     Post.create(author_id: author_id, user_id: user_id, body: body, type: type)
-# end
+post_list.each do |author_id, poster_id, content, post_type|
+    Post.create(author_id: author_id, poster_id: poster_id, content: content, post_type: post_type)
+end
 
 # tag_list = [
 #     "math",
