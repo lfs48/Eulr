@@ -1,4 +1,4 @@
-class PostsController < ApplicationController
+class Api::PostsController < ApplicationController
 
     before_action :get_post, only: [:update, :show, :destroy]
 
