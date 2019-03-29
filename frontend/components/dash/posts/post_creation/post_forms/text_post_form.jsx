@@ -17,7 +17,8 @@ class PostForm extends React.Component {
         };
     }
 
-    handleCancel() {
+    handleCancel(event) {
+        event.preventDefault();
         this.props.history.push("/dashboard");
     }
 
@@ -68,7 +69,7 @@ class PostForm extends React.Component {
                                 value="Post"
                                 disabled={disabled}
                             ></input>
-                            <button onClick={this.handleCancel}>Cancel</button>
+                            <button onClick={this.handleCancel}>Close</button>
                         </form>
 
                 </div>
