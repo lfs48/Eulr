@@ -10,10 +10,15 @@ class PostForm extends React.Component {
         super(props);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
         this.state = {
             post: props.post,
             content: props.content
         };
+    }
+
+    handleCancel() {
+        this.props.history.push("/dashboard");
     }
 
     handleSubmit(event) {
@@ -63,6 +68,7 @@ class PostForm extends React.Component {
                                 value="Post"
                                 disabled={disabled}
                             ></input>
+                            <button onClick={this.handleCancel}>Cancel</button>
                         </form>
 
                 </div>
