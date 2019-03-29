@@ -1,5 +1,7 @@
 import React from 'react';
 import ErrorsList from '../../errors/errors_list_container';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 class RegisterForm extends React.Component {
     
@@ -70,7 +72,14 @@ class RegisterForm extends React.Component {
 
     render() {
             return (
-                    <div className="register-container">
+                <ReactCSSTransitionGroup
+                transitionAppear={true}
+                transitionAppearTimeout={500}
+                transitionName="register-transition"
+                transitionEnter={false}
+                transitionLeave={false}
+            >
+                    <div key={1} className="register-container">
                     <form className="register-form" onSubmit={this.handleSubmit }>
                         <div className="register-inputs-container">
                             <input
@@ -100,6 +109,7 @@ class RegisterForm extends React.Component {
                     </form>
                     <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                     </div>
+                    </ReactCSSTransitionGroup>
                 );
     }
 }
