@@ -10,6 +10,7 @@ import { AuthRoute, ProtectedRoute } from '../util/routes/routes_util';
 import Splash from './splash/splash_container';
 import LoginForm from './splash/login/login_form_container';
 import Explore from './dash/explore/explore_container';
+import Modal from './ui/modal';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
@@ -18,6 +19,7 @@ import UnderConstruction from  './under_construction/under_construction';
 
 const App = (props) => (
     <main className="app-container">
+        <Modal />
         <Navbar />
         <Switch>
             <Route path="/explore" component={Explore} />

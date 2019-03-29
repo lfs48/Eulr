@@ -16,7 +16,8 @@ const Auth = ({ component: Component, path, loggedIn, exact }) => (
     />
 );
 
-const Protected = ({ component: Component, path, loggedIn, exact }) => (
+const Protected = ({ component: Component, path, loggedIn, exact }) => {
+    return (
     <Route path={path} exact={exact}
         render={
             (props) => {
@@ -28,7 +29,8 @@ const Protected = ({ component: Component, path, loggedIn, exact }) => (
             }
         }
     />
-);
+    );
+};
 
 const msp = state => ({
     loggedIn: Boolean(state.session.id)
