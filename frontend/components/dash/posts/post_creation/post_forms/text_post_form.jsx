@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import { createPost } from '../../../../../actions/entities/post_actions';
 import { merge } from 'lodash';
-import { openModal, closeModal } from '../../../../../actions/ui/modal_actions';
+import Dash from '../../../dash_container';
 
 class PostForm extends React.Component {
     
@@ -43,25 +43,31 @@ class PostForm extends React.Component {
         }
         return (
             <div className="post-form-container">
-                <form onSubmit={this.handleSubmit}>
-                    <input
-                        type="text"
-                        placeholder="Title"
-                        value={this.state.content.title}
-                        onChange={this.handleInput("title")}
-                    ></input>
-                    <input
-                        type="text"
-                        placeholder="Your text here"
-                        value={this.state.content.body}
-                        onChange={this.handleInput("body")}
-                    ></input>
-                    <input
-                        type="submit"
-                        value="Post"
-                        disabled={disabled}
-                    ></input>
-                </form>
+                <div className="modal-background">
+                    <div className="modal-child" onClick={e => e.stopPropagation()}>
+                        <form onSubmit={this.handleSubmit}>
+                            <input
+                                type="text"
+                                placeholder="Title"
+                                value={this.state.content.title}
+                                onChange={this.handleInput("title")}
+                            ></input>
+                            <input
+                                type="text"
+                                placeholder="Your text here"
+                                value={this.state.content.body}
+                                onChange={this.handleInput("body")}
+                            ></input>
+                            <input
+                                type="submit"
+                                value="Post"
+                                disabled={disabled}
+                            ></input>
+                        </form>
+
+                </div>
+                    </div>
+                <Dash></Dash>
             </div>
         );
     } 
