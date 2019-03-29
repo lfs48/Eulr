@@ -1,6 +1,6 @@
 class Post < ApplicationRecord
 
-    validates :content, :type, presence: true
+    validates :content, :post_type, presence: true
 
     belongs_to :author,
         class_name: :User,
