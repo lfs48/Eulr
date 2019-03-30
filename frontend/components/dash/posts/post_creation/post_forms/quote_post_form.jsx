@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from "react-redux";
 import { createPost } from '../../../../../actions/entities/post_actions';
 import { merge } from 'lodash';
-import Dash from '../../../dash_container';
 import PostIndex from '../../post_index/post_index_container';
 
 class PostForm extends React.Component {
@@ -45,7 +44,7 @@ class PostForm extends React.Component {
 
     render() {
         let disabled = false;
-        if (this.state.content.title === "" && this.state.content.body === "") {
+        if (this.state.content.quote === "") {
             disabled = true;
         }
         return (
@@ -55,15 +54,15 @@ class PostForm extends React.Component {
                         <form onSubmit={this.handleSubmit}>
                             <input
                                 type="text"
-                                placeholder="Title"
-                                value={this.state.content.title}
-                                onChange={this.handleInput("title")}
+                                placeholder="Quote"
+                                value={this.state.content.quote}
+                                onChange={this.handleInput("quote")}
                             ></input>
                             <input
                                 type="text"
-                                placeholder="Your text here"
-                                value={this.state.content.body}
-                                onChange={this.handleInput("body")}
+                                placeholder="Source"
+                                value={this.state.content.source}
+                                onChange={this.handleInput("source")}
                             ></input>
                             <input
                                 type="submit"
@@ -75,7 +74,7 @@ class PostForm extends React.Component {
 
                 </div>
                     </div>
-
+                <PostIndex />
             </div>
         );
     } 
@@ -85,11 +84,11 @@ const msp = (state) => ({
     post: {
         author_id: state.session.id,
         poster_id: state.session.id,
-        post_type: "text"
+        post_type: "quote"
     },
     content: {
-        title: "",
-        body: ""
+        quote: "",
+        source: ""
     }
 });
 
