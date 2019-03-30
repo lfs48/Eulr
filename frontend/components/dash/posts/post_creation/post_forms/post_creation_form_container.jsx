@@ -5,6 +5,7 @@ import { merge } from 'lodash';
 import TextForm from './text_post_form';
 import PhotoForm from './photo_post_form';
 import QuoteForm from './quote_post_form';
+import LinkForm from './link_post_form'
 
 const msp = (state, ownProps) => ({
     post: {
@@ -44,3 +45,4 @@ const mdp = (dispatch) => ({
 export const TextPostForm = withRouter(connect(msp, mdp)(TextForm));
 export const PhotoPostForm = withRouter(connect(msp, mdp)(PhotoForm));
 export const QuotePostForm = withRouter(connect(msp, mdp)(QuoteForm));
+export const LinkPostForm = withRouter(connect(msp, mdp)(LinkForm));
