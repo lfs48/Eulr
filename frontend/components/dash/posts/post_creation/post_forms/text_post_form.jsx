@@ -1,7 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 
-class PostForm extends React.Component {
+class TextPostForm extends React.Component {
     
     constructor(props) {
         super(props);
@@ -43,13 +43,11 @@ class PostForm extends React.Component {
                             ></input>
                             <button onClick={this.handleCancel}>Close</button>
                         </form>
-
-                </div>
                     </div>
-
+                </div>
             </div>
         );
     } 
 }
 
-export default PostForm;
+export default TextPostForm;
