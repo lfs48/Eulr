@@ -30,3 +30,25 @@
    transform: translateY(0);
    transition: opacity 500ms, transform 500ms;
  }
+
+ .login-transition-1-appear {
+  opacity: 0.01;
+  transform: translateY(30%);
+}
+
+.login-transition-1-appear.login-transition-1-appear-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 500ms, transform 500ms;
+}
+
+.login-transition-2-enter {
+  opacity: 0.01;
+  transform: translateX(30%);
+}
+
+.login-transition-2-enter.login-transition-2-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 500ms, transform 500ms;
+}
