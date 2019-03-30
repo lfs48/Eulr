@@ -6,6 +6,10 @@
     margin-top: 13%;
 }
 
+.splash-text {
+    font-size: 20px;
+}
+
 .splash-container > * {
     margin: 10px;
 }
