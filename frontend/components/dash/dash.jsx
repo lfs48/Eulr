@@ -5,7 +5,8 @@ import {
     TextPostForm,
     PhotoPostForm,
     QuotePostForm,
-    LinkPostForm
+    LinkPostForm,
+    VideoPostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
 
@@ -53,6 +54,14 @@ class Dash extends React.Component {
                             <TextPostForm
                             postType="chat" 
                             content={ {title: "", body: ""} }
+                            />
+                        } 
+                    />
+                    <Route path="/dashboard/new/video" 
+                        render={() => 
+                            <VideoPostForm
+                            postType="video" 
+                            content={ {url: "", caption: ""} }
                             />
                         } 
                     />
