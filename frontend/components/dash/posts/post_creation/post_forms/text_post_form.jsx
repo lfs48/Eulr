@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { createPost } from '../../../../../actions/entities/post_actions';
 import { merge } from 'lodash';
 import Dash from '../../../dash_container';
+import PostIndex from '../../post_index/post_index_container';
 
 class PostForm extends React.Component {
     
@@ -74,7 +75,7 @@ class PostForm extends React.Component {
 
                 </div>
                     </div>
-                <Dash></Dash>
+                <PostIndex />
             </div>
         );
     } 
