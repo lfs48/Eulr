@@ -9,7 +9,7 @@ class PostIndexItem extends React.Component {
     }
 
     handleEdit() {
-
+        this.props.history.push(`/dashboard/edit/${this.props.post.id}`)
     }
 
     handleDelete() {
