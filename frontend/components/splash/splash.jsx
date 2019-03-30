@@ -29,8 +29,7 @@ class Splash extends React.Component {
             content: (
                 <div key={1} className="splash-container">
                     <h1 className="eulr-header">eulr</h1>
-                    <img className="splash-logo" src={window.eulrLogo}></img>
-                    <p>An infinite series of possibilities converges here.</p>
+                    <p className="splash-text">An infinite series of possibilities converges here.</p>
                     <RegisterForm />
                     <Link className="splash-explore-link" to="/explore">
                         <i className="far fa-compass"></i>
@@ -46,8 +45,7 @@ class Splash extends React.Component {
             content: (
                 <div key={1} className="splash-container">
                     <h1 className="eulr-header">eulr</h1>
-                    <img className="splash-logo" src={window.eulrLogo}></img>
-                    <p>An infinite series of possibilities converges here.</p>
+                    <p className="splash-text">An infinite series of possibilities converges here.</p>
                     <button className="register-button" onClick={this.handleOpenRegister}>Get Started</button>
                     <Link className="splash-login" to="/login">
                         <span>Log In</span>
