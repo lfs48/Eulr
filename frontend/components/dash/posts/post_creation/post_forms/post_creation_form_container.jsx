@@ -3,6 +3,7 @@ import { createPost } from '../../../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
 import TextForm from './text_post_form';
+import PhotoForm from './photo_post_form';
 import QuoteForm from './quote_post_form';
 
 const msp = (state, ownProps) => ({
@@ -41,4 +42,5 @@ const mdp = (dispatch) => ({
 });
 
 export const TextPostForm = withRouter(connect(msp, mdp)(TextForm));
+export const PhotoPostForm = withRouter(connect(msp, mdp)(PhotoForm));
 export const QuotePostForm = withRouter(connect(msp, mdp)(QuoteForm));
