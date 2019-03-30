@@ -18,18 +18,53 @@
 
 .nav-left > .static {
   position:absolute;
-  background: white;
 }
 
 .nav-left > .static:hover {
   opacity:0;
 }
 
-.nav-search {
+.search-container {
     height: 31px;
     width: 491px;
     border: 0px;
     border-radius: 2px;
+    background: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+}
+
+.search-container-clicked {
+    height: 31px;
+    width: 491px;
+    border: 0px;
+    border-radius: 2px;
+    background: white;
+    display: flex;
+    align-items: center;
+}
+
+.search-container > * {
+    opacity: 0.8;
+    font-size: 15px;
+    padding-left: 10px;
+    color: white;
+}
+
+.search-container-clicked > * {
+    font-size: 15px;
+    padding: 10px;
+    color: black;
+}
+
+.search-container > .nav-search::placeholder {
+    color: white;
+
+}
+
+.nav-search {
+    background: none;
+    border: none;
 }
 
 .nav-controls-container > ul {
