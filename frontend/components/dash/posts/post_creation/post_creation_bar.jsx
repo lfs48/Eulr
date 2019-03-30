@@ -7,7 +7,7 @@ const PostCreationBar = (props) => {
         ["fas fa-camera", "Photo", "photo"],
         ["fas fa-quote-left", "Quote", "quote"],
         ["fas fa-link", "Link", "link"],
-        ["fas fa-comment-alt", "Chat", "link"],
+        ["fas fa-comment-alt", "Chat", "chat"],
         ["fas fa-headphones", "Audio", "audio"],
         ["fas fa-video", "Video", "video"]
     ];
