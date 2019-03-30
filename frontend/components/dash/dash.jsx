@@ -30,6 +30,14 @@ class Dash extends React.Component {
                             />
                         } 
                     />
+                    <Route path="/dashboard/new/chat" 
+                        render={() => 
+                            <TextPostForm
+                            postType="chat" 
+                            content={ {title: "", body: ""} }
+                            />
+                        } 
+                    />
                 </Switch>
             </div>
         );
