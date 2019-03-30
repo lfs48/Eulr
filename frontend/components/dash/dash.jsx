@@ -4,7 +4,8 @@ import PostIndex from './posts/post_index/post_index_container';
 import {
     TextPostForm,
     PhotoPostForm,
-    QuotePostForm
+    QuotePostForm,
+    LinkPostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
 
@@ -36,6 +37,14 @@ class Dash extends React.Component {
                             <QuotePostForm
                             postType="quote" 
                             content={ {quote: "", source: ""} }
+                            />
+                        } 
+                    />
+                    <Route path="/dashboard/new/link" 
+                        render={() => 
+                            <LinkPostForm
+                            postType="link" 
+                            content={ {url: "", description: ""} }
                             />
                         } 
                     />
