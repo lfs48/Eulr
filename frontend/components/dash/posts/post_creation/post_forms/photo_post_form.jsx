@@ -1,44 +1,22 @@
 import React from 'react';
-import { connect } from "react-redux";
-import { createPost } from '../../../../../actions/entities/post_actions';
 import { merge } from 'lodash';
-import Dash from '../../../dash_container';
 
-class PostForm extends React.Component {
-
+class PhotoPostForm extends React.Component {
+    
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInput = this.handleInput.bind(this);
+        this.handleSubmit = props.handleSubmit.bind(this);
+        this.handleInput = props.handleInput.bind(this);
+        this.handleCancel = props.handleCancel.bind(this);
         this.state = {
             post: props.post,
             content: props.content
         };
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        const content = JSON.stringify(this.state.content);
-        const post = merge({}, this.state.post);
-        post.content = content;
-        this.props.createPost(post).then(() =>
-            this.props.history.push("/dashboard")
-        );
-    }
-
-    handleInput(type) {
-        return (event) => {
-            const content = merge({}, this.state.content);
-            content[type] = event.target.value;
-            this.setState({
-                content: content
-            });
-        };
-    }
-
     render() {
         let disabled = false;
-        if (this.state.content.url === "" ) {
+        if (this.state.content.url === "") {
             disabled = true;
         }
         return (
@@ -53,33 +31,23 @@ class PostForm extends React.Component {
                                 onChange={this.handleInput("url")}
                             ></input>
                             <input
+                                type="text"
+                                placeholder="Add a caption, if you like"
+                                value={this.state.content.body}
+                                onChange={this.handleInput("body")}
+                            ></input>
+                            <input
                                 type="submit"
                                 value="Post"
                                 disabled={disabled}
                             ></input>
+                            <button onClick={this.handleCancel}>Close</button>
                         </form>
-
                     </div>
                 </div>
-                <Dash></Dash>
             </div>
         );
-    }
+    } 
 }
 
-const msp = (state) => ({
-    post: {
-        author_id: state.session.id,
-        poster_id: state.session.id,
-        post_type: "photo"
-    },
-    content: {
-        url: ""
-    }
-});
-
-const mdp = (dispatch) => ({
-    createPost: (post) => dispatch(createPost(post))
-});
-
-export default connect(msp, mdp)(PostForm);
+export default PhotoPostForm;
