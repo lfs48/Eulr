@@ -44,7 +44,7 @@ class Dash extends React.Component {
                         render={() => 
                             <LinkPostForm
                             postType="link" 
-                            content={ {url: "", description: ""} }
+                            content={ {url: "", title: "", summary: "", description: ""} }
                             />
                         } 
                     />
