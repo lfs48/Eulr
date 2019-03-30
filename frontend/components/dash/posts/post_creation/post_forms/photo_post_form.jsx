@@ -36,8 +36,8 @@ class PhotoPostForm extends React.Component {
                             <input
                                 type="text"
                                 placeholder="Add a caption, if you like"
-                                value={this.state.content.body}
-                                onChange={this.handleInput("body")}
+                                value={this.state.content.caption}
+                                onChange={this.handleInput("caption")}
                             ></input>
                             }
                             <input
