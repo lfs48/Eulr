@@ -30,12 +30,16 @@ class PhotoPostForm extends React.Component {
                                 value={this.state.content.url}
                                 onChange={this.handleInput("url")}
                             ></input>
+                            {disabled ?
+                            <></>
+                            :
                             <input
                                 type="text"
                                 placeholder="Add a caption, if you like"
                                 value={this.state.content.body}
                                 onChange={this.handleInput("body")}
                             ></input>
+                            }
                             <input
                                 type="submit"
                                 value="Post"
