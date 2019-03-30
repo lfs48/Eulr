@@ -3,6 +3,7 @@ import PostCreationBar from './posts/post_creation/post_creation_bar_container';
 import PostIndex from './posts/post_index/post_index_container';
 import {
     TextPostForm,
+    PhotoPostForm,
     QuotePostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
@@ -19,6 +20,14 @@ class Dash extends React.Component {
                             <TextPostForm
                             postType="text" 
                             content={ {title: "", body: ""} }
+                            />
+                        } 
+                    />
+                    <Route path="/dashboard/new/photo" 
+                        render={() => 
+                            <PhotoPostForm
+                            postType="photo" 
+                            content={ {url: "", caption: ""} }
                             />
                         } 
                     />
