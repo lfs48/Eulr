@@ -1,5 +1,7 @@
 import React from 'react';
 import ErrorsList from '../../errors/errors_list_container';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+
 
 class LoginForm extends React.Component {
 
@@ -71,6 +73,13 @@ class LoginForm extends React.Component {
     render() {
         if (this.state.stage === 1) {
             return (
+                <ReactCSSTransitionGroup
+                transitionAppear={true}
+                transitionName="login-transition-1"
+                transitionAppearTimeout={500}
+                transitionEnter={false}
+                transitionLeave={false}
+                >
                 <div className="login-container">
                     <h1 className="eulr-header">eulr</h1>
                     <form className="login-form" onSubmit={this.handleNext}>
@@ -88,10 +97,16 @@ class LoginForm extends React.Component {
                     </form>
                     <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                 </div>
+                </ReactCSSTransitionGroup>
             );
         } else if (this.state.stage === 2) {
             return (
-                <div className="login-container">
+                <ReactCSSTransitionGroup
+                transitionName="login-transition-2"
+                transitionEnterTimeout={500}
+                transitionLeave={false}
+                >
+                <div key={1} className="login-container">
                     <h1 className="eulr-header">eulr</h1>
                     <form className="login-form" onSubmit={this.handleSubmit}>
                         <input
@@ -113,6 +128,7 @@ class LoginForm extends React.Component {
                     </form>
                     <ErrorsList errorsClass="session-errors" errors={this.state.errors} />
                 </div>
+                </ReactCSSTransitionGroup>
             );
         }
     }
