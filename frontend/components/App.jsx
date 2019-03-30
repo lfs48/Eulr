@@ -14,9 +14,6 @@ import Explore from './dash/explore/explore_container';
 import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
-import TextPostForm from './dash/posts/post_creation/post_forms/text_post_form';
-import PhotoPostForm from './dash/posts/post_creation/post_forms/photo_post_form';
-import QuotePostForm from './dash/posts/post_creation/post_forms/quote_post_form';
 
 const App = (props) => (
     <main className="app-container">
