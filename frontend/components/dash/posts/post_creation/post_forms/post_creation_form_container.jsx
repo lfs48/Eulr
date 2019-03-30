@@ -1,8 +1,9 @@
 import { connect } from "react-redux";
 import { createPost } from '../../../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
-import TextForm from './text_post_form';
 import { merge } from 'lodash';
+import TextForm from './text_post_form';
+import QuoteForm from './quote_post_form';
 
 const msp = (state, ownProps) => ({
     post: {
@@ -40,3 +41,4 @@ const mdp = (dispatch) => ({
 });
 
 export const TextPostForm = withRouter(connect(msp, mdp)(TextForm));
+export const QuotePostForm = withRouter(connect(msp, mdp)(QuoteForm));
