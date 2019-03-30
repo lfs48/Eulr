@@ -55,6 +55,7 @@
     height: 45px;
     width: 300px;
     font-size: 20px;
+    border-radius: 3px;
 }
 
 .register-button, .demo-button {

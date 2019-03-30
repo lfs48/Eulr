@@ -35,6 +35,7 @@
     background: none;
     border: none;
     color: gray;
+    cursor: pointer;
 }
 
 .account-menu > ul > li:hover {
@@ -44,6 +45,10 @@
 .account-menu > ul > li {
     padding: 10px;
     color: gray;
+}
+
+.account-menu > ul > li:hover {
+    cursor: pointer;
 }
 
 .account-menu > ul > li > * {

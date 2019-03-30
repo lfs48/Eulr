@@ -84,6 +84,10 @@
     border: none;
 }
 
+.account-menu-icon:hover {
+    cursor: pointer;
+}
+
 .nav-controls-container i{
     color: rgb(196, 181, 181);
     font-size: 25px;
