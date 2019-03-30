@@ -57,3 +57,7 @@ button {
    -webkit-appearance: none;
       -moz-appearance: none; 
 }
+
+input::placeholder {
+	color: lightgray;
+}
