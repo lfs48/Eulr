@@ -1,4 +1,5 @@
 import React from'react';
+import PostIndexItem from './post_index_item/post_index_item_container';
 
 class PostIndex extends React.Component {
 
@@ -12,7 +13,7 @@ class PostIndex extends React.Component {
 
     render() {
         const lis = this.props.posts.map( post => {
-                return (<li key={post.id}>{post.content}</li>);
+                return (<li key={post.id}><PostIndexItem post={post}/></li>);
             }
         );
         return (
