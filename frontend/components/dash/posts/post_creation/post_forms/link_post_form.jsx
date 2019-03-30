@@ -33,12 +33,26 @@ class LinkPostForm extends React.Component {
                             {disabled ?
                             <></>
                             :
+                            <>
+                            <input
+                                type="text"
+                                placeholder="Title"
+                                value={this.state.content.title}
+                                onChange={this.handleInput("title")}
+                            ></input>
+                            <input
+                                type="text"
+                                placeholder="Summary"
+                                value={this.state.content.summary}
+                                onChange={this.handleInput("summary")}
+                            ></input>
                             <input
                                 type="text"
                                 placeholder="Add a description, if you like"
                                 value={this.state.content.description}
                                 onChange={this.handleInput("description")}
                             ></input>
+                            </>
                             }
                             <input
                                 type="submit"
