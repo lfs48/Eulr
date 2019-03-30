@@ -2,6 +2,7 @@ import { deletePost, fetchPost } from "../../../../../actions/entities/post_acti
 import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
 import { fetchUser } from "../../../../../actions/entities/user_actions";
+import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
     post: ownProps.post,
@@ -13,4 +14,4 @@ const mdp = (dispatch) => ({
     deletePost: (id) => dispatch( deletePost(id) )
 })
 
-export default connect(msp, mdp)(PostIndexItem);
+export default withRouter(connect(msp, mdp)(PostIndexItem));
