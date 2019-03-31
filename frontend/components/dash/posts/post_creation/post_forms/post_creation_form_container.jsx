@@ -7,6 +7,7 @@ import PhotoForm from './photo_post_form';
 import QuoteForm from './quote_post_form';
 import LinkForm from './link_post_form'
 import VideoForm from './video_post_form';
+import { clearDash } from "../../../../../actions/ui/dash_actions";
 
 const msp = (state, ownProps) => ({
     post: {
@@ -18,6 +19,7 @@ const msp = (state, ownProps) => ({
     author: state.entities.users[state.session.id],
     handleCancel: function(event) {
         event.preventDefault();
+        this.props.clearDash();
         this.props.history.push("/dashboard");
     },
     handleSubmit: function(event) {
@@ -41,7 +43,8 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = (dispatch) => ({
-    createPost: (post) => dispatch( createPost(post) )
+    createPost: (post) => dispatch( createPost(post) ),
+    clearDash: () => dispatch( clearDash() )
 });
 
 export const TextPostForm = withRouter(connect(msp, mdp)(TextForm));

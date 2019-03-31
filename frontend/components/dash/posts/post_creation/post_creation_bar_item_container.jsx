@@ -1,6 +1,7 @@
 import { connect } from "react-redux";
 import PostCreationBarItem from './post_creation_bar_item';
 import { withRouter } from 'react-router-dom';
+import { openPostForm } from '../../../../actions/ui/dash_actions';
 
 const msp = (state, ownProps) => ({
     icon: ownProps.icon,
@@ -8,8 +9,8 @@ const msp = (state, ownProps) => ({
     postType: ownProps.postType
 });
 
-const mdp = () => ({
-
+const mdp = (dispatch) => ({
+    openPostForm: () => dispatch( openPostForm() )
 });
 
 export default withRouter( connect(msp, mdp)(PostCreationBarItem) );
