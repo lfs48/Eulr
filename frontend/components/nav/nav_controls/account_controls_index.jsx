@@ -63,7 +63,7 @@ class AccountControls extends React.Component {
                                     <span>Posts</span>
                                 </li>
                                 <li>
-                                    <span>Followers</span>
+                                <Link className="account-menu-link" to="/followers">Followers</Link>
                                 </li>
                                 <li>
                                     <span>Activity</span>
