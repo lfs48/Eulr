@@ -14,7 +14,8 @@ const msp = (state, ownProps) => {
     debugger
     return({
         post: post,
-        content: post.content,
+        content: JSON.parse(post.content),
+        author: state.entities.users[post.author_id],
         handleCancel: function(event) {
             event.preventDefault();
             this.props.history.push("/dashboard");
