@@ -1,0 +1,46 @@
+.follow-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 25px;
+}
+
+.follow-list-container section {
+    background: white;
+    width: 625px;
+}
+
+.follow-list-container h2 {
+    font-size: 30px;
+    color: rgb(70, 69, 69);
+    padding: 30px;
+}
+
+.follow-list-container h3 {
+    font-size: 20px;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.follow-list-container i {
+    font-size: 10px;
+    margin-right: 20px;
+}
+
+.follow-list-container li {
+    border-top: lightgray solid 1px;
+    padding: 10px 0px;
+    margin: 0px 20px;
+    display: flex;
+    justify-content: space-between;
+    height: 51px;
+}
+
+.follow-list-container button {
+    background: rgb(0, 184, 255);
+    color: white;
+    border: none;
+    border-radius: 3px;
+    height: 30px;
+    width: 90px;
+}
