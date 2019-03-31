@@ -9,6 +9,7 @@ import {
     VideoPostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
+import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container'; 
 
 class Dash extends React.Component {
     render() {
@@ -65,6 +66,9 @@ class Dash extends React.Component {
                             content={ {url: "", caption: ""} }
                             />
                         } 
+                    />
+                    <Route path="/dashboard/edit/text/:postId"
+                    component={EditTextPostForm}
                     />
                 </Switch>
             </div>
