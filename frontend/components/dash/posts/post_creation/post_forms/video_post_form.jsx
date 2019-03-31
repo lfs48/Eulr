@@ -46,12 +46,12 @@ class VideoPostForm extends React.Component {
                             ></input>
                             }
                             <div className="post-form-footer">
+                                <button onClick={this.handleCancel}>Close</button>
                                 <input
                                     type="submit"
                                     value="Post"
                                     disabled={disabled}
                                 ></input>
-                                <button onClick={this.handleCancel}>Close</button>
                             </div>
                         </form>
                     </div>
