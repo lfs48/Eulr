@@ -71,6 +71,7 @@ class Dash extends React.Component {
                     component={EditTextPostForm}
                     />
                 </Switch>
+                <PostIndex />
             </div>
         );
     }
