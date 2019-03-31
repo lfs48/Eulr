@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 13%;
+    margin-top: 10%;
 }
 
 .splash-text {
@@ -31,19 +31,13 @@
     color: white;
 }
 
-.splash-login {
-    background: white;
-    text-decoration: none;
-    text-align: center;
-    font-size: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.splash-container i {
+    margin-right: 7px;
 }
 
-.splash-login > span {
-    color: black;
-    text-align: center;
+.splash-login {
+    background: white;
+    color: rgb(68, 68, 68);
 }
 
 .register-button, 
@@ -58,9 +52,16 @@
     border-radius: 3px;
 }
 
+.register-button, 
+.splash-login,
+.demo-button {
+    font-weight: 700;
+    font-size: 18px;
+}
+
 .register-button, .demo-button {
     color: white;
-    background: blue;
+    background: rgb(0, 184, 255);
 }
 
 .register-button > span {
