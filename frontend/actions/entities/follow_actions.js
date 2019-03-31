@@ -17,9 +17,9 @@ const receiveFollow = (follow) => ({
     follow: follow
 });
 
-const removeFollow = (followId) => ({
+const removeFollow = (follow) => ({
     type: REMOVE_FOLLOW,
-    followId: followId
+    follow: follow
 });
 
 // Thunk actions
@@ -36,8 +36,8 @@ export const createFollow = (newFollow) => (dispatch) => {
     )
 };
 
-export const destroyFollow = (followId) => (dispatch) => {
-    return FollowsAPIUtil.destroyFollow(followId).then( () =>
-        dispatch( removeFollow(followId) )
+export const destroyFollow = (follow) => (dispatch) => {
+    return FollowsAPIUtil.destroyFollow(follow).then( (follow) =>
+        dispatch( removeFollow(follow) )
     )
 };
