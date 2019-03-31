@@ -59,6 +59,14 @@ class Dash extends React.Component {
                             />
                         } 
                     />
+                    <Route path="/dashboard/new/audio" 
+                        render={() => 
+                            <VideoPostForm
+                            postType="audio" 
+                            content={ {url: "", caption: ""} }
+                            />
+                        } 
+                    />
                     <Route path="/dashboard/new/video" 
                         render={() => 
                             <VideoPostForm
