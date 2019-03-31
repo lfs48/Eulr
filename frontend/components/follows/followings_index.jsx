@@ -6,11 +6,18 @@ class FollowersIndex extends React.Component {
         super(props);
         this.handleFollow = this.handleFollow.bind(this);
         this.handleUnfollow = this.handleUnfollow.bind(this);
+        this.state = {
+            followingList: []
+        }
     }
 
     componentDidMount() {
         this.props.fetchUsers().then( () =>
-            this.props.fetchFollows(this.props.currentUser.id)
+            this.props.fetchFollows(this.props.currentUser.id).then( () =>
+                this.setState({
+                    followingList: this.props.followings
+                })
+            )
         );
     }
 
@@ -29,7 +36,7 @@ class FollowersIndex extends React.Component {
     }
     
     render() {
-        const lis = this.props.followings.map( (following) => {
+        const lis = this.state.followingList.map( (following) => {
             return (<li key={following.id}>
                         <span>{following.username}</span>
                         {this.props.followings.includes(following) ?
