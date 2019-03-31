@@ -24,7 +24,11 @@ class LinkPostForm extends React.Component {
                 <div className="modal-background">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
+                            <div className="post-form-header">
+                                <h3>{this.props.author.username}</h3>
+                            </div>
                             <input
+                                className="post-url-input"
                                 type="text"
                                 placeholder="Type or paste a URL"
                                 value={this.state.content.url}
@@ -47,6 +51,7 @@ class LinkPostForm extends React.Component {
                                 onChange={this.handleInput("summary")}
                             ></input>
                             <input
+                                className="post-body-input"
                                 type="text"
                                 placeholder="Add a description, if you like"
                                 value={this.state.content.description}
@@ -54,12 +59,14 @@ class LinkPostForm extends React.Component {
                             ></input>
                             </>
                             }
-                            <input
-                                type="submit"
-                                value="Post"
-                                disabled={disabled}
-                            ></input>
-                            <button onClick={this.handleCancel}>Close</button>
+                            <div className="post-form-footer">
+                                <button onClick={this.handleCancel}>Close</button>
+                                <input
+                                    type="submit"
+                                    value="Post"
+                                    disabled={disabled}
+                                ></input>
+                            </div>
                         </form>
                     </div>
                 </div>
