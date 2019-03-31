@@ -1,7 +1,7 @@
 import { merge } from 'lodash';
 import { RECEIVE_USER, RECEIVE_ALL_USERS } from '../../actions/entities/user_actions';
 import { LOGIN_USER } from '../../actions/session/session_actions';
-import { RECEIVE_USER_FOLLOwS, RECEIVE_FOLLOW } from '../../actions/entities/follow_actions';
+import { RECEIVE_USER_FOLLOwS, RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../../actions/entities/follow_actions';
 
 const usersReducer = (state = {}, action) => {
     const newState = merge({}, state);
@@ -53,6 +53,20 @@ const usersReducer = (state = {}, action) => {
                     followee.followerIds = [action.follow.follower_id];
                 }
             }
+            return newState;
+        }
+
+        case(REMOVE_FOLLOW): {
+            const follower = newState[action.follow.follower_id];
+            if (follower && follower.followingIds) { 
+                const idx = follower.followingIds.indexOf(action.follow.followee_id);
+                follower.followingIds = follower.followingIds.slice(0, idx).concat(follower.followingIds.slice(idx + 1))
+             }
+            const followee = newState[action.follow.followee_id];
+            if (followee && followee.followerIds) { 
+                const idx = followee.followerIds.indexOf(action.follow.followee_id);
+                followee.followerIds = followee.followerIds.slice(0, idx).concat(follower.followingIds.slice(idx + 1))
+             }
             return newState;
         }
     }
