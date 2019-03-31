@@ -81,7 +81,7 @@ class RegisterForm extends React.Component {
             >
                     <div key={1} className="register-container">
                     <form className="register-form" onSubmit={this.handleSubmit }>
-                        <div className="register-inputs-container">
+                        <section className="register-inputs-container">
                             <input
                                 type="text"
                                 placeholder="Email"
@@ -100,7 +100,7 @@ class RegisterForm extends React.Component {
                                 value={this.state.username}
                                 onChange={this.handleInput("username")}
                             ></input>
-                        </div>
+                        </section>
                         <input 
                             className="register-submit"
                             type="submit"
