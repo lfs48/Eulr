@@ -66,3 +66,7 @@ input::placeholder {
 button:hover {
 	cursor: pointer;
 }
+
+textarea:focus, input:focus{
+    outline: none;
+}
