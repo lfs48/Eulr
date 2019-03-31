@@ -43,6 +43,12 @@
     color: rgb(143, 142, 142);
 }
 
+.post-url-input {
+    border-top: 2px dashed darkgray !important;
+    border-bottom: 2px dashed darkgray !important;
+    height: 200px;
+}
+
 .post-form-footer {
     display: flex;
     justify-content: space-between;
