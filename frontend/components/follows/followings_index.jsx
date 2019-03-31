@@ -15,14 +15,20 @@ class FollowersIndex extends React.Component {
         this.props.fetchUsers().then( () =>
             this.props.fetchFollows(this.props.currentUser.id).then( () =>
                 this.setState({
-                    followingList: this.props.followings
+                    followingList: this.props.followings,
                 })
             )
         );
     }
 
     handleUnfollow(followeeId) {
-
+        return () => {
+            const follow = {
+                follower_id: this.props.currentUser.id,
+                followee_id: followeeId
+            }
+            this.props.destroyFollow(follow)
+        }
     }
 
     handleFollow(followeeId) {
@@ -36,10 +42,12 @@ class FollowersIndex extends React.Component {
     }
     
     render() {
+        const that = this;
+        debugger
         const lis = this.state.followingList.map( (following) => {
             return (<li key={following.id}>
                         <span>{following.username}</span>
-                        {this.props.followings.includes(following) ?
+                        {this.props.followingIds.includes(following.id) ?
                         <button onClick={this.handleUnfollow(following.id)}>Unfollow</button>
                         :
                         <button onClick={this.handleFollow(following.id)}>Follow</button>
