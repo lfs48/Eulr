@@ -1,7 +1,7 @@
-export const fetchFollows = (id) => {
+export const fetchFollows = (userId) => {
     return $.ajax({
         method: 'GET',
-        url: `api/users/${id}/follows`
+        url: `api/users/${userId}/follows`
     });
 };
 
