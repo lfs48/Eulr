@@ -13,7 +13,8 @@ const msp = (state) => {
     }
     return ({
         currentUser: currentUser,
-        followers: followers
+        followers: followers,
+        followingIds: currentUser.followingIds
     });
 }
 
