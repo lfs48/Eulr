@@ -3,7 +3,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 25%;
+    margin-top: 13%;
 }
 
 .login-form {
@@ -21,6 +21,6 @@
 }
 
 .login-submit {
-    background: blue;
+    background: rgb(0, 184, 255);
     color: white;
 }
