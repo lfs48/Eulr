@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       end
     resource :session, only: [:create, :destroy]
     resources :posts, only: [:index, :create, :update, :show, :destroy]
-    resources :follows, only: [:create, :destroy]
+    resources :follows, only: [:create]
+    resource :follows, only: [:destroy]
   end
   
 end
