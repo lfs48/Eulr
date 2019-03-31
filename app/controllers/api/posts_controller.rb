@@ -1,6 +1,7 @@
 class Api::PostsController < ApplicationController
 
     before_action :get_post, only: [:update, :show, :destroy]
+    before_action :ensure_author, only: [:update, :destroy]
 
     def index
         @posts = Post.all
@@ -40,6 +41,10 @@ class Api::PostsController < ApplicationController
     
     def get_post
         @post = Post.find_by(id: params[:id])
+    end
+
+    def ensure_author
+        render json: "You can't do that", status: 422 unless @post.author_id == current_user.id
     end
 
 end
