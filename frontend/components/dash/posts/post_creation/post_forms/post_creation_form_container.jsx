@@ -27,8 +27,10 @@ const msp = (state, ownProps) => ({
         const content = JSON.stringify(this.state.content);
         const post = merge({}, this.state.post);
         post.content = content;
-        this.props.createPost(post).then( () =>
+        this.props.createPost(post).then( () => {
+            this.props.clearDash();
             this.props.history.push("/dashboard")
+            }
         );
     },
     handleInput: function(type) {
