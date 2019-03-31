@@ -37,10 +37,12 @@ class FollowersIndex extends React.Component {
 
         return (
             <div className="follow-list-container">
-                <h2>{`${this.props.followers.length}`} people follow you</h2>
-                <ul>
-                    {lis}
-                </ul>
+                <section>
+                    <h2>{`${this.props.followers.length}`} people follow you</h2>
+                    <ul>
+                        {lis}
+                    </ul>
+                </section>
             </div>
         );
     }
