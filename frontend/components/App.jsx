@@ -15,6 +15,7 @@ import Navbar from './nav/nav_container';
 import Dash from './dash/dash_container';
 import Logout from './session/logout';
 import FollowersIndex from '../components/follows/followers_index_container';
+import FollowingsIndex from '../components/follows/followings_index_container';
 
 const App = (props) => (
     <main className="app-container">
@@ -24,7 +25,7 @@ const App = (props) => (
             <AuthRoute path="/login" component={LoginForm} />
             <ProtectedRoute path="/logout" component={Logout} />
             <ProtectedRoute path="/dashboard" component={Dash} />
-            <ProtectedRoute path="/following" component={UnderConstruction} />
+            <ProtectedRoute path="/following" component={FollowingsIndex} />
             <ProtectedRoute path="/followers" component={FollowersIndex} />
             <ProtectedRoute path="/likes" component={UnderConstruction} />
             <ProtectedRoute path="/settings" component={UnderConstruction} />
