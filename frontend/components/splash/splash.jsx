@@ -9,6 +9,7 @@ class Splash extends React.Component {
         super(props);
         this.handleDemoLogin = this.handleDemoLogin.bind(this);
         this.handleOpenRegister = this.handleOpenRegister.bind(this);
+        this.handleLogin = this.handleLogin.bind(this);
         this.state = {
             content: (<></>)
         }
@@ -22,6 +23,10 @@ class Splash extends React.Component {
         this.props.demoLogin(demoUser).then(
             this.props.history.push("/dashboard")
         );
+    }
+
+    handleLogin() {
+        this.props.history.push("/login");
     }
 
     handleOpenRegister() {
@@ -47,9 +52,7 @@ class Splash extends React.Component {
                     <h1 className="eulr-header">eulr</h1>
                     <p className="splash-text">An infinite series of possibilities converges here.</p>
                     <button className="register-button" onClick={this.handleOpenRegister}>Get Started</button>
-                    <Link className="splash-login" to="/login">
-                        <span>Log In</span>
-                    </Link>
+                    <button className="splash-login" onClick={this.handleLogin}>Login</button>
                     <button className="demo-button" onClick={this.handleDemoLogin}>Demo Login</button>
                     <Link className="splash-explore-link" to="/explore">
                         <i className="far fa-compass"></i>
