@@ -18,8 +18,12 @@ class Api::FollowsController < ApplicationController
     end
 
     def destroy
-        @follow = Follow.find_by(id: params[:id])
-        @follow.destroy
+        @follow = Follow.find_by(follower_id: params[:follow][:follower_id], followee_id: params[:follow][:followee_id])
+        if @follow
+            followDup = @follow.dup
+            @follow.destroy
+            render json: followDup
+        end
     end
 
     private
