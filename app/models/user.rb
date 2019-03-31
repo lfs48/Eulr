@@ -29,6 +29,16 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :poster_id
 
+    has_many :followings,
+        class_name: :Follow,
+        primary_key: :id,
+        foreign_key: :follower_id
+
+    has_many :followers,
+        class_name: :Follow,
+        primary_key: :id,
+        foreign_key: :followee_id
+
     attr_reader :password
 
     def self.find_by_credentials(email, password)
