@@ -67,7 +67,6 @@ class Dash extends React.Component {
                         } 
                     />
                 </Switch>
-                <PostIndex />
             </div>
         );
     }
