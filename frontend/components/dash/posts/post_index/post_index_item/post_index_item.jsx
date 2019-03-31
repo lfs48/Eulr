@@ -25,8 +25,14 @@ class PostIndexItem extends React.Component {
             <div>
                 <h4>{this.props.author ? this.props.author.username : ""}</h4>
                 <span>{this.props.post.content}</span>
+                {this.props.isOwnPost ? 
+                (<>
                 <button onClick={this.handleEdit}>Edit</button>
                 <button onClick={this.handleDelete}>Delete</button>
+                </>)
+                :
+                <button>Reblog</button>
+                }
             </div>
         )
     }
