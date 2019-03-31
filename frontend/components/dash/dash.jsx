@@ -14,8 +14,9 @@ class Dash extends React.Component {
     render() {
         return (
             <div className="dash-container">
+                {this.props.postFormOpen ? <></> :
                 <PostCreationBar />
-                <PostIndex />
+                }
                 <Switch>
                     <Route path="/dashboard/new/text" 
                         render={() => 
@@ -66,6 +67,7 @@ class Dash extends React.Component {
                         } 
                     />
                 </Switch>
+                <PostIndex />
             </div>
         );
     }
