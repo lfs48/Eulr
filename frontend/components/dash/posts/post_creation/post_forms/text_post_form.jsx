@@ -24,24 +24,31 @@ class TextPostForm extends React.Component {
                 <div className="modal-background">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
+                            <div className="post-form-header">
+                                <h3>{this.props.author.username}</h3>
+                            </div>
                             <input
+                                className="post-title-input"
                                 type="text"
                                 placeholder="Title"
                                 value={this.state.content.title}
                                 onChange={this.handleInput("title")}
                             ></input>
                             <input
+                                className="post-body-input"
                                 type="text"
                                 placeholder="Your text here"
                                 value={this.state.content.body}
                                 onChange={this.handleInput("body")}
                             ></input>
+                            <div className="post-form-footer">
+                            <button onClick={this.handleCancel}>Close</button>
                             <input
                                 type="submit"
                                 value="Post"
                                 disabled={disabled}
                             ></input>
-                            <button onClick={this.handleCancel}>Close</button>
+                            </div>
                         </form>
                     </div>
                 </div>

@@ -13,7 +13,7 @@ import { Route, Switch } from 'react-router-dom';
 class Dash extends React.Component {
     render() {
         return (
-            <div>
+            <div className="dash-container">
                 <PostCreationBar />
                 <PostIndex />
                 <Switch>

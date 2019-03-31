@@ -14,7 +14,7 @@ class PostCreationBarItem extends React.Component {
     render() {
         return (
             <button onClick={this.handleOpen}>
-                <i className={this.props.icon}></i>
+                <i className={`${this.props.icon} ${this.props.label}-icon`}></i>
                 <span>{this.props.label}</span>
             </button>
         );

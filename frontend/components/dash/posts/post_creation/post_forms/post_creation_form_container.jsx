@@ -15,6 +15,7 @@ const msp = (state, ownProps) => ({
         post_type: ownProps.postType
     },
     content: ownProps.content,
+    author: state.entities.users[state.session.id],
     handleCancel: function(event) {
         event.preventDefault();
         this.props.history.push("/dashboard");
