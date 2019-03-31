@@ -42,8 +42,6 @@ class FollowersIndex extends React.Component {
     }
     
     render() {
-        const that = this;
-        debugger
         const lis = this.state.followingList.map( (following) => {
             return (<li key={following.id}>
                         <span>{following.username}</span>
