@@ -13,7 +13,8 @@ const msp = (state) => {
     }
     return ({
         currentUser: currentUser,
-        followings: followings
+        followings: followings,
+        followingIds: followingIds
     });
 }
 
@@ -21,7 +22,7 @@ const mdp = (dispatch) => ({
     fetchUsers: () => dispatch( fetchUsers() ),
     fetchFollows: (userId) => dispatch( fetchFollows(userId) ),
     createFollow: (follow) => dispatch( createFollow(follow) ),
-    destroyFollow: (followId) => dispatch( destroyFollow(followId) )
+    destroyFollow: (follow) => dispatch( destroyFollow(follow) )
 });
 
 export default connect(msp, mdp)(FollowingsIndex);
