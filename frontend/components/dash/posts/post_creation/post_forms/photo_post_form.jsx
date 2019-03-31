@@ -24,7 +24,11 @@ class PhotoPostForm extends React.Component {
                 <div className="modal-background">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
+                            <div className="post-form-header">
+                                <h3>{this.props.author.username}</h3>
+                            </div>
                             <input
+                                className="post-url-input"
                                 type="text"
                                 placeholder="Paste a URL"
                                 value={this.state.content.url}
@@ -34,18 +38,21 @@ class PhotoPostForm extends React.Component {
                             <></>
                             :
                             <input
+                                className="post-body-input"
                                 type="text"
                                 placeholder="Add a caption, if you like"
                                 value={this.state.content.caption}
                                 onChange={this.handleInput("caption")}
                             ></input>
                             }
-                            <input
-                                type="submit"
-                                value="Post"
-                                disabled={disabled}
-                            ></input>
-                            <button onClick={this.handleCancel}>Close</button>
+                            <div className="post-form-footer">
+                                <input
+                                    type="submit"
+                                    value="Post"
+                                    disabled={disabled}
+                                ></input>
+                                <button onClick={this.handleCancel}>Close</button>
+                            </div>
                         </form>
                     </div>
                 </div>
