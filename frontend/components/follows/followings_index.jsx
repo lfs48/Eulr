@@ -45,20 +45,25 @@ class FollowersIndex extends React.Component {
         const lis = this.state.followingList.map( (following) => {
             return (<li key={following.id}>
                         <span>{following.username}</span>
+                        <div>
+                        <i className="fas fa-user"></i>
                         {this.props.followingIds.includes(following.id) ?
                         <button onClick={this.handleUnfollow(following.id)}>Unfollow</button>
                         :
                         <button onClick={this.handleFollow(following.id)}>Follow</button>
                         }
+                        </div>
                     </li>)
         });
 
         return (
             <div className="follow-list-container">
-                <h3>Following {`${this.props.followings.length}`} Eulrs</h3>
-                <ul>
-                    {lis}
-                </ul>
+                <section>
+                    <h3>Following {`${this.props.followings.length}`} Eulrs</h3>
+                    <ul>
+                        {lis}
+                    </ul>
+                </section>
             </div>
         );
     }
