@@ -34,21 +34,18 @@ end
 #     Tag.create(tag: tag)
 # end
 
-# follows_list = [
-#     [User..id, User.second.id, "user"],
-#     [User..id, User.third.id, "user"],
-#     [User.second.id, User.fourth.id, "user"],
-#     [User.third.id, User.fifth.id, "user"],
-#     [User.fourth.id, User.first.id, "user"],
-#     [User.fifth.id, User.first.id, "user"],
-#     [User.fifth.id, Tag.first.id, "tag"],
-#     [User.first.id, Tag.second.id, "tag"],
-#     [User.second.id, Tag.second.id, "tag"]
-# ]
+follows_list = [
+    [User.first.id, User.second.id],
+    [User.first.id, User.third.id],
+    [User.second.id, User.fourth.id],
+    [User.third.id, User.fifth.id],
+    [User.fourth.id, User.first.id],
+    [User.fifth.id, User.first.id]
+]
 
-# follows_list.each do |follower_id, followee_id, type|
-#     Follow.create(follower_id: follower_id, followee_id: followee_id, type: type)
-# end
+follows_list.each do |follower_id, followee_id|
+    Follow.create(follower_id: follower_id, followee_id: followee_id)
+end
 
 # likes_list = [
 #     [User.second.id, Post.first.id],
