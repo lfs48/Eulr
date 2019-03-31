@@ -6,7 +6,8 @@ import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
     post: ownProps.post,
-    author: state.entities.users[ownProps.post.author_id]
+    author: state.entities.users[ownProps.post.author_id],
+    isOwnPost: state.session.id === ownProps.post.author_id
 })
 
 const mdp = (dispatch) => ({
