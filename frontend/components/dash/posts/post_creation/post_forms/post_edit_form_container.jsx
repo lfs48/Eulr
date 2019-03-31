@@ -11,7 +11,6 @@ import VideoForm from './video_post_form';
 
 const msp = (state, ownProps) => {
     const post = state.entities.posts[ownProps.match.params.postId]
-    debugger
     return({
         post: post,
         content: JSON.parse(post.content),
@@ -25,7 +24,6 @@ const msp = (state, ownProps) => {
             const content = JSON.stringify(this.state.content);
             const post = merge({}, this.state.post);
             post.content = content;
-            debugger
             this.props.updatePost(post).then( () =>
                 this.props.history.push("/dashboard")
             );
