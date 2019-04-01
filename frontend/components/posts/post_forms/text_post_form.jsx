@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TextPostForm extends React.Component {
 
@@ -19,7 +20,14 @@ class TextPostForm extends React.Component {
             disabled = true;
         }
         return (
-            <div className="post-form-container">
+            <ReactCSSTransitionGroup
+                transitionAppear={true}
+                transitionAppearTimeout={200}
+                transitionLeaveTimeout={200}
+                transitionName="post-form-transition"
+                transitionEnter={false}
+            >
+            <div key={1} className="post-form-container">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
                             <div className="post-form-header">
@@ -50,6 +58,7 @@ class TextPostForm extends React.Component {
                         </form>
                     </div>
             </div>
+            </ReactCSSTransitionGroup>
         );
     }
 }
