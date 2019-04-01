@@ -12,4 +12,6 @@ class Post < ApplicationRecord
         primary_key: :id,
         foreign_key: :poster_id
 
+    has_many_attached :media
+
 end
