@@ -18,6 +18,10 @@ class RegisterForm extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.navToggleRegister();
+    }
+
     buildUser() {
         const user = {
             email: this.state.email,

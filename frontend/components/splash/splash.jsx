@@ -61,6 +61,7 @@ class Splash extends React.Component {
                 </div>
             )
         })
+        this.props.navToggleClear();
     }
 
     render() {

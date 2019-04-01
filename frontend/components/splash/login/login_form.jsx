@@ -18,6 +18,10 @@ class LoginForm extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.navToggleLogin();
+    }
+
     handleNext(event) {
         event.preventDefault();
         const errs = this.validateEmail();
