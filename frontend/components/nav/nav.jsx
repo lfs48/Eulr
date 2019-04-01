@@ -31,11 +31,11 @@ class Navbar extends React.Component {
                 : <></>
                 }
                 {this.props.nav === "login" ?
-                    <button className="nav-login" onClick={this.handleLogin}>Login</button>
+                    <button className="nav-login" onClick={this.handleLogin}>Log In</button>
                     : <></>
                 }
                 {this.props.nav === "register" ?
-                    <button className="nav-register" onClick={this.handleRegister}>Register</button>
+                    <button className="nav-register" onClick={this.handleRegister}>Sign Up</button>
                     : <></>
                 }
             </div>
