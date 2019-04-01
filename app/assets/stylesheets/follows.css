@@ -10,6 +10,10 @@
     width: 625px;
 }
 
+.follow-list-container section {
+    border-radius: 3px;
+}
+
 .follow-list-container h2 {
     font-size: 30px;
     color: rgb(70, 69, 69);
@@ -20,6 +24,10 @@
     font-size: 20px;
     text-align: center;
     padding: 20px 0px;
+}
+
+.follow-list-container ul {
+    padding-bottom: 30px;
 }
 
 .follow-list-container i {
@@ -33,14 +41,41 @@
     margin: 0px 20px;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     height: 51px;
+    border-radius: 3px;
 }
 
 .follow-list-container button {
-    background: rgb(0, 184, 255);
-    color: white;
-    border: none;
     border-radius: 3px;
     height: 30px;
     width: 90px;
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.follow-button {
+    border: none;
+    background: rgb(0, 184, 255);
+    color: white;
+}
+
+.unfollow-button {
+    background: none;
+    border: 1px solid rgb(75, 74, 74);
+    color: rgb(75, 74, 74);
+}
+
+.follow-list-container span {
+    font-weight: bold;
+}
+
+.follow-list-left {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+.odd-follow-row {
+    background: rgb(228, 224, 224);
 }
