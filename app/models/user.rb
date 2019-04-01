@@ -14,9 +14,9 @@
 
 class User < ApplicationRecord
 
-    after_initialize :ensure_session_token, :ensure_avatar_url
+    after_initialize :ensure_session_token, :ensure_avatar
 
-    validates :username, :email, :avatar_url, :password_digest, :session_token, presence: true
+    validates :username, :email, :password_digest, :session_token, presence: true
     validates :username, :email, :session_token, uniqueness: true
 
     has_many :authored_posts,
@@ -39,7 +39,7 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :followee_id
 
-    has_one_attached :photo
+    has_one_attached :avatar
 
     attr_reader :password
 
@@ -83,8 +83,9 @@ class User < ApplicationRecord
         return digest.is_password?(password)
     end
 
-    def ensure_avatar_url
-        self.avatar_url = "placeholder.jpg"
+    def ensure_avatar
+        file = File.open('app/assets/images/eulr-logo.png')
+        self.avatar.attach(io: file, filename: 'avatar.png')
     end
 
 end
