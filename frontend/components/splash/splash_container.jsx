@@ -10,7 +10,7 @@ const msp = (state) => ({
 
 const mdp = (dispatch) => ({
     demoLogin: (user) => dispatch( login(user) ),
-    navToggleClear: () => dispatch( navToggleClear )
+    navToggleClear: () => dispatch( navToggleClear() )
 });
 
 export default withRouter(connect(msp, mdp)(Splash));
