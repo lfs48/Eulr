@@ -39,6 +39,8 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :followee_id
 
+    has_one_attached :photo
+
     attr_reader :password
 
     def self.find_by_credentials(email, password)
