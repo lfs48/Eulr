@@ -2,14 +2,13 @@ import React from 'react';
 import PostCreationBar from './posts/post_creation/post_creation_bar_container';
 import PostIndex from './posts/post_index/post_index_container';
 import {
-    TextPostForm,
     PhotoPostForm,
-    QuotePostForm,
     LinkPostForm,
     VideoPostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
-import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container'; 
+import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container';
+import TextPostCreateForm from '../posts/post_forms/text_post_create_form_container'; 
 
 class Dash extends React.Component {
     render() {
@@ -24,9 +23,10 @@ class Dash extends React.Component {
                 <Switch>
                     <Route path="/dashboard/new/text" 
                         render={() => 
-                            <TextPostForm
+                            <TextPostCreateForm
                             postType="text" 
-                            content={ {title: "", body: ""} }
+                            titlePlaceholder="Title"
+                            bodyPlaceholder="Your text here"
                             />
                         } 
                     />
@@ -40,9 +40,10 @@ class Dash extends React.Component {
                     />
                     <Route path="/dashboard/new/quote" 
                         render={() => 
-                            <QuotePostForm
+                            <TextPostCreateForm
                             postType="quote" 
-                            content={ {quote: "", source: ""} }
+                            titlePlaceholder="Quote"
+                            bodyPlaceholder="-Source"
                             />
                         } 
                     />
@@ -56,9 +57,10 @@ class Dash extends React.Component {
                     />
                     <Route path="/dashboard/new/chat" 
                         render={() => 
-                            <TextPostForm
+                            <TextPostCreateForm
                             postType="chat" 
-                            content={ {title: "", body: ""} }
+                            titlePlaceholder="Title"
+                            bodyPlaceholder="Bob: Hello!"
                             />
                         } 
                     />
