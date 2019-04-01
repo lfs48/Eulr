@@ -46,6 +46,7 @@ class Splash extends React.Component {
     }
 
     componentDidMount() {
+        this.props.navToggleClear();
         this.setState({
             content: (
                 <div key={1} className="splash-container">
@@ -61,7 +62,6 @@ class Splash extends React.Component {
                 </div>
             )
         })
-        this.props.navToggleClear();
     }
 
     render() {
