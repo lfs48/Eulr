@@ -17,7 +17,7 @@ const navReducer = (state = {}, action) => {
         }
 
         case(NAV_TOGGLE_CLEAR): {
-            return undefined;
+            return {};
         }
     }
 }
