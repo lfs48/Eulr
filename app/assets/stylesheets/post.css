@@ -39,7 +39,9 @@
     font-size: 25px;
 }
 
-.text-post-body h4 {
+.text-post-body h4,
+.quote-post-body h4,
+.chat-post-body h4 {
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 20px;
