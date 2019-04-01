@@ -1,0 +1,35 @@
+.post-avatar-wrapper {
+    display: flex;
+}
+
+.post-container {
+    width: 540px;
+    background: white;
+    border-radius: 3px;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.post-header-container,
+.post-body-container,
+.post-footer-container {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 10px 20px;
+}
+
+.post-header-container {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid lightgray;
+}
+
+.post-header-container h4 {
+    font-weight: bold;
+}
+
+.text-post-body h4 {
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
