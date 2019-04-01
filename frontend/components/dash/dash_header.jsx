@@ -32,52 +32,70 @@ class DashHeader extends React.Component {
                     />
                     <Route path="/dashboard/new/photo"
                         render={() =>
+                            <>
                             <PhotoPostForm
                                 postType="photo"
                                 content={{ url: "", caption: "" }}
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/new/quote"
                         render={() =>
+                            <>
                             <TextPostCreateForm
                                 postType="quote"
                                 titlePlaceholder="Quote"
                                 bodyPlaceholder="-Source"
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/new/link"
                         render={() =>
+                            <>
                             <LinkPostForm
                                 postType="link"
                                 content={{ url: "", title: "", summary: "", description: "" }}
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/new/chat"
                         render={() =>
+                            <>
                             <TextPostCreateForm
                                 postType="chat"
                                 titlePlaceholder="Title"
                                 bodyPlaceholder="Bob: Hello!"
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/new/audio"
                         render={() =>
+                            <>
                             <VideoPostForm
                                 postType="audio"
                                 content={{ url: "", caption: "" }}
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/new/video"
                         render={() =>
+                            <>
                             <VideoPostForm
                                 postType="video"
                                 content={{ url: "", caption: "" }}
                             />
+                            <div className="modal-background"></div>
+                            </>
                         }
                     />
                     <Route path="/dashboard/edit/text/:postId"
