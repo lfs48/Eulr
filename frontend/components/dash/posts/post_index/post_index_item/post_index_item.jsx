@@ -6,6 +6,10 @@ class PostIndexItem extends React.Component {
         super(props);
         this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.handleToggleMenu = this.handleToggleMenu.bind(this);
+        this.state = {
+            open: false
+        };
     }
 
     handleEdit() {
@@ -33,9 +37,16 @@ class PostIndexItem extends React.Component {
             }
         }
     }
+    
+    handleToggleMenu() {
+        this.setState({
+            open: !this.state.open
+        })
+    }
 
     render() {
         return(
+            <>
             <div className="post-avatar-wrapper">
                 <img className="avatar" src={this.props.author.avatar}></img>
                 <div className="post-container">
@@ -47,16 +58,21 @@ class PostIndexItem extends React.Component {
                     </div>
                     <div className="post-footer-container">
                     {this.props.isOwnPost ? 
-                    (<>
-                    <button onClick={this.handleEdit}>Edit</button>
-                    <button onClick={this.handleDelete}>Delete</button>
-                    </>)
-                    :
-                    <button>Reblog</button>
+                    <button onClick={this.handleToggleMenu}>
+                        <i className="fas fa-cog"></i>
+                    </button>
+                    :<></>
                     }
                     </div>
                 </div>
             </div>
+                {this.state.open ?
+                    <div className="post-menu">
+                        <button onClick={this.handleEdit}>Edit</button>
+                        <button onClick={this.handleDelete}>Delete</button>
+                    </div>
+                : <></>}
+            </>
         )
     }
 }
