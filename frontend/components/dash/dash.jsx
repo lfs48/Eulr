@@ -7,8 +7,8 @@ import {
     VideoPostForm
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
-import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container';
 import TextPostCreateForm from '../posts/post_forms/text_post_create_form_container'; 
+import TextPostEditForm from '../posts/post_forms/text_post_edit_container';
 
 class Dash extends React.Component {
     render() {
@@ -82,7 +82,28 @@ class Dash extends React.Component {
                         } 
                     />
                     <Route path="/dashboard/edit/text/:postId"
-                    component={EditTextPostForm}
+                        render={() =>
+                            <TextPostEditForm
+                                titlePlaceholder="Title"
+                                bodyPlaceholder="Your text here"
+                            />
+                        }
+                    />
+                    <Route path="/dashboard/edit/quote/:postId"
+                        render={() =>
+                            <TextPostEditForm
+                                titlePlaceholder="Quote"
+                                bodyPlaceholder="-Source"
+                            />
+                        }
+                    />
+                    <Route path="/dashboard/edit/chat/:postId"
+                        render={() =>
+                            <TextPostEditForm
+                                titlePlaceholder="Title"
+                                bodyPlaceholder="Bob: Hello"
+                            />
+                        }
                     />
                 </Switch>
                 <PostIndex />
