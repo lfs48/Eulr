@@ -65,3 +65,16 @@
 .Video-icon {
     color: hotpink;
 }
+
+.avatar {
+    height: 64px;
+    width: 64px;
+    margin-right: 20px;
+    border-radius: 3px;
+}
+
+.post-bar-section {
+    display: flex;
+    justify-content: flex-end;
+    box-sizing: border-box;
+}
