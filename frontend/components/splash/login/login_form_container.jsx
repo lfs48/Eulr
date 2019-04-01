@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import LoginForm from './login_form';
 import { connect } from 'react-redux';
 import { login } from '../../../actions/session/session_actions';
+import { navToggleLogin } from '../../../actions/ui/nav_actions';
 
 const msp = (state) => ({
     user: {
@@ -13,16 +14,8 @@ const msp = (state) => ({
 });
 
 const mdp = (dispatch) => ({
-    login: (user) => dispatch(login(user))
+    login: (user) => dispatch(login(user)),
+    navToggleLogin: () => dispatch( navToggleLogin() )
 });
 
-const ConnectedForm = withRouter(connect(msp, mdp)(LoginForm));
-
-export default () => {
-    return (
-        <div>
-            <Link to="/">Sign Up</Link>
-            <ConnectedForm className="login-form"/>
-        </div>
-    );
-};
+export default withRouter(connect(msp, mdp)(LoginForm));
