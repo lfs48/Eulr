@@ -21,7 +21,6 @@ class LinkPostForm extends React.Component {
         }
         return (
             <div className="post-form-container">
-                <div className="modal-background">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
                             <div className="post-form-header">
@@ -69,7 +68,6 @@ class LinkPostForm extends React.Component {
                             </div>
                         </form>
                     </div>
-                </div>
             </div>
         );
     } 
