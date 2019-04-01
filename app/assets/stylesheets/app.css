@@ -2,3 +2,17 @@
     background-color: rgb(54, 70, 93);
 }
 
+.avatar {
+    height: 64px;
+    width: 64px;
+    margin-right: 20px;
+    border-radius: 3px;
+}
+
+.avatar-small {
+    height: 40px;
+    width: 40px;
+    border-radius: 3px;
+    margin-right: 10px;
+}
+
