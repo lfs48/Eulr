@@ -35,6 +35,22 @@ class PostIndexItem extends React.Component {
                     </div>
                 );
             }
+            case ("quote"): {
+                return (
+                    <div className="quote-post-body">
+                        <h4>"{content.title}"</h4>
+                        <p>- {content.body}</p>
+                    </div>
+                );
+            }
+            case ("chat"): {
+                return (
+                    <div className="chat-post-body">
+                        <h4>{content.title}</h4>
+                        <p>{content.body}</p>
+                    </div>
+                );
+            }
         }
     }
     
