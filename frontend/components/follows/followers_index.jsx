@@ -24,13 +24,16 @@ class FollowersIndex extends React.Component {
     }
     
     render() {
-        const lis = this.props.followers.map( (follower) => {
-            return (<li key={follower.id}>
+        const lis = this.props.followers.map( (follower, idx) => {
+            return (<li key={follower.id} className={idx % 2 === 0 ? "even-follow-row" : "odd-follow-row"}>
+                        <div className="follow-list-left">
+                        <img className="avatar-small" src={follower.avatar}></img>
                         <span>{follower.username}</span>
+                        </div>
                         {this.props.followingIds.includes(follower.id) ?
                         <></>
                         :
-                        <button onClick={this.handleFollow(follower.id)}>Follow</button>
+                        <button className="follow-button" onClick={this.handleFollow(follower.id)}>Follow</button>
                         }
                     </li>)
         });
