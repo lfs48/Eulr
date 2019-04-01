@@ -11,5 +11,5 @@ export const navToggleRegister = () => ({
 });
 
 export const navToggleClear = () => ({
-    type: NAV_TOGGLE_LOGIN
+    type: NAV_TOGGLE_CLEAR
 });
