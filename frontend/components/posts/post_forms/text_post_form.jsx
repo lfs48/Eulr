@@ -22,8 +22,8 @@ class TextPostForm extends React.Component {
         return (
             <ReactCSSTransitionGroup
                 transitionAppear={true}
-                transitionAppearTimeout={200}
-                transitionLeaveTimeout={200}
+                transitionAppearTimeout={250}
+                transitionLeaveTimeout={250}
                 transitionName="post-form-transition"
                 transitionEnter={false}
             >
