@@ -52,3 +52,29 @@
   transform: translateX(0);
   transition: opacity 500ms, transform 500ms;
 }
+
+  .post-form-transition-appear {
+   opacity: 1;
+   transform: scaleY(0.3448);
+   transform-origin: top;
+ }
+
+ .post-form-transition-appear.post-form-transition-appear-active {
+   opacity: 1;
+   transform: scaleY(1);
+   transform-origin: top;
+   transition: opacity 500ms, transform 500ms;
+ }
+
+   .post-form-transition-leave {
+   opacity: 1;
+   transform: scaleY(0.3448);
+   transform-origin: top;
+ }
+
+ .post-form-transition-leave.post-form-transition-leave-active {
+   opacity: 1;
+   transform: scaleY(1);
+   transform-origin: top;
+   transition: opacity 500ms, transform 500ms;
+ }
