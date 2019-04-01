@@ -4,6 +4,20 @@ import NavControls from './nav_controls/nav_controls_container';
 
 class Navbar extends React.Component {
 
+    constructor(props) {
+        super(props);
+        this.handleLogin = this.handleLogin.bind(this);
+        this.handleRegister = this.handleRegister.bind(this);
+    }
+
+    handleLogin() {
+        this.props.history.push("/login");
+    }
+
+    handleRegister() {
+        this.props.history.push("/")
+    }
+
     render() {
         return(
             <div className="nav-container">
@@ -17,11 +31,11 @@ class Navbar extends React.Component {
                 : <></>
                 }
                 {this.props.nav === "login" ?
-                    <button onClick={this.handleLogin}>Login</button>
+                    <button className="nav-login" onClick={this.handleLogin}>Login</button>
                     : <></>
                 }
                 {this.props.nav === "register" ?
-                    <button onClick={this.handleRegister}>Register</button>
+                    <button className="nav-register" onClick={this.handleRegister}>Register</button>
                     : <></>
                 }
             </div>
