@@ -35,6 +35,14 @@ class PostIndexItem extends React.Component {
                     </div>
                 );
             }
+            case ("photo"): {
+                return (
+                    <div className="photo-post-body">
+                        <h4>Coming soon!</h4>
+                        <p>{content.caption}</p>
+                    </div>
+                );
+            }
             case ("quote"): {
                 return (
                     <div className="quote-post-body">
@@ -43,11 +51,35 @@ class PostIndexItem extends React.Component {
                     </div>
                 );
             }
+            case ("link"): {
+                return (
+                    <div className="link-post-body">
+                        <h4>Coming soon!</h4>
+                        <p>{content.caption}</p>
+                    </div>
+                );
+            }
             case ("chat"): {
                 return (
                     <div className="chat-post-body">
                         <h4>{content.title}</h4>
                         <p>{content.body}</p>
+                    </div>
+                );
+            }
+            case ("audio"): {
+                return (
+                    <div className="audio-post-body">
+                        <h4>Coming soon!</h4>
+                        <p>{content.caption}</p>
+                    </div>
+                );
+            }
+            case ("video"): {
+                return (
+                    <div className="video-post-body">
+                        <h4>Coming soon!</h4>
+                        <p>{content.caption}</p>
                     </div>
                 );
             }
