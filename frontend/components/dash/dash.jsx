@@ -10,14 +10,18 @@ import {
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
 import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container'; 
+import MediaForm from './posts/post_creation/post_forms/media_form';
 
 class Dash extends React.Component {
     render() {
         return (
             <div className="dash-container">
+                <section className="post-bar-section">
+                <img className="avatar" src={this.props.currentUser.avatar}></img>
                 {this.props.postFormOpen ? <></> :
                 <PostCreationBar />
                 }
+                </section>
                 <Switch>
                     <Route path="/dashboard/new/text" 
                         render={() => 
