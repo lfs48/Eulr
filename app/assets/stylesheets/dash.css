@@ -4,6 +4,10 @@
     align-items: center;
 }
 
+.dash-header-container {
+    display: flex;
+}
+
 .dash-container > * {
     margin: 20px;
 }
