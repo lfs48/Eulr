@@ -14,12 +14,13 @@ class Dash extends React.Component {
     render() {
         return (
             <div className="dash-container">
-                <section className="post-bar-section">
-                <img className="avatar" src={this.props.currentUser.avatar}></img>
                 {this.props.postFormOpen ? <></> :
-                <PostCreationBar />
-                }
+                <section className="post-bar-section">
+                    <img className="avatar" src={this.props.currentUser.avatar}></img>
+                    <PostCreationBar />
                 </section>
+                }
+                
                 <Switch>
                     <Route path="/dashboard/new/text" 
                         render={() => 
