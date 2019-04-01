@@ -44,7 +44,7 @@
 
 .login-transition-2-enter {
   opacity: 0.01;
-  transform: translateX(30%);
+  transform: translateX(10%);
 }
 
 .login-transition-2-enter.login-transition-2-enter-active {
