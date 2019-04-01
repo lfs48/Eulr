@@ -3,10 +3,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 13%;
+    margin-top: 12%;
 }
 
 .login-form {
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
