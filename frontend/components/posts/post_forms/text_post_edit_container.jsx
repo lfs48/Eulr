@@ -1,5 +1,5 @@
 import React from 'react';
-import { updatePost, fetchPost } from "../../../../../actions/entities/post_actions";
+import { updatePost, fetchPost } from '../../../actions/entities/post_actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
@@ -44,4 +44,4 @@ const mdp = (dispatch) => ({
     updatePost: (post) => dispatch( updatePost(post) )
 });
 
-export default withRouter(connect(msp, mdp)(TextForm));
+export default withRouter(connect(msp, mdp)(TextPostForm));
