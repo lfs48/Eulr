@@ -10,7 +10,6 @@ import {
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import { Route, Switch } from 'react-router-dom';
 import { EditTextPostForm } from '../dash/posts/post_creation/post_forms/post_edit_form_container'; 
-import MediaForm from './posts/post_creation/post_forms/media_form';
 
 class Dash extends React.Component {
     render() {
