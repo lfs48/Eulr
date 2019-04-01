@@ -83,12 +83,14 @@ class LoginForm extends React.Component {
                 <div className="login-container">
                     <h1 className="eulr-header">eulr</h1>
                     <form className="login-form" onSubmit={this.handleNext}>
+                        <div className="login-inputs-container">
                         <input
                             type="text"
                             placeholder="Email"
                             value={this.state.email}
                             onChange={this.handleInput("email")}
                         ></input>
+                        </div>
                         <input
                             className="login-submit"
                             type="submit"
@@ -109,6 +111,7 @@ class LoginForm extends React.Component {
                 <div key={1} className="login-container">
                     <h1 className="eulr-header">eulr</h1>
                     <form className="login-form" onSubmit={this.handleSubmit}>
+                    <div className="login-inputs-container">
                         <input
                                 type="text"
                                 placeholder="Email"
@@ -121,7 +124,8 @@ class LoginForm extends React.Component {
                             value={this.state.password}
                             onChange={this.handleInput("password")}
                         ></input>
-                        <input
+                        </div>
+                        <input className="login-submit"
                             type="submit"
                             value="Log In"
                         ></input>
