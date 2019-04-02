@@ -4,6 +4,7 @@ import PostCreationBar from './posts/post_creation/post_creation_bar_container';
 import {TextPostCreateForm, LinkPostCreateForm} from '../posts/post_forms/text_post_create_form_container';
 import TextPostEditForm from '../posts/post_forms/text_post_edit_container';
 import MediaPostCreateForm from '../posts/post_forms/media_post_form_container';
+import MediaPostEditForm from '../posts/post_forms/media_post_edit_container';
 
 class DashHeader extends React.Component {
     render() {
@@ -98,6 +99,12 @@ class DashHeader extends React.Component {
                             <TextPostEditForm
                                 titlePlaceholder="Title"
                                 bodyPlaceholder="Your text here"
+                            />
+                        }
+                    />
+                    <Route path="/dashboard/edit/photo/:postId"
+                        render={() =>
+                            <MediaPostEditForm
                             />
                         }
                     />
