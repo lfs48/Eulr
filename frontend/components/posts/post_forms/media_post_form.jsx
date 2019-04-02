@@ -10,6 +10,8 @@ class MediaForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpload = this.handleUpload.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.handleStage2 = this.handleStage2.bind(this);
+        this.handleStage3 = this.handleStage3.bind(this);
         this.state = {
             stage: 1,
             post: props.post,
@@ -37,7 +39,10 @@ class MediaForm extends React.Component {
         const file = event.currentTarget.files[0];
         reader.onloadend = () =>
             this.setState({
-                media: file
+                media: {
+                    file: file,
+                    url: reader.result
+                }
             });
         if (file) {
             reader.readAsDataURL(file);
@@ -57,27 +62,53 @@ class MediaForm extends React.Component {
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
         if (this.state.media) {
-            formData.append("post[media]", this.state.media);
+            formData.append("post[media]", this.state.media.file);
         }
         this.props.createPost(formData).then( () =>
             this.props.history.push("/dashboard")
         );
     }
 
-    handleStage(num) {
-        return (event) => {
-            event.preventDefault();
+    handleStage2(event) {
+        event.preventDefault();
+        const reader = new FileReader();
+        const file = event.currentTarget.files[0];
+        reader.onloadend = () =>
             this.setState({
-                stage: num,
+                stage: 2,
+                media: {
+                    file: file,
+                    url: reader.result
+                },
                 content: {
-                    caption: "",
-                    url: ""
+                    caption: ""
                 }
             });
-        };
+        if (file) {
+            reader.readAsDataURL(file);
+        } else {
+            this.setState({
+                media: null
+            });
+        }
+    }
+
+    handleStage3(event) {
+        event.preventDefault();
+        this.setState({
+            state: 3,
+            content: {
+                caption: "",
+                url: ""
+            }
+        });
     }
 
     render() {
+        let imgs = <></>
+        if (this.state.media) {
+            imgs = <li><img src={this.state.media.url}></img></li>
+        }
         return(
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -94,12 +125,15 @@ class MediaForm extends React.Component {
                             </div>
                             {this.state.stage === 1 ?
                                 <div>
-                                    <button onClick={this.handleStage(2)}>Upload photos</button>
-                                    <button onClick={this.handleStage(3)}>Add photo from web</button>
+                                    <input type="file" onChange={this.handleStage2}></input>
+                                    <button onClick={this.handleStage3}>Add photo from web</button>
                                 </div>
                             :<></>}
                             {this.state.stage === 2 ?
                             <>
+                            <ul>
+                                {imgs}
+                            </ul>
                             <input 
                                 type="file" 
                                 onChange={this.handleUpload}
