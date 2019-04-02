@@ -12,6 +12,10 @@ import TextPostEditForm from '../posts/post_forms/text_post_edit_container';
 import DashHeader from './dash_header_container';
 
 class Dash extends React.Component {
+    componentDidMount() {
+        this.props.navToggleClear();
+    }
+
     render() {
         return (
             <div className="dash-container">
