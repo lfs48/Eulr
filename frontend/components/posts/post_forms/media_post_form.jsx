@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class MediaForm extends React.Component {
 
@@ -8,10 +9,17 @@ class MediaForm extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleUpload = this.handleUpload.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
         this.state = {
             post: props.post,
             content: props.content
         };
+    }
+
+    handleCancel(event) {
+        event.preventDefault();
+        this.props.clearDash();
+        this.props.history.push("/dashboard");
     }
 
     handleInput(type) {
@@ -58,19 +66,41 @@ class MediaForm extends React.Component {
 
     render() {
         return(
-            <div className="modal-child">
-            <form onSubmit={this.handleSubmit}>
-                <input type="file" onChange={this.handleUpload}></input>
-                    <input
-                        className="post-caption-input"
-                        type="text"
-                        placeholder="Enter a caption, if you like"
-                        value={this.state.content.caption}
-                        onChange={this.handleInput("caption")}
-                    ></input>
-                <input type="submit" value="Post"></input>
-            </form>
-            </div>
+            <ReactCSSTransitionGroup
+                transitionAppear={true}
+                transitionAppearTimeout={250}
+                transitionLeaveTimeout={250}
+                transitionName="post-form-transition"
+                transitionEnter={false}
+            >
+                <div key={1} className="post-form-container">
+                    <div className="modal-child" onClick={e => e.stopPropagation()}>
+                        <form onSubmit={this.handleSubmit}>
+                            <div className="post-form-header">
+                                <h3>{this.props.author.username}</h3>
+                            </div>
+                            <input 
+                                type="file" 
+                                onChange={this.handleUpload}
+                            ></input>
+                            <input
+                                className="post-body-input"
+                                type="text"
+                                placeholder="Enter a caption, if you like"
+                                value={this.state.content.caption}
+                                onChange={this.handleInput("caption")}
+                            ></input>
+                            <div className="post-form-footer">
+                                <button onClick={this.handleCancel}>Close</button>
+                                <input
+                                    type="submit"
+                                    value="Post"
+                                ></input>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </ReactCSSTransitionGroup >
         );
     }
 }
