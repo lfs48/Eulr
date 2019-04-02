@@ -8,6 +8,7 @@ class Navbar extends React.Component {
         super(props);
         this.handleLogin = this.handleLogin.bind(this);
         this.handleRegister = this.handleRegister.bind(this);
+        this.handleDash = this.handleDash.bind(this);
     }
 
     handleLogin() {
@@ -18,12 +19,16 @@ class Navbar extends React.Component {
         this.props.history.push("/")
     }
 
+    handleDash() {
+        this.props.history.push("/dashboard")
+    }
+
     render() {
         return(
             <div className="nav-container">
                 <div className="nav-left">
-                    <img className="static" src={window.eulrLogoSmallStatic}></img>
-                    <img className="active" src={window.eulrLogoSmallActive}></img>
+                    <img onClick={this.handleDash} className="static" src={window.eulrLogoSmallStatic}></img>
+                    <img onClick={this.handleDash} className="active" src={window.eulrLogoSmallActive}></img>
                     <Search />
                 </div>
                 {this.props.loggedIn ?
