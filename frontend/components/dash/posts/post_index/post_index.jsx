@@ -5,25 +5,33 @@ class PostIndex extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            loaded: false
+        }
     }
 
     componentDidMount() {
-        this.props.fetchUsers();
-        this.props.fetchPosts();
+        this.props.fetchUsers()
+        .then( () => this.props.fetchPosts() )
+        .then( () => this.setState({ loaded: true }) );
     }
 
     render() {
-        const lis = this.props.posts.map( post => {
-                return (<li key={post.id}><PostIndexItem post={post}/></li>);
-            }
-        );
-        return (
-            <div>
-                <ul>
-                    {lis}
-                </ul>
-            </div>
-        );
+        if (this.state.loaded) {
+            const lis = this.props.posts.reverse().map( post => {
+                    return (<li key={post.id}><PostIndexItem post={post}/></li>);
+                }
+            );
+            return (
+                <div>
+                    <ul>
+                        {lis}
+                    </ul>
+                </div>
+            );
+        } else {
+        return (<></>);
+        }
     }
 
 }
