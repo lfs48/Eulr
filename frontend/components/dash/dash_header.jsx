@@ -8,6 +8,7 @@ import {
 } from './posts/post_creation/post_forms/post_creation_form_container';
 import TextPostCreateForm from '../posts/post_forms/text_post_create_form_container';
 import TextPostEditForm from '../posts/post_forms/text_post_edit_container';
+import MediaPostCreateForm from '../posts/post_forms/media_post_form_container';
 
 class DashHeader extends React.Component {
     render() {
@@ -33,9 +34,8 @@ class DashHeader extends React.Component {
                     <Route path="/dashboard/new/photo"
                         render={() =>
                             <>
-                            <PhotoPostForm
+                            <MediaPostCreateForm
                                 postType="photo"
-                                content={{ url: "", caption: "" }}
                             />
                             <div className="modal-background"></div>
                             </>
@@ -79,7 +79,7 @@ class DashHeader extends React.Component {
                     <Route path="/dashboard/new/audio"
                         render={() =>
                             <>
-                            <VideoPostForm
+                            <MediaPostCreateForm
                                 postType="audio"
                                 content={{ url: "", caption: "" }}
                             />
@@ -90,7 +90,7 @@ class DashHeader extends React.Component {
                     <Route path="/dashboard/new/video"
                         render={() =>
                             <>
-                            <VideoPostForm
+                            <MediaPostCreateForm
                                 postType="video"
                                 content={{ url: "", caption: "" }}
                             />
