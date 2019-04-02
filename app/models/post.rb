@@ -12,6 +12,11 @@ class Post < ApplicationRecord
         primary_key: :id,
         foreign_key: :poster_id
 
+    has_many :tags,
+        class_name: :PostTag,
+        primary_key: :id,
+        foreign_key: :tag_id
+
     has_many_attached :media
 
 end
