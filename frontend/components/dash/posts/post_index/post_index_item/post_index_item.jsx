@@ -36,9 +36,16 @@ class PostIndexItem extends React.Component {
                 );
             }
             case ("photo"): {
+                const imgs = post.mediaUrls.map( (url) =>
+                    <li>
+                        <img src={url}></img>
+                    </li>
+                )
                 return (
                     <div className="photo-post-body">
-                        <h4>Coming soon!</h4>
+                        <ul>
+                            {imgs}
+                        </ul>
                         <p>{content.caption}</p>
                     </div>
                 );
