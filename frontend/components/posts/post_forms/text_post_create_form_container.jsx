@@ -3,7 +3,6 @@ import { createPost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
 import TextPostForm from './text_post_form';
 import LinkPostForm from './link_post_form';
-import { clearDash } from "../../../actions/ui/dash_actions";
 
 const msp = (state, ownProps) => ({
     post: {
@@ -18,8 +17,7 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = (dispatch) => ({
-    createPost: (post) => dispatch( createPost(post) ),
-    clearDash: () => dispatch( clearDash() )
+    formAction: (post) => dispatch( createPost(post) ),
 });
 
 export const TextPostCreateForm = withRouter(connect(msp, mdp)(TextPostForm));
