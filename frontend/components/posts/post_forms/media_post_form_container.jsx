@@ -13,21 +13,7 @@ const msp = (state, ownProps) => ({
     },
     content: { caption: "" },
     media: null,
-    author: state.entities.users[state.session.id],
-    handleCancel: function (event) {
-        event.preventDefault();
-        this.props.clearDash();
-        this.props.history.push("/dashboard");
-    },
-    handleInput: function (type) {
-        return (event) => {
-            const content = merge({}, this.state.content);
-            content[type] = event.target.value;
-            this.setState({
-                content: content
-            });
-        };
-    }
+    author: state.entities.users[state.session.id]
 });
 
 const mdp = (dispatch) => ({
