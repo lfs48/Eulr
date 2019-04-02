@@ -96,7 +96,7 @@ class MediaForm extends React.Component {
     handleStage3(event) {
         event.preventDefault();
         this.setState({
-            state: 3,
+            stage: 3,
             content: {
                 caption: "",
                 url: ""
@@ -108,6 +108,8 @@ class MediaForm extends React.Component {
         let imgs = <></>
         if (this.state.media) {
             imgs = <li><img src={this.state.media.url}></img></li>
+        } else if (this.state.content.url !== "") {
+            imgs = <li><img src={this.state.content.url}></img></li>
         }
         return(
             <ReactCSSTransitionGroup
@@ -149,6 +151,9 @@ class MediaForm extends React.Component {
                             :<></>}
                             {this.state.stage === 3 ?
                                 <>
+                                    <ul>
+                                        {imgs}
+                                    </ul>
                                     <input
                                         className="post-url-input"
                                         type="text"
