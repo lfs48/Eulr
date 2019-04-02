@@ -4,7 +4,13 @@ class Api::PostsController < ApplicationController
     before_action :ensure_author, only: [:update, :destroy]
 
     def index
-        @posts = Post.all
+        if (params[:tag_id]) 
+            @posts = Post.include(:tag).all.select do |post|
+                post.tags.any? {tag.id == params[:tag_id]}
+            end
+        else
+            @posts = Post.all
+        end
         render "api/posts/index"
     end
 
