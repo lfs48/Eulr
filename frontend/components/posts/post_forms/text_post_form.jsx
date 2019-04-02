@@ -17,7 +17,6 @@ class TextPostForm extends React.Component {
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.clearDash();
         this.props.history.push("/dashboard");
     }
 

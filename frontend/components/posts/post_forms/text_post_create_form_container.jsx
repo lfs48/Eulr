@@ -17,7 +17,6 @@ const msp = (state, ownProps) => ({
     author: state.entities.users[state.session.id],
     handleCancel: function(event) {
         event.preventDefault();
-        this.props.clearDash();
         this.props.history.push("/dashboard");
     },
     handleSubmit: function(event) {

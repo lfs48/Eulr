@@ -32,7 +32,6 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     createPost: (post) => dispatch(createPost(post)),
-    clearDash: () => dispatch(clearDash())
 });
 
 export default withRouter(connect(msp, mdp)(TextPostForm));
