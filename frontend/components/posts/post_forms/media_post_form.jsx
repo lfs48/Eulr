@@ -126,9 +126,20 @@ class MediaForm extends React.Component {
                                 <h3>{this.props.author.username}</h3>
                             </div>
                             {this.state.stage === 1 ?
-                                <div>
-                                    <input type="file" onChange={this.handleStage2}></input>
-                                    <button onClick={this.handleStage3}>Add photo from web</button>
+                                <div className="post-media-option-container">
+                                    <div className="post-media-option-left">
+                                    <label htmlFor="upload" className="media-option-button">
+                                        <i className="fas fa-camera"></i>
+                                        <span>Upload Photos</span>
+                                    </label>
+                                    <input id="upload" type="file" onChange={this.handleStage2}></input>
+                                    </div>
+                                    <div className="post-media-option-right">
+                                    <button onClick={this.handleStage3} className="media-option-button">
+                                        <i className="fas fa-globe"></i>
+                                        <span>Add photo from web</span>
+                                    </button>
+                                    </div>
                                 </div>
                             :<></>}
                             {this.state.stage === 2 ?
