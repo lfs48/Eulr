@@ -24,11 +24,14 @@ class TextPostForm extends React.Component {
         event.preventDefault();
         const content = JSON.stringify(this.state.content);
         const formData = new FormData();
+        if (this.state.post.id) {
+            formData.append("post[id]", this.state.post.id);
+        }
         formData.append("post[author_id]", this.state.post.author_id);
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
-        this.props.createPost(formData).then(() =>
+        this.props.formAction(formData).then(() =>
             this.props.history.push("/dashboard")
         );
     }
