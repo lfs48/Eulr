@@ -12,10 +12,11 @@ class Post < ApplicationRecord
         primary_key: :id,
         foreign_key: :poster_id
 
+    has_many :post_tags
+
     has_many :tags,
-        class_name: :PostTag,
-        primary_key: :id,
-        foreign_key: :tag_id
+        through: :post_tags,
+        source: :tag
 
     has_many_attached :media
 

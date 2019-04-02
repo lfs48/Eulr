@@ -1,10 +1,11 @@
 class Tag < ApplicationRecord
 
     validates :tag, presence: true
+
+    has_many :post_tags
     
     has_many :tagged_posts,
-        class_name: :PostTag,
-        primary_key: :id,
-        foreign_key: :tag_id
+        through: :post_tags,
+        source: :post
 
 end
