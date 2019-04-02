@@ -11,11 +11,12 @@ const msp = (state, ownProps) => ({
     },
     content: { caption: "" },
     media: null,
+    stage: 1,
     author: state.entities.users[state.session.id]
 });
 
 const mdp = (dispatch) => ({
-    createPost: (post) => dispatch(createPost(post)),
+    formAction: (post) => dispatch(createPost(post)),
 });
 
 export default withRouter(connect(msp, mdp)(TextPostForm));
