@@ -12,11 +12,13 @@ export const fetchPosts = () => {
     });
 };
 
-export const createPost = (post) => {
+export const createPost = (formData) => {
     return $.ajax({
         method: "POST",
         url: 'api/posts',
-        data: {post: post}
+        data: formData,
+        contentType: false,
+        processData: false
     });
 };
 
@@ -24,7 +26,7 @@ export const updatePost = (post) => {
     return $.ajax({
         method: "PATCH",
         url: `api/posts/${post.id}`,
-        data: {post: post}
+        data: {post: post},
     });
 };
 
