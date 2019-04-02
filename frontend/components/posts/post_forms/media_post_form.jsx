@@ -18,7 +18,6 @@ class MediaForm extends React.Component {
             content: props.content,
             media: props.media
         };
-        debugger
     }
 
     handleCancel(event) {
