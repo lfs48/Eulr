@@ -40,18 +40,6 @@ class MediaForm extends React.Component {
         }
     }
 
-    // handleSubmit: function(event) {
-    // event.preventDefault();
-    // const content = JSON.stringify(this.state.content);
-    // const post = merge({}, this.state.post);
-    // post.content = content;
-    // this.props.createPost(post).then(() => {
-    //     this.props.clearDash();
-    //     this.props.history.push("/dashboard");
-    // }
-    // );
-    // }
-
     handleSubmit(event) {
         event.preventDefault();
         const content = JSON.stringify(this.state.content);
