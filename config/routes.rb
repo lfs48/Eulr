@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create, :update, :show, :destroy]
     resources :follows, only: [:create]
     resource :follows, only: [:destroy]
+    resources :tags, only: [:index, :show] do
+      resources :posts, only: [:index]
+    end
   end
   
 end
