@@ -1,9 +1,7 @@
 import { connect } from "react-redux";
 import { createPost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
-import { merge } from 'lodash';
 import TextPostForm from './media_post_form';
-import { clearDash } from "../../../actions/ui/dash_actions";
 
 const msp = (state, ownProps) => ({
     post: {

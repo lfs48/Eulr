@@ -1,7 +1,6 @@
 import { connect } from "react-redux";
 import { createPost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
-import { merge } from 'lodash';
 import TextPostForm from './text_post_form';
 import LinkPostForm from './link_post_form';
 import { clearDash } from "../../../actions/ui/dash_actions";
