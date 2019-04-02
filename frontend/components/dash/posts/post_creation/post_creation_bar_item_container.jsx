@@ -10,7 +10,7 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = (dispatch) => ({
-    openPostForm: () => dispatch( openPostForm() )
+    
 });
 
 export default withRouter( connect(msp, mdp)(PostCreationBarItem) );
