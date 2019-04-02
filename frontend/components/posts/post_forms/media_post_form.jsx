@@ -132,7 +132,12 @@ class MediaForm extends React.Component {
                                         <i className="fas fa-camera"></i>
                                         <span>Upload Photos</span>
                                     </label>
-                                    <input id="upload" type="file" onChange={this.handleStage2}></input>
+                                    <input 
+                                        className="file-input-invisible"
+                                        id="upload" 
+                                        type="file" 
+                                        onChange={this.handleStage2}
+                                    ></input>
                                     </div>
                                     <div className="post-media-option-right">
                                     <button onClick={this.handleStage3} className="media-option-button">
@@ -142,45 +147,53 @@ class MediaForm extends React.Component {
                                     </div>
                                 </div>
                             :<></>}
-                            {this.state.stage === 2 ?
-                            <>
-                            <ul>
-                                {imgs}
-                            </ul>
-                            <input 
-                                type="file" 
-                                onChange={this.handleUpload}
-                            ></input>
-                            <input
-                                className="post-body-input"
-                                type="text"
-                                placeholder="Enter a caption, if you like"
-                                value={this.state.content.caption}
-                                onChange={this.handleInput("caption")}
-                            ></input>
-                            </>
-                            :<></>}
-                            {this.state.stage === 3 ?
+                            <div className="media-post-body-container">
+                                {this.state.stage === 2 ?
                                 <>
-                                    <ul>
-                                        {imgs}
-                                    </ul>
-                                    <input
-                                        className="post-url-input"
-                                        type="text"
-                                        placeholder="Enter a URL"
-                                        value={this.state.content.url}
-                                        onChange={this.handleInput("url")}
-                                    ></input>
-                                    <input
-                                        className="post-body-input"
-                                        type="text"
-                                        placeholder="Enter a caption, if you like"
-                                        value={this.state.content.caption}
-                                        onChange={this.handleInput("caption")}
-                                    ></input>
+                                <ul>
+                                    {imgs}
+                                </ul>
+                                <label htmlFor="additionalUpload">
+                                        <i className="fas fa-camera"></i>
+                                        <span>Add Another</span>
+                                </label>
+                                <input 
+                                    className="file-input-invisible"
+                                    id="additionalUpload"
+                                    type="file" 
+                                    onChange={this.handleUpload}
+                                ></input>
+                                <input
+                                    className="post-body-input"
+                                    type="text"
+                                    placeholder="Enter a caption, if you like"
+                                    value={this.state.content.caption}
+                                    onChange={this.handleInput("caption")}
+                                ></input>
                                 </>
-                            : <></>}
+                                :<></>}
+                                {this.state.stage === 3 ?
+                                    <>
+                                        <ul>
+                                            {imgs}
+                                        </ul>
+                                        <input
+                                            className="post-url-input"
+                                            type="text"
+                                            placeholder="Enter a URL"
+                                            value={this.state.content.url}
+                                            onChange={this.handleInput("url")}
+                                        ></input>
+                                        <input
+                                            className="post-body-input"
+                                            type="text"
+                                            placeholder="Enter a caption, if you like"
+                                            value={this.state.content.caption}
+                                            onChange={this.handleInput("caption")}
+                                        ></input>
+                                    </>
+                                : <></>}
+                            </div>
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
                                 <input
