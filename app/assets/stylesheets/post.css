@@ -47,10 +47,14 @@
     margin-bottom: 20px;
 }
 
+.post-list-item {
+    position: relative;
+}
+
 .post-menu {
     background-color: white;
-	position: relative;
-    bottom: 30px;
+	position: absolute;
+    bottom: -65px;
 	left: 550px;
 	border: 1px solid gray;
 	border-radius: 3px;
