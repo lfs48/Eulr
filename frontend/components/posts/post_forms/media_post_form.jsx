@@ -13,10 +13,12 @@ class MediaForm extends React.Component {
         this.handleStage2 = this.handleStage2.bind(this);
         this.handleStage3 = this.handleStage3.bind(this);
         this.state = {
-            stage: 1,
+            stage: this.props.stage,
             post: props.post,
-            content: props.content
+            content: props.content,
+            media: props.media
         };
+        debugger
     }
 
     handleCancel(event) {
@@ -57,6 +59,9 @@ class MediaForm extends React.Component {
         event.preventDefault();
         const content = JSON.stringify(this.state.content);
         const formData = new FormData();
+        if (this.state.post.id) {
+            formData.append("post[id]", this.state.post.id);
+        }
         formData.append("post[author_id]", this.state.post.author_id);
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
@@ -64,7 +69,8 @@ class MediaForm extends React.Component {
         if (this.state.media) {
             formData.append("post[media]", this.state.media.file);
         }
-        this.props.createPost(formData).then( () =>
+
+        this.props.formAction(formData).then( () =>
             this.props.history.push("/dashboard")
         );
     }
