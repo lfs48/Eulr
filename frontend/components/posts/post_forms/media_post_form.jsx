@@ -11,6 +11,7 @@ class MediaForm extends React.Component {
         this.handleUpload = this.handleUpload.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.state = {
+            stage: 1,
             post: props.post,
             content: props.content
         };
@@ -64,6 +65,19 @@ class MediaForm extends React.Component {
         );
     }
 
+    handleStage(num) {
+        return (event) => {
+            event.preventDefault();
+            this.setState({
+                stage: num,
+                content: {
+                    caption: "",
+                    url: ""
+                }
+            });
+        };
+    }
+
     render() {
         return(
             <ReactCSSTransitionGroup
@@ -79,6 +93,14 @@ class MediaForm extends React.Component {
                             <div className="post-form-header">
                                 <h3>{this.props.author.username}</h3>
                             </div>
+                            {this.state.stage === 1 ?
+                                <div>
+                                    <button onClick={this.handleStage(2)}>Upload photos</button>
+                                    <button onClick={this.handleStage(3)}>Add photo from web</button>
+                                </div>
+                            :<></>}
+                            {this.state.stage === 2 ?
+                            <>
                             <input 
                                 type="file" 
                                 onChange={this.handleUpload}
@@ -90,6 +112,26 @@ class MediaForm extends React.Component {
                                 value={this.state.content.caption}
                                 onChange={this.handleInput("caption")}
                             ></input>
+                            </>
+                            :<></>}
+                            {this.state.stage === 3 ?
+                                <>
+                                    <input
+                                        className="post-url-input"
+                                        type="text"
+                                        placeholder="Enter a URL"
+                                        value={this.state.content.url}
+                                        onChange={this.handleInput("url")}
+                                    ></input>
+                                    <input
+                                        className="post-body-input"
+                                        type="text"
+                                        placeholder="Enter a caption, if you like"
+                                        value={this.state.content.caption}
+                                        onChange={this.handleInput("caption")}
+                                    ></input>
+                                </>
+                            : <></>}
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
                                 <input
