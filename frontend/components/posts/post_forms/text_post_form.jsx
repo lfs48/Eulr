@@ -1,16 +1,46 @@
 import React from 'react';
+import { merge } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class TextPostForm extends React.Component {
 
     constructor(props) {
         super(props);
-        this.handleSubmit = props.handleSubmit.bind(this);
-        this.handleInput = props.handleInput.bind(this);
-        this.handleCancel = props.handleCancel.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleInput = this.handleInput.bind(this);
+        this.handleCancel = this.handleCancel.bind(this);
         this.state = {
             post: props.post,
             content: props.content
+        };
+    }
+
+    handleCancel(event) {
+        event.preventDefault();
+        this.props.clearDash();
+        this.props.history.push("/dashboard");
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        const content = JSON.stringify(this.state.content);
+        const formData = new FormData();
+        formData.append("post[author_id]", this.state.post.author_id);
+        formData.append("post[poster_id]", this.state.post.poster_id);
+        formData.append("post[post_type]", this.state.post.post_type);
+        formData.append("post[content]", content);
+        this.props.createPost(formData).then(() =>
+            this.props.history.push("/dashboard")
+        );
+    }
+
+    handleInput(type) {
+        return (event) => {
+            const content = merge({}, this.state.content);
+            content[type] = event.target.value;
+            this.setState({
+                content: content
+            });
         };
     }
 
