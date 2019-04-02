@@ -13,6 +13,7 @@ export const fetchPosts = () => {
 };
 
 export const createPost = (formData) => {
+    debugger
     return $.ajax({
         method: "POST",
         url: 'api/posts',
@@ -22,11 +23,13 @@ export const createPost = (formData) => {
     });
 };
 
-export const updatePost = (post) => {
+export const updatePost = (formData) => {
     return $.ajax({
         method: "PATCH",
-        url: `api/posts/${post.id}`,
-        data: {post: post},
+        url: `api/posts/${formData.get("post[id]")}`,
+        data: formData,
+        contentType: false,
+        processData: false
     });
 };
 
