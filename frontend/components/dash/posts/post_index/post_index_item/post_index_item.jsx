@@ -94,7 +94,7 @@ class PostIndexItem extends React.Component {
                             height={304}
                         >
                             <source
-                                src="https://www.youtube.com/watch?v=fNodQpGVVyg"
+                                src="https://youtu.be/fNodQpGVVyg"
                                 type="video/mp4"
                                 ></source>
                         </video>
@@ -119,8 +119,6 @@ class PostIndexItem extends React.Component {
         )
         return(
                 <>
-                <div className="post-avatar-wrapper">
-                    <img className="avatar" src={this.props.author.avatar}></img>
                     <div className="post-container">
                         <div className="post-header-container">
                             <h4>{this.props.author ? this.props.author.username : ""}</h4>
@@ -142,7 +140,6 @@ class PostIndexItem extends React.Component {
                         }
                         </div>
                     </div>
-                </div>
                     {this.state.open ?
                         <div className="post-menu">
                             <button onClick={this.handleEdit}>Edit</button>
