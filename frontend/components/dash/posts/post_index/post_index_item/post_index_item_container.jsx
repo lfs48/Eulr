@@ -7,12 +7,19 @@ import { withRouter } from 'react-router-dom';
 const msp = (state, ownProps) => ({
     post: ownProps.post,
     author: state.entities.users[ownProps.post.author_id],
-    isOwnPost: state.session.id === ownProps.post.author_id
-})
+    isOwnPost: state.session.id === ownProps.post.author_id,
+    tags: Object.values(state.entities.tags)
+        .filter( (tag) =>
+            ownProps.post.tags.includes(tag.id)
+        )
+        .map( (tag) =>
+        tag.tag
+    )
+});
 
 const mdp = (dispatch) => ({
     fetchUser: (id) => dispatch( fetchUser(id) ),
     deletePost: (id) => dispatch( deletePost(id) )
-})
+});
 
 export default withRouter(connect(msp, mdp)(PostIndexItem));
