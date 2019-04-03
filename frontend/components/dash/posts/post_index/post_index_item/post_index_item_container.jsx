@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
 import { fetchUser } from "../../../../../actions/entities/user_actions";
 import { withRouter } from 'react-router-dom';
+import { openEditForm } from "../../../../../actions/ui/post_index_actions";
 
 const msp = (state, ownProps) => ({
     post: ownProps.post,
@@ -19,7 +20,8 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     fetchUser: (id) => dispatch( fetchUser(id) ),
-    deletePost: (id) => dispatch( deletePost(id) )
+    deletePost: (id) => dispatch( deletePost(id) ),
+    openEditForm: (id) => dispatch( openEditForm(id) )
 });
 
 export default withRouter(connect(msp, mdp)(PostIndexItem));
