@@ -6,7 +6,7 @@ import { merge } from 'lodash';
 import TextPostForm from './text_post_form';
 
 const msp = (state, ownProps) => {
-    const post = state.entities.posts[ownProps.match.params.postId];
+    const post = ownProps.post;
     return({
         post: post,
         content: JSON.parse(post.content),
