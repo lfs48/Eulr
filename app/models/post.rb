@@ -21,10 +21,8 @@ class Post < ApplicationRecord
     has_many_attached :media
 
     def add_tags_from_strings(tagStrs)
-        tagStrs.each do |tagStr|
-            tags = Tag.where(:tag => tagStrs)
-            self.tags << tags
-        end
+        tags = Tag.where(:tag => tagStrs)
+        self.tags += tags
     end
 
 end
