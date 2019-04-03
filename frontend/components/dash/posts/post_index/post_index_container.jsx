@@ -5,7 +5,8 @@ import { fetchUsers } from '../../../../actions/entities/user_actions';
 import { fetchTags } from '../../../../actions/entities/tag_actions';
 
 const msp = (state) => ({
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
+    editId: state.ui.postIndex
 });
 
 const mdp = (dispatch) => ({
