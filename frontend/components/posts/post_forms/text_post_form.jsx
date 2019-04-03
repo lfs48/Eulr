@@ -16,7 +16,7 @@ class TextPostForm extends React.Component {
         this.state = {
             post: props.post,
             content: props.content,
-            tags: [],
+            tags: props.tags,
             currentTag: ""
         };
     }
