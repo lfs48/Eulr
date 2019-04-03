@@ -76,7 +76,7 @@ class TextPostForm extends React.Component {
             disabled = true;
         }
         const tags = this.state.tags.map( (tag, idx) =>
-            <li key={idx}>{tag}</li>
+            <li key={idx}>{`#${tag}`}</li>
         );
         return (
             <ReactCSSTransitionGroup
@@ -110,14 +110,14 @@ class TextPostForm extends React.Component {
                                 <ul>
                                     {tags}
                                 </ul>
+                                <input
+                                    className="post-tag-input"
+                                    type="text"
+                                    placeholder="#tags"
+                                    value={this.state.currentTag}
+                                    onChange={this.handleTagInput}
+                                ></input>
                             </div>
-                            <input
-                                className="post-tag-input"
-                                type="text"
-                                placeholder="#tags"
-                                value={this.state.currentTag}
-                                onChange={this.handleTagInput}
-                            ></input>
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
                                 <input
