@@ -75,6 +75,9 @@ class TextPostForm extends React.Component {
         if (this.state.content.title === "" && this.state.content.body === "") {
             disabled = true;
         }
+        const tags = this.state.tags.map( (tag, idx) =>
+            <li key={idx}>{tag}</li>
+        );
         return (
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -103,6 +106,11 @@ class TextPostForm extends React.Component {
                                 value={this.state.content.body}
                                 onChange={this.handleInput("body")}
                             ></input>
+                            <div className="post-form-tags-container">
+                                <ul>
+                                    {tags}
+                                </ul>
+                            </div>
                             <input
                                 className="post-tag-input"
                                 type="text"
