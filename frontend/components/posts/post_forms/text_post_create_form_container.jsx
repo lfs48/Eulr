@@ -10,6 +10,7 @@ const msp = (state, ownProps) => ({
         poster_id: state.session.id,
         post_type: ownProps.postType
     },
+    tags: [],
     content: ownProps.postType === "link" ? { url: "", title: "", summary: "", description: "" } : {title: "", body: ""},
     titlePlaceholder: ownProps.titlePlaceholder,
     bodyPlaceholder: ownProps.bodyPlaceholder,

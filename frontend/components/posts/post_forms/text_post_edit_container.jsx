@@ -8,8 +8,14 @@ import { closeEditForm } from '../../../actions/ui/post_index_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
+    const tags = Object.values(state.entities.tags).filter( (tag) =>
+            post.tags.includes(tag.id)
+        ).map( (tag) =>
+            tag.tag
+        );
     return({
         post: post,
+        tags: tags,
         content: JSON.parse(post.content),
         titlePlaceholder: ownProps.titlePlaceholder,
         bodyPlaceholder: ownProps.bodyPlaceholder,
