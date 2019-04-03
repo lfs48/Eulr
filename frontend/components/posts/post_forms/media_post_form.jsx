@@ -16,7 +16,8 @@ class MediaForm extends React.Component {
             stage: this.props.stage,
             post: props.post,
             content: props.content,
-            media: props.media
+            media: props.media,
+            tags: props.tags
         };
     }
 
