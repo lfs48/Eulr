@@ -65,8 +65,12 @@ class PostIndexItem extends React.Component {
             case ("link"): {
                 return (
                     <div className="link-post-body">
-                        <h4>Coming soon!</h4>
-                        <p>{content.caption}</p>
+                        <div className="post-link-header-container">
+                            <h2 className="post-link-url">{content.url}</h2>
+                            <h3 className="post-link-title">{content.title}</h3>
+                            <span className="post-link-summary">{content.summary}</span>
+                        </div>
+                        <p>{content.body}</p>
                     </div>
                 );
             }
