@@ -12,12 +12,15 @@ class MediaForm extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
         this.handleStage2 = this.handleStage2.bind(this);
         this.handleStage3 = this.handleStage3.bind(this);
+        this.handleTagInput = this.handleTagInput.bind(this);
+        this.handleTagKeypress = this.handleTagKeypress.bind(this);
         this.state = {
             stage: this.props.stage,
             post: props.post,
             content: props.content,
             media: props.media,
-            tags: props.tags
+            tags: props.tags,
+            currentTag: ""
         };
     }
 
@@ -66,6 +69,9 @@ class MediaForm extends React.Component {
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
+        const tags = this.state.tags;
+        tags.push(this.state.currentTag);
+        formData.append("post[tags]", tags.join(","));
         if (this.state.media && this.state.media.file) {
             formData.append("post[media]", this.state.media.file);
         }
@@ -110,6 +116,41 @@ class MediaForm extends React.Component {
         });
     }
 
+    handleTagInput(event) {
+        event.preventDefault();
+        const input = event.target.value;
+        if (input.charAt(input.length - 1) === ",") {
+            const tags = merge([], this.state.tags);
+            tags.push(input.slice(0, input.length - 1));
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else {
+            this.setState({
+                currentTag: event.target.value
+            });
+        }
+    }
+
+    handleTagKeypress(event) {
+        let tags = merge([], this.state.tags);
+        if (event.key === "Enter" || event.key === ",") {
+            event.preventDefault();
+            tags.push(this.state.currentTag);
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else if (event.key == "Backspace" && this.state.currentTag === "") {
+            tags = tags.slice(0, tags.length - 1);
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        }
+    }
+
     render() {
         let imgs = <></>
         if (this.state.media) {
@@ -117,6 +158,9 @@ class MediaForm extends React.Component {
         } else if (this.state.content.url !== "") {
             imgs = <li><img src={this.state.content.url}></img></li>
         }
+        const tags = this.state.tags.map((tag, idx) =>
+            <li key={idx}>{`#${tag}`}</li>
+        );
         return(
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -200,6 +244,21 @@ class MediaForm extends React.Component {
                                     </>
                                 : <></>}
                             </div>
+                            {this.state.stage !== 1 ?
+                            <div className="post-form-tags-container">
+                                <ul>
+                                    {tags}
+                                </ul>
+                                <input
+                                    className="post-tag-input"
+                                    type="text"
+                                    placeholder="#tags"
+                                    value={this.state.currentTag}
+                                    onChange={this.handleTagInput}
+                                    onKeyDown={this.handleTagKeypress}
+                                ></input>
+                            </div>
+                            :<></>}
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
                                 <input
