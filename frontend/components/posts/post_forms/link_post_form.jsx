@@ -9,6 +9,7 @@ class LinkPostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.urlIsComplete = this.urlIsComplete.bind(this);
         this.state = {
             post: props.post,
             content: props.content
@@ -43,11 +44,15 @@ class LinkPostForm extends React.Component {
         this.props.history.push("/dashboard");
     }
 
-    render() {
-        let disabled = false;
-        if (this.state.content.url === "") {
-            disabled = true;
+    urlIsComplete(url) {
+        if (url.includes(".com") ) {
+            return true;
         }
+        return false;
+    }
+
+    render() {
+        const urlComplete = this.urlIsComplete(this.state.content.url);
         return (
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -62,17 +67,9 @@ class LinkPostForm extends React.Component {
                             <div className="post-form-header">
                                 <h3>{this.props.author.username}</h3>
                             </div>
-                            <input
-                                className="post-url-input"
-                                type="text"
-                                placeholder="Type or paste a URL"
-                                value={this.state.content.url}
-                                onChange={this.handleInput("url")}
-                            ></input>
-                            {disabled ?
-                            <></>
-                            :
+                            {urlComplete ?
                             <>
+                            <h2>{this.state.content.url}</h2>
                             <input
                                 type="text"
                                 placeholder="Title"
@@ -93,13 +90,21 @@ class LinkPostForm extends React.Component {
                                 onChange={this.handleInput("description")}
                             ></input>
                             </>
+                            :
+                                <input
+                                    className="post-link-url-input"
+                                    type="text"
+                                    placeholder="Type or paste a URL"
+                                    value={this.state.content.url}
+                                    onChange={this.handleInput("url")}
+                                ></input>
                             }
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
                                 <input
                                     type="submit"
                                     value="Post"
-                                    disabled={disabled}
+                                    disabled={urlComplete}
                                 ></input>
                             </div>
                         </form>
