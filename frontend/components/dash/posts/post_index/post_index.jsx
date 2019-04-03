@@ -26,7 +26,7 @@ class PostIndex extends React.Component {
                         <li className="post-list-item" key={post.id}>
                             {this.props.editId === post.id ?
                             <>
-                            <PostWrapper post={post} edit={true}/>
+                            <PostWrapper post={post} edit={true} postType={post.post_type}/>
                              <div className="modal-background"></div>
                             </>
                             :
