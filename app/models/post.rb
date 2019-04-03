@@ -25,4 +25,11 @@ class Post < ApplicationRecord
         self.tags += tags
     end
 
+    def update_tags_from_strings(tagStrs)
+        tags = Tag.where(:tag => tagStrs)
+        self.tags = self.tags.select { |tag| tags.include?(tag) }
+        tags = tags.reject { |tag| self.tags.include?(tag) }
+        self.tags += tags
+    end
+
 end
