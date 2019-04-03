@@ -9,6 +9,7 @@
 
 .post-form-container input {
     padding-left: 20px;
+    width: 515px;
     border: none;
 }
 
@@ -47,8 +48,8 @@
     border-top: 2px dashed darkgray !important;
     border-bottom: 2px dashed darkgray !important;
     height: 200px;
-    width: 100%;
-    padding: 0 !important;
+    width: 515px;
+    margin-bottom: 20px;
 }
 
 .post-form-footer {
