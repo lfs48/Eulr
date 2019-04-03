@@ -153,6 +153,25 @@ class MediaForm extends React.Component {
     }
 
     render() {
+        let icon = <></>;
+        let caption = "";
+        switch (this.props.post.post_type) {
+            case("photo"): {
+                icon = <i className="fas fa-camera"></i>;
+                caption = "Upload photos";
+                break;
+            }
+            case("audio"): {
+                icon = <i className="fas fa-headphones"></i>;
+                caption = "Upload a song";
+                break;
+            }
+            case("video"): {
+                icon = <i className="fas fa-video"></i>;
+                caption = "Upload a video";
+                break;
+            }
+        }
         let imgs = <></>
         if (this.state.media) {
             imgs = <li><img src={this.state.media.url}></img></li>
@@ -184,8 +203,8 @@ class MediaForm extends React.Component {
                                 <div className="post-media-option-container">
                                     <div className="post-media-option-left">
                                     <label htmlFor="upload" className="media-option-button">
-                                        <i className="fas fa-camera"></i>
-                                        <span>Upload Photos</span>
+                                        {icon}
+                                        <span>{caption}</span>
                                     </label>
                                     <input 
                                         className="file-input-invisible"
@@ -197,7 +216,7 @@ class MediaForm extends React.Component {
                                     <div className="post-media-option-right">
                                     <button onClick={this.handleStage3} className="media-option-button">
                                         <i className="fas fa-globe"></i>
-                                        <span>Add photo from web</span>
+                                        <span>Add {this.props.post.post_type} from web</span>
                                     </button>
                                     </div>
                                 </div>
@@ -209,7 +228,7 @@ class MediaForm extends React.Component {
                                     {imgs}
                                 </ul>
                                 <label htmlFor="additionalUpload">
-                                        <i className="fas fa-camera"></i>
+                                        {icon}
                                         <span>Add Another</span>
                                 </label>
                                 <input 
