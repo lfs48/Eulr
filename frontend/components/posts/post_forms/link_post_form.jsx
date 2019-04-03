@@ -1,5 +1,6 @@
 import React from 'react';
 import { merge } from 'lodash';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class LinkPostForm extends React.Component {
     
@@ -48,6 +49,13 @@ class LinkPostForm extends React.Component {
             disabled = true;
         }
         return (
+            <ReactCSSTransitionGroup
+                transitionAppear={true}
+                transitionAppearTimeout={250}
+                transitionLeaveTimeout={250}
+                transitionName="post-form-transition"
+                transitionEnter={false}
+            >
             <div className="post-form-container">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
                         <form onSubmit={this.handleSubmit}>
@@ -97,6 +105,7 @@ class LinkPostForm extends React.Component {
                         </form>
                     </div>
             </div>
+            </ReactCSSTransitionGroup>
         );
     } 
 }
