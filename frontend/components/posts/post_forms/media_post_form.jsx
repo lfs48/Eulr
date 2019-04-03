@@ -65,7 +65,7 @@ class MediaForm extends React.Component {
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
-        if (this.state.media.file) {
+        if (this.state.media && this.state.media.file) {
             formData.append("post[media]", this.state.media.file);
         }
 
