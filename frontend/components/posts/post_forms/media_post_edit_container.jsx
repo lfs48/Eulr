@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { updatePost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
 import MediaPostForm from './media_post_form';
+import { closeEditForm} from '../../../actions/ui/post_index_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
@@ -25,6 +26,7 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => ({
     formAction: (post) => dispatch(updatePost(post)),
+    formCancel: () => dispatch(closeEditForm())
 });
 
 export default withRouter(connect(msp, mdp)(MediaPostForm));

@@ -18,6 +18,7 @@ const msp = (state, ownProps) => ({
 
 const mdp = (dispatch) => ({
     formAction: (post) => dispatch(createPost(post)),
+    formCancel: function () { this.props.history.push("/dashboard"); }
 });
 
 export default withRouter(connect(msp, mdp)(TextPostForm));
