@@ -107,6 +107,11 @@ class PostIndexItem extends React.Component {
     }
 
     render() {
+        const tags = this.props.tags.map( (tag, idx) =>
+            <li key={idx}>
+                <span>{tag}</span>
+            </li>
+        )
         return(
             <>
             <div className="post-avatar-wrapper">
@@ -117,6 +122,11 @@ class PostIndexItem extends React.Component {
                     </div>
                     <div className="post-body-container">
                     {this.formatContent(this.props.post)}
+                    </div>
+                    <div className="post-tags-container">
+                        <ul>
+                            {tags}
+                        </ul>
                     </div>
                     <div className="post-footer-container">
                     {this.props.isOwnPost ? 
