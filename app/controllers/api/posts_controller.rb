@@ -19,6 +19,9 @@ class Api::PostsController < ApplicationController
     def create
         @post = Post.new(post_params)
         if @post.save
+            tagStrs = params[:post][:tags] || []
+            Tag.create_tags_from_strings(tagStrs)
+            @post.add_tags_from_strings(tagStrs)
             render "api/posts/show"
         else
             render @post.errors.full_messages, status: 422
