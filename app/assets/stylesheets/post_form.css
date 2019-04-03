@@ -40,6 +40,13 @@
     align-items: flex-start;
 }
 
+.post-link-url-input {
+    height: 120px;
+    background: lightgray;
+    border-top: 1px dashed gray !important;
+    border-bottom: 1px dashed gray !important;
+}
+
 .post-body-input::placeholder {
     color: rgb(143, 142, 142);
 }
