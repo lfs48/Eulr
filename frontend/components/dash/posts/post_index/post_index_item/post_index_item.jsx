@@ -9,24 +9,16 @@ class PostIndexItem extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.handleToggleMenu = this.handleToggleMenu.bind(this);
         this.state = {
-            open: false,
-            editing: false
+            open: false
         };
     }
 
     handleEdit() {
-        this.setState({
-            open: false,
-            editing: true
-        });
+        this.props.openEditForm(this.props.post.id);
     }
 
     handleDelete() {
         this.props.deletePost(this.props.post.id);
-    }
-
-    componentDidMount() {
-        this.props.author ? null : this.props.fetchUser(this.props.post.author_id);
     }
 
     formatContent(post) {
@@ -125,7 +117,6 @@ class PostIndexItem extends React.Component {
                 <span>#{tag}</span>
             </li>
         )
-        if (!this.state.editing) {
         return(
                 <>
                 <div className="post-avatar-wrapper">
@@ -160,23 +151,6 @@ class PostIndexItem extends React.Component {
                     : <></>}
                 </>
             )
-        } else {
-            switch(this.props.post.post_type) {
-                default: return <></>
-                case("text"): {
-                    return(
-                        <>
-                        <div className="post-avatar-wrapper">
-                            <img className="avatar" src={this.props.author.avatar}></img>
-                            <TextPostEditForm post={this.props.post}/>
-                        </div>
-                        <div className="modal-background"></div>
-                        </>
-                    );
-                }
-            }
-            
-        }
     }
 }
 
