@@ -47,6 +47,8 @@
     border-top: 2px dashed darkgray !important;
     border-bottom: 2px dashed darkgray !important;
     height: 200px;
+    width: 100%;
+    padding: 0 !important;
 }
 
 .post-form-footer {
