@@ -162,6 +162,10 @@ class MediaForm extends React.Component {
         const tags = this.state.tags.map((tag, idx) =>
             <li key={idx}>{`#${tag}`}</li>
         );
+        let disabled = false;
+        if (this.state.content.url === "") {
+            disabled = true;
+        }
         return(
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -235,6 +239,9 @@ class MediaForm extends React.Component {
                                             value={this.state.content.url}
                                             onChange={this.handleInput("url")}
                                         ></input>
+                                        {disabled ?
+                                        <></>
+                                        :
                                         <input
                                             className="post-body-input"
                                             type="text"
@@ -242,6 +249,7 @@ class MediaForm extends React.Component {
                                             value={this.state.content.caption}
                                             onChange={this.handleInput("caption")}
                                         ></input>
+                                        }
                                     </>
                                 : <></>}
                             </div>
