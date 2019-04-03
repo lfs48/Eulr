@@ -11,6 +11,7 @@ class TextPostForm extends React.Component {
         this.handleInput = this.handleInput.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
         this.handleTagInput = this.handleTagInput.bind(this);
+        this.formCancel = props.formCancel.bind(this);
         this.state = {
             post: props.post,
             content: props.content,
@@ -21,7 +22,7 @@ class TextPostForm extends React.Component {
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.history.push("/dashboard");
+        this.formCancel();
     }
 
     handleSubmit(event) {
@@ -39,7 +40,7 @@ class TextPostForm extends React.Component {
         tags.push(this.state.currentTag);
         formData.append("post[tags]", tags.join(","));
         this.props.formAction(formData).then(() =>
-            this.props.history.push("/dashboard")
+            this.formCancel()
         );
     }
 
