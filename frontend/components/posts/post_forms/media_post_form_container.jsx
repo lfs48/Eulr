@@ -12,6 +12,7 @@ const msp = (state, ownProps) => ({
     content: { caption: "" },
     media: null,
     stage: 1,
+    tags: [],
     author: state.entities.users[state.session.id]
 });
 

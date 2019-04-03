@@ -5,6 +5,11 @@ import MediaPostForm from './media_post_form';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
+    const tags = Object.values(state.entities.tags).filter((tag) =>
+        post.tags.includes(tag.id)
+    ).map((tag) =>
+        tag.tag
+    );
     return {
         post: post,
         content: JSON.parse(post.content),
@@ -13,7 +18,8 @@ const msp = (state, ownProps) => {
             file: null,
             url: post.mediaUrls[0]
         },
-        stage: 3
+        stage: 3,
+        tags: tags
     };
 };
 
