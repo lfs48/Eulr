@@ -109,7 +109,7 @@ class PostIndexItem extends React.Component {
     render() {
         const tags = this.props.tags.map( (tag, idx) =>
             <li key={idx}>
-                <span>{tag}</span>
+                <span>#{tag}</span>
             </li>
         )
         return(
