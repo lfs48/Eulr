@@ -57,13 +57,18 @@
    opacity: 1;
    transform: scaleY(0.3448);
    transform-origin: top;
+   height: 100px;
+   transition: height 0.25s;
+   transition-timing-function: linear;
+   margin-bottom: 20px;
  }
 
  .post-form-transition-appear.post-form-transition-appear-active {
    opacity: 1;
    transform: scaleY(1);
    transform-origin: top;
-   transition: opacity 500ms, transform 500ms;
+   height: 312px;
+   margin-bottom: 20px;
  }
 
    .post-form-transition-leave {
