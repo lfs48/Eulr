@@ -34,6 +34,11 @@ class Api::PostsController < ApplicationController
 
     def update
         if @post.update(post_params)
+            if params[:post][:tags]
+                tagStrs = params[:post][:tags].split(",")
+                Tag.create_tags_from_strings(tagStrs)
+                @post.update_tags_from_strings(tagStrs)
+            end
             render "api/posts/show"
         else
             render @post.errors.full_messages, status: 422
