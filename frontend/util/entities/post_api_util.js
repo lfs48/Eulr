@@ -13,7 +13,6 @@ export const fetchPosts = () => {
 };
 
 export const createPost = (formData) => {
-    debugger
     return $.ajax({
         method: "POST",
         url: 'api/posts',
