@@ -1,6 +1,7 @@
 import React from'react';
 import PostIndexItem from './post_index_item/post_index_item_container';
 import TextPostEditForm from '../../../posts/post_forms/text_post_edit_container';
+import PostWrapper from './post_wrapper_container';
 
 class PostIndex extends React.Component {
 
@@ -24,9 +25,12 @@ class PostIndex extends React.Component {
                     return (
                         <li className="post-list-item" key={post.id}>
                             {this.props.editId === post.id ?
-                            <TextPostEditForm post={post} />
+                            <>
+                            <PostWrapper post={post} edit={true}/>
+                             <div className="modal-background"></div>
+                            </>
                             :
-                            <PostIndexItem post={post} />
+                            <PostWrapper post={post} edit={false} />
                             }
                         </li>);
                 }
