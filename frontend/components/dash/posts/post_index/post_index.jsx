@@ -1,5 +1,6 @@
 import React from'react';
 import PostIndexItem from './post_index_item/post_index_item_container';
+import TextPostEditForm from '../../../posts/post_forms/text_post_edit_container';
 
 class PostIndex extends React.Component {
 
@@ -20,7 +21,14 @@ class PostIndex extends React.Component {
     render() {
         if (this.state.loaded) {
             const lis = this.props.posts.reverse().map( post => {
-                    return (<li className="post-list-item" key={post.id}><PostIndexItem post={post}/></li>);
+                    return (
+                        <li className="post-list-item" key={post.id}>
+                            {this.props.editId === post.id ?
+                            <TextPostEditForm post={post} />
+                            :
+                            <PostIndexItem post={post} />
+                            }
+                        </li>);
                 }
             );
             return (
