@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { merge } from 'lodash';
 import TextPostForm from './text_post_form';
+import { closeEditForm } from '../../../actions/ui/post_index_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
@@ -18,7 +19,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => ({
     fetchPost: (id) => dispatch( fetchPost(id) ),
-    formAction: (post) => dispatch( updatePost(post) )
+    formAction: (post) => dispatch( updatePost(post) ),
+    formCancel: () => dispatch( closeEditForm() )
 });
 
 export default withRouter(connect(msp, mdp)(TextPostForm));
