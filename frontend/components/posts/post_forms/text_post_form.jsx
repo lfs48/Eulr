@@ -1,6 +1,7 @@
 import React from 'react';
 import { merge } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { throws } from 'assert';
 
 class TextPostForm extends React.Component {
 
@@ -9,9 +10,12 @@ class TextPostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.handleTagInput = this.handleTagInput.bind(this);
         this.state = {
             post: props.post,
-            content: props.content
+            content: props.content,
+            tags: [],
+            currentTag: ""
         };
     }
 
@@ -31,6 +35,9 @@ class TextPostForm extends React.Component {
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
+        const tags = this.state.tags;
+        tags.push(this.state.currentTag);
+        formData.append("post[tags]", tags.join(","));
         this.props.formAction(formData).then(() =>
             this.props.history.push("/dashboard")
         );
@@ -44,6 +51,22 @@ class TextPostForm extends React.Component {
                 content: content
             });
         };
+    }
+
+    handleTagInput(event) {
+        const input = event.target.value;
+        if (input.charAt(input.length - 1) === ",") {
+            const tags = merge([], this.state.tags);
+            tags.push(input.slice(0, input.length-1));
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else {
+            this.setState({
+                currentTag: event.target.value
+            });
+        }
     }
 
     render() {
@@ -78,6 +101,13 @@ class TextPostForm extends React.Component {
                                 placeholder={this.props.bodyPlaceholder}
                                 value={this.state.content.body}
                                 onChange={this.handleInput("body")}
+                            ></input>
+                            <input
+                                className="post-tag-input"
+                                type="text"
+                                placeholder="#tags"
+                                value={this.state.currentTag}
+                                onChange={this.handleTagInput}
                             ></input>
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
