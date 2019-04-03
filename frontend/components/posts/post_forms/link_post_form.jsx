@@ -9,6 +9,7 @@ class LinkPostForm extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleInput = this.handleInput.bind(this);
         this.handleCancel = this.handleCancel.bind(this);
+        this.formCancel = props.formCancel.bind(this);
         this.urlIsComplete = this.urlIsComplete.bind(this);
         this.state = {
             post: props.post,
@@ -24,8 +25,8 @@ class LinkPostForm extends React.Component {
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
-        this.props.createPost(formData).then(() =>
-            this.props.history.push("/dashboard")
+        this.props.formAction(formData).then(() =>
+            this.formCancel()
         );
     }
 
@@ -41,7 +42,7 @@ class LinkPostForm extends React.Component {
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.history.push("/dashboard");
+        this.formCancel();
     }
 
     urlIsComplete(url) {
@@ -69,19 +70,23 @@ class LinkPostForm extends React.Component {
                             </div>
                             {urlComplete ?
                             <>
+                            <div className="post-link-header-container">
                             <h2>{this.state.content.url}</h2>
-                            <input
+                            <input  
+                                className="post-link-title-input"
                                 type="text"
-                                placeholder="Title"
+                                placeholder="Enter a title"
                                 value={this.state.content.title}
                                 onChange={this.handleInput("title")}
                             ></input>
                             <input
+                                className="post-link-summary-input"
                                 type="text"
-                                placeholder="Summary"
+                                placeholder="Enter a summary"
                                 value={this.state.content.summary}
                                 onChange={this.handleInput("summary")}
                             ></input>
+                            </div>
                             <input
                                 className="post-body-input"
                                 type="text"
@@ -104,7 +109,7 @@ class LinkPostForm extends React.Component {
                                 <input
                                     type="submit"
                                     value="Post"
-                                    disabled={urlComplete}
+                                    disabled={!urlComplete}
                                 ></input>
                             </div>
                         </form>
