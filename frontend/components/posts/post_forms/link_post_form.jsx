@@ -71,16 +71,16 @@ class LinkPostForm extends React.Component {
                             {urlComplete ?
                             <>
                             <div className="post-link-header-container">
-                            <h2>{this.state.content.url}</h2>
+                            <h2 className="post-link-url">{this.state.content.url}</h2>
                             <input  
-                                className="post-link-title-input"
+                                className="post-link-title"
                                 type="text"
                                 placeholder="Enter a title"
                                 value={this.state.content.title}
                                 onChange={this.handleInput("title")}
                             ></input>
                             <input
-                                className="post-link-summary-input"
+                                className="post-link-summary"
                                 type="text"
                                 placeholder="Enter a summary"
                                 value={this.state.content.summary}
@@ -91,8 +91,8 @@ class LinkPostForm extends React.Component {
                                 className="post-body-input"
                                 type="text"
                                 placeholder="Add a description, if you like"
-                                value={this.state.content.description}
-                                onChange={this.handleInput("description")}
+                                value={this.state.content.body}
+                                onChange={this.handleInput("body")}
                             ></input>
                             </>
                             :
