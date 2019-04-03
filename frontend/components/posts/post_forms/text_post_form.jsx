@@ -12,6 +12,7 @@ class TextPostForm extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
         this.handleTagInput = this.handleTagInput.bind(this);
         this.formCancel = props.formCancel.bind(this);
+        this.handleTagKeypress = this.handleTagKeypress.bind(this);
         this.state = {
             post: props.post,
             content: props.content,
@@ -55,6 +56,7 @@ class TextPostForm extends React.Component {
     }
 
     handleTagInput(event) {
+        event.preventDefault();
         const input = event.target.value;
         if (input.charAt(input.length - 1) === ",") {
             const tags = merge([], this.state.tags);
@@ -66,6 +68,24 @@ class TextPostForm extends React.Component {
         } else {
             this.setState({
                 currentTag: event.target.value
+            });
+        }
+    }
+
+    handleTagKeypress(event) {
+        let tags = merge([], this.state.tags);
+        if(event.key === "Enter" || event.key === ",") {
+            event.preventDefault();
+            tags.push(this.state.currentTag);
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else if (event.key == "Backspace" && this.state.currentTag === "") {
+            tags = tags.slice(0, tags.length - 1);
+            this.setState({
+                tags: tags,
+                currentTag: ""
             });
         }
     }
@@ -88,7 +108,7 @@ class TextPostForm extends React.Component {
             >
             <div key={1} className="post-form-container">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={(event) => event.preventDefault()}>
                             <div className="post-form-header">
                                 <h3>{this.props.author.username}</h3>
                             </div>
@@ -116,15 +136,12 @@ class TextPostForm extends React.Component {
                                     placeholder="#tags"
                                     value={this.state.currentTag}
                                     onChange={this.handleTagInput}
+                                    onKeyDown={this.handleTagKeypress}
                                 ></input>
                             </div>
                             <div className="post-form-footer">
                                 <button onClick={this.handleCancel}>Close</button>
-                                <input
-                                    type="submit"
-                                    value="Post"
-                                    disabled={disabled}
-                                ></input>
+                                <button onClick={this.handleSubmit}>Post</button>
                             </div>
                         </form>
                     </div>
