@@ -160,3 +160,33 @@
     align-items: center;
     cursor: pointer;
 }
+
+.post-form-tags-container {
+    display: flex;
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.post-form-tags-container ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.post-form-tags-container li {
+    padding: 5px;
+    font-size: 11px;
+    color: gray;
+}
+
+.post-form-tags-container input {
+    margin: 0;
+    padding: 0;
+    font-size: 11px;
+}
+
+.post-form-tags-container li:hover {
+    background: rgb(215, 214, 214);
+    color: rgb(79, 139, 230);
+    border-radius: 3px;
+}
