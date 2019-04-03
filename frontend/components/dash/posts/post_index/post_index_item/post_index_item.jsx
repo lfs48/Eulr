@@ -1,4 +1,5 @@
 import React from 'react';
+import TextPostEditForm from '../../../../posts/post_forms/text_post_edit_container';
 
 class PostIndexItem extends React.Component {
 
@@ -8,12 +9,16 @@ class PostIndexItem extends React.Component {
         this.handleDelete = this.handleDelete.bind(this);
         this.handleToggleMenu = this.handleToggleMenu.bind(this);
         this.state = {
-            open: false
+            open: false,
+            editing: false
         };
     }
 
     handleEdit() {
-        this.props.history.push(`/dashboard/edit/${this.props.post.post_type}/${this.props.post.id}`)
+        this.setState({
+            open: false,
+            editing: true
+        });
     }
 
     handleDelete() {
@@ -120,40 +125,58 @@ class PostIndexItem extends React.Component {
                 <span>#{tag}</span>
             </li>
         )
+        if (!this.state.editing) {
         return(
-            <>
-            <div className="post-avatar-wrapper">
-                <img className="avatar" src={this.props.author.avatar}></img>
-                <div className="post-container">
-                    <div className="post-header-container">
-                        <h4>{this.props.author ? this.props.author.username : ""}</h4>
-                    </div>
-                    <div className="post-body-container">
-                    {this.formatContent(this.props.post)}
-                    </div>
-                    <div className="post-tags-container">
-                        <ul>
-                            {tags}
-                        </ul>
-                    </div>
-                    <div className="post-footer-container">
-                    {this.props.isOwnPost ? 
-                    <button onClick={this.handleToggleMenu}>
-                        <i className="fas fa-cog"></i>
-                    </button>
-                    :<></>
-                    }
+                <>
+                <div className="post-avatar-wrapper">
+                    <img className="avatar" src={this.props.author.avatar}></img>
+                    <div className="post-container">
+                        <div className="post-header-container">
+                            <h4>{this.props.author ? this.props.author.username : ""}</h4>
+                        </div>
+                        <div className="post-body-container">
+                        {this.formatContent(this.props.post)}
+                        </div>
+                        <div className="post-tags-container">
+                            <ul>
+                                {tags}
+                            </ul>
+                        </div>
+                        <div className="post-footer-container">
+                        {this.props.isOwnPost ? 
+                        <button onClick={this.handleToggleMenu}>
+                            <i className="fas fa-cog"></i>
+                        </button>
+                        :<></>
+                        }
+                        </div>
                     </div>
                 </div>
-            </div>
-                {this.state.open ?
-                    <div className="post-menu">
-                        <button onClick={this.handleEdit}>Edit</button>
-                        <button onClick={this.handleDelete}>Delete</button>
-                    </div>
-                : <></>}
-            </>
-        )
+                    {this.state.open ?
+                        <div className="post-menu">
+                            <button onClick={this.handleEdit}>Edit</button>
+                            <button onClick={this.handleDelete}>Delete</button>
+                        </div>
+                    : <></>}
+                </>
+            )
+        } else {
+            switch(this.props.post.post_type) {
+                default: return <></>
+                case("text"): {
+                    return(
+                        <>
+                        <div className="post-avatar-wrapper">
+                            <img className="avatar" src={this.props.author.avatar}></img>
+                            <TextPostEditForm post={this.props.post}/>
+                        </div>
+                        <div className="modal-background"></div>
+                        </>
+                    );
+                }
+            }
+            
+        }
     }
 }
 
