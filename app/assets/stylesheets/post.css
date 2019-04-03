@@ -24,7 +24,7 @@
 
 .post-body-container {
     margin-top: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .post-footer-container {
@@ -83,4 +83,17 @@
 
 .post-menu button:hover {
     background: rgb(219, 228, 236);
+}
+
+.post-tags-container ul {
+    display: flex;
+}
+
+.post-tags-container li {
+    margin-right: 5px;
+}
+
+.post-tags-container span {
+    color: gray;
+    font-size: 13px;
 }
