@@ -92,7 +92,15 @@ class PostIndexItem extends React.Component {
             case ("video"): {
                 return (
                     <div className="video-post-body">
-                        <h4>Coming soon!</h4>
+                        <video 
+                            width={540} 
+                            height={304}
+                        >
+                            <source
+                                src="https://www.youtube.com/watch?v=fNodQpGVVyg"
+                                type="video/mp4"
+                                ></source>
+                        </video>
                         <p>{content.caption}</p>
                     </div>
                 );
