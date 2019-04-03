@@ -14,6 +14,7 @@ class MediaForm extends React.Component {
         this.handleStage3 = this.handleStage3.bind(this);
         this.handleTagInput = this.handleTagInput.bind(this);
         this.handleTagKeypress = this.handleTagKeypress.bind(this);
+        this.formCancel = props.formCancel.bind(this);
         this.state = {
             stage: this.props.stage,
             post: props.post,
@@ -26,7 +27,7 @@ class MediaForm extends React.Component {
 
     handleCancel(event) {
         event.preventDefault();
-        this.props.history.push("/dashboard");
+        this.formCancel();
     }
 
     handleInput(type) {
@@ -77,7 +78,7 @@ class MediaForm extends React.Component {
         }
 
         this.props.formAction(formData).then( () =>
-            this.props.history.push("/dashboard")
+            this.formCancel()
         );
     }
 
