@@ -11,9 +11,13 @@ class LinkPostForm extends React.Component {
         this.handleCancel = this.handleCancel.bind(this);
         this.formCancel = props.formCancel.bind(this);
         this.urlIsComplete = this.urlIsComplete.bind(this);
+        this.handleTagInput = this.handleTagInput.bind(this);
+        this.handleTagKeypress = this.handleTagKeypress.bind(this);
         this.state = {
             post: props.post,
-            content: props.content
+            content: props.content,
+            tags: props.tags,
+            currentTag: ""
         };
     }
 
@@ -25,6 +29,9 @@ class LinkPostForm extends React.Component {
         formData.append("post[poster_id]", this.state.post.poster_id);
         formData.append("post[post_type]", this.state.post.post_type);
         formData.append("post[content]", content);
+        const tags = this.state.tags;
+        tags.push(this.state.currentTag);
+        formData.append("post[tags]", tags.join(","));
         this.props.formAction(formData).then(() =>
             this.formCancel()
         );
@@ -52,8 +59,46 @@ class LinkPostForm extends React.Component {
         return false;
     }
 
+    handleTagInput(event) {
+        event.preventDefault();
+        const input = event.target.value;
+        if (input.charAt(input.length - 1) === ",") {
+            const tags = merge([], this.state.tags);
+            tags.push(input.slice(0, input.length - 1));
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else {
+            this.setState({
+                currentTag: event.target.value
+            });
+        }
+    }
+
+    handleTagKeypress(event) {
+        let tags = merge([], this.state.tags);
+        if (event.key === "Enter" || event.key === ",") {
+            event.preventDefault();
+            tags.push(this.state.currentTag);
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        } else if (event.key == "Backspace" && this.state.currentTag === "") {
+            tags = tags.slice(0, tags.length - 1);
+            this.setState({
+                tags: tags,
+                currentTag: ""
+            });
+        }
+    }
+
     render() {
         const urlComplete = this.urlIsComplete(this.state.content.url);
+        const tags = this.state.tags.map((tag, idx) =>
+            <li key={idx}>{`#${tag}`}</li>
+        );
         return (
             <ReactCSSTransitionGroup
                 transitionAppear={true}
@@ -94,6 +139,19 @@ class LinkPostForm extends React.Component {
                                 value={this.state.content.body}
                                 onChange={this.handleInput("body")}
                             ></input>
+                                    <div className="post-form-tags-container">
+                                        <ul>
+                                            {tags}
+                                        </ul>
+                                        <input
+                                            className="post-tag-input"
+                                            type="text"
+                                            placeholder="#tags"
+                                            value={this.state.currentTag}
+                                            onChange={this.handleTagInput}
+                                            onKeyDown={this.handleTagKeypress}
+                                        ></input>
+                                    </div>
                             </>
                             :
                                 <input
