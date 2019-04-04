@@ -5,10 +5,11 @@ export const fetchPost = (id) => {
     });
 };
 
-export const fetchPosts = () => {
+export const fetchPosts = (authorIds = null) => {
     return $.ajax({
         method: "GET",
-        url: 'api/posts'
+        url: 'api/posts',
+        data: {authorIds: authorIds}
     });
 };
 
