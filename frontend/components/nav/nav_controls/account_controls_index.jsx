@@ -6,7 +6,8 @@ class AccountControls extends React.Component {
     constructor(props) {
         super(props);
         this.handleLogout = this.handleLogout.bind(this);
-        this.handleToggle = this.handleToggle.bind(this);
+        this.handleOpen = this.handleOpen.bind(this);
+        this.handleClose = this.handleClose.bind(this);
         this.state = {
             open: false
         };
@@ -18,17 +19,29 @@ class AccountControls extends React.Component {
         });
     }
 
-    handleToggle() {
+    handleOpen(event) {
+        event.preventDefault();
         this.setState({
-            open: !this.state.open
-        });
+            open: true
+        },
+        () => document.addEventListener("click", this.handleClose)
+        );
+    }
+
+    handleClose(event) {
+        event.preventDefault();
+        this.setState({
+            open: false
+        },
+        () => document.removeEventListener("click", this.handleClose)
+        );
     }
 
     render() {
         if (this.state.open) {
             return (
                 <div>
-                    <button className="account-menu-icon" onClick={this.handleToggle}>
+                    <button className="account-menu-icon" onClick={this.handleClose}>
                         <i className="fas fa-user"></i>
                     </button>
                     <div className="account-menu">
@@ -77,7 +90,7 @@ class AccountControls extends React.Component {
             );
         } else {
             return (
-                <button className="account-menu-icon" onClick={this.handleToggle}>
+                <button className="account-menu-icon" onClick={this.handleOpen}>
                     <i className="fas fa-user"></i>
                 </button>
             );
