@@ -2,9 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import PostCreationBar from './posts/post_creation/post_creation_bar_container';
 import {TextPostCreateForm, LinkPostCreateForm} from '../posts/post_forms/text_post_create_form_container';
-import TextPostEditForm from '../posts/post_forms/text_post_edit_container';
 import MediaPostCreateForm from '../posts/post_forms/media_post_form_container';
-import MediaPostEditForm from '../posts/post_forms/media_post_edit_container';
 
 class DashHeader extends React.Component {
     render() {
@@ -92,36 +90,6 @@ class DashHeader extends React.Component {
                             />
                             <div className="modal-background"></div>
                             </>
-                        }
-                    />
-                    <Route path="/dashboard/edit/text/:postId"
-                        render={() =>
-                            <TextPostEditForm
-                                titlePlaceholder="Title"
-                                bodyPlaceholder="Your text here"
-                            />
-                        }
-                    />
-                    <Route path="/dashboard/edit/photo/:postId"
-                        render={() =>
-                            <MediaPostEditForm
-                            />
-                        }
-                    />
-                    <Route path="/dashboard/edit/quote/:postId"
-                        render={() =>
-                            <TextPostEditForm
-                                titlePlaceholder="Quote"
-                                bodyPlaceholder="-Source"
-                            />
-                        }
-                    />
-                    <Route path="/dashboard/edit/chat/:postId"
-                        render={() =>
-                            <TextPostEditForm
-                                titlePlaceholder="Title"
-                                bodyPlaceholder="Bob: Hello"
-                            />
                         }
                     />
                 </Switch>
