@@ -33,6 +33,25 @@
     margin-left: 20px;
 }
 
+.link-post-body a {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    margin-right: 20px;
+}
+
+.link-post-body p {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.post-container > .post-link-header-container {
+    padding: 0;
+}
+
 .post-footer-container {
     display: flex;
     justify-content: flex-end;
