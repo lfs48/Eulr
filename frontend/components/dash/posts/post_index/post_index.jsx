@@ -14,7 +14,8 @@ class PostIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers()
-        .then( () => this.props.fetchPosts() )
+        .then( () => this.props.fetchFollows(this.props.currentUser.id) )
+        .then(() => this.props.fetchPosts(this.props.currentUser.followingIds.concat(this.props.currentUser.id)) )
         .then( () => this.props.fetchTags() )
         .then( () => this.setState({ loaded: true }) );
     }
