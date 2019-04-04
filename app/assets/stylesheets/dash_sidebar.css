@@ -1,0 +1,32 @@
+.dash-sidebar-container h3 {
+    color: white;
+    font-weight: bold;
+    font-family: sans-serif;
+    margin-bottom: 10px;
+}
+
+.dash-sidebar-container li {
+    border-top: 1px solid gray;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 320px;
+    padding: 5px;
+}
+
+.dash-sidebar-container div {
+    display: flex;
+    align-items: center;
+}
+
+.dash-sidebar-container li span {
+    color: white;
+}
+
+.dash-sidebar-container li button {
+    background: gray;
+    border-radius: 3px;
+    height: 24px;
+    width: 24px;
+    border: none;
+}
