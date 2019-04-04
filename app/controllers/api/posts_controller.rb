@@ -8,10 +8,14 @@ class Api::PostsController < ApplicationController
             @posts = Post.includes(:tags).all.select do |post|
                 post.tags.any? {|tag| tag.id == params[:tag_id].to_i}
             end
+        elsif (params[:authorIds] && params[:authorIds].length > 0)
+            authors = User.includes(:authored_posts).where( :id => JSON.parse(params[:authorIds]) )
+            @posts = Post.includes(:author, :tags).where(:author => authors)
+            #@posts = Post.includes(:author).where(:author => params[:authors].to_a.include?(author.id))
         elsif (params[:user_id])
-            @posts = Post.includes(:author).all.select {|post| post.author_id == params[:user_id].to_i}
+            @posts = Post.includes(:author, :tags).all.select {|post| post.author_id == params[:user_id].to_i}
         else 
-            @posts = Post.all
+            @posts = Post.includes(:author, :tags).all
         end
         render "api/posts/index"
     end
