@@ -35,8 +35,8 @@ export const fetchPost = (id) => (dispatch) => {
     );
 };
 
-export const fetchPosts = () => (dispatch) => {
-    return PostsAPIUtil.fetchPosts().then(
+export const fetchPosts = (authorIds = null) => (dispatch) => {
+    return PostsAPIUtil.fetchPosts(authorIds).then(
         (posts) => dispatch( receiveAllPosts(posts) )
     );
 };
