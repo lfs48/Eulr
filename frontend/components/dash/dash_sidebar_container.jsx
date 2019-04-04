@@ -8,6 +8,9 @@ const msp = (state, ownProps) => {
     let randomUsers = [];
     while (randomUsers.length < 2) {
         const randomUser = users[Math.floor(Math.random() * users.length)];
+        // I want to include a condition to make sure the user isn't already following the random user
+        // but trying to access currentUser.followingIds breaks the app
+        // even though this component should never render until the dashboard resolves fetchFollowers
         if ( randomUsers.includes(randomUser) || randomUser.id === currentUser.id) {
             continue;
         }
