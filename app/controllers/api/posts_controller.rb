@@ -9,7 +9,7 @@ class Api::PostsController < ApplicationController
                 post.tags.any? {|tag| tag.id == params[:tag_id].to_i}
             end
         elsif (params[:authorIds] && params[:authorIds].length > 0)
-            authors = User.includes(:authored_posts).where( :id => JSON.parse(params[:authorIds]) )
+            authors = User.includes(:authored_posts).where( :id => params[:authorIds] )
             @posts = Post.includes(:author, :tags).where(:author => authors)
             #@posts = Post.includes(:author).where(:author => params[:authors].to_a.include?(author.id))
         elsif (params[:user_id])
