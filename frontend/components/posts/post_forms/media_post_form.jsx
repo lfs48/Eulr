@@ -195,7 +195,7 @@ class MediaForm extends React.Component {
             >
                 <div key={1} className="post-form-container">
                     <div className="modal-child" onClick={e => e.stopPropagation()}>
-                        <form onSubmit={this.handleSubmit}>
+                        <form onSubmit={(event) => event.preventDefault()}>
                             <div className="post-form-header">
                                 <h3>{this.props.author.username}</h3>
                             </div>
@@ -288,11 +288,13 @@ class MediaForm extends React.Component {
                             </div>
                             :<></>}
                             <div className="post-form-footer">
-                                <button onClick={this.handleCancel}>Close</button>
-                                <input
-                                    type="submit"
-                                    value="Post"
-                                ></input>
+                                <button className="post-form-cancel-button" onClick={this.handleCancel}>Close</button>
+                                <button 
+                                    className="post-form-submit-button" 
+                                    onClick={this.handleSubmit}
+                                    disabled={disabled}
+                                    >Post
+                                </button>
                             </div>
                         </form>
                     </div>

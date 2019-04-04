@@ -140,8 +140,13 @@ class TextPostForm extends React.Component {
                                 ></input>
                             </div>
                             <div className="post-form-footer">
-                                <button onClick={this.handleCancel}>Close</button>
-                                <button onClick={this.handleSubmit}>Post</button>
+                                <button className="post-form-cancel-button" onClick={this.handleCancel}>Close</button>
+                                <button 
+                                    className="post-form-submit-button" 
+                                    onClick={this.handleSubmit}
+                                    disabled={disabled}
+                                    >Post
+                                </button>
                             </div>
                         </form>
                     </div>
