@@ -9,13 +9,13 @@
     border-radius: 3px;
     box-sizing: border-box;
     font-family: sans-serif;
-    padding: 0px 20px;
 }
 
 .post-header-container {
     display: flex;
     align-items: center;
     margin-top: 20px;
+    margin-left: 20px;
 }
 
 .post-header-container h4 {
@@ -27,10 +27,17 @@
     margin-bottom: 20px;
 }
 
+.text-post-body,
+.quote-post-body,
+.chat-post-body {
+    margin-left: 20px;
+}
+
 .post-footer-container {
     display: flex;
     justify-content: flex-end;
     margin-bottom: 10px;
+    margin-left: 20px;
 }
 
 .post-footer-container button {
@@ -45,6 +52,11 @@
     font-size: 50px;
     font-weight: 500;
     margin-bottom: 20px;
+}
+
+.photo-post-body li img {
+    width: 100%;
+    height: auto;
 }
 
 .post-list-item {
@@ -83,6 +95,11 @@
 
 .post-menu button:hover {
     background: rgb(219, 228, 236);
+}
+
+.post-tags-container {
+    margin-left: 20px;
+    margin-bottom: 10px;
 }
 
 .post-tags-container ul {
