@@ -14,6 +14,10 @@
     padding: 5px;
 }
 
+.dash-sidebar-container li:hover {
+    background: rgb(66, 86, 114);
+}
+
 .dash-sidebar-container div {
     display: flex;
     align-items: center;
