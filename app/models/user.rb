@@ -84,8 +84,10 @@ class User < ApplicationRecord
     end
 
     def ensure_avatar
-        file = File.open('app/assets/images/default-avatar.png')
-        self.avatar.attach(io: file, filename: 'avatar.png')
+        unless self.avatar.attached?
+            file = File.open('app/assets/images/default-avatar.png')
+            self.avatar.attach(io: file, filename: 'avatar.png')
+        end
     end
 
 end
