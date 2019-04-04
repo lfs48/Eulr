@@ -109,17 +109,20 @@
     height: 60px;
 }
 
-.post-form-footer button {
+.post-form-cancel-button {
     background: rgb(148, 148, 148);
-    color: white;
-    border: none;
+    margin-left: 10px;
 }
 
-.post-form-footer input {
+.post-form-submit-button {
     background: rgb(79, 139, 230);
+    margin-right: 10px;
+}
+
+.post-form-footer button {
     color: white;
-    display: flex;
     text-align: center;
+    border: none;
 }
 
 .post-form-footer input:hover {
