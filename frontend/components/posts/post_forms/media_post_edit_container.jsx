@@ -3,6 +3,7 @@ import { updatePost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
 import MediaPostForm from './media_post_form';
 import { closeEditForm} from '../../../actions/ui/post_index_actions';
+import { fetchTags } from '../../../actions/entities/tag_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
@@ -26,7 +27,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => ({
     formAction: (post) => dispatch(updatePost(post)),
-    formCancel: () => dispatch(closeEditForm())
+    formCancel: () => dispatch(closeEditForm()),
+    fetchTags: () => dispatch(fetchTags())
 });
 
 export default withRouter(connect(msp, mdp)(MediaPostForm));

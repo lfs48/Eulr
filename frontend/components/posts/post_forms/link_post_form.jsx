@@ -35,8 +35,9 @@ class LinkPostForm extends React.Component {
         const tags = this.state.tags;
         tags.push(this.state.currentTag);
         formData.append("post[tags]", tags.join(","));
-        this.props.formAction(formData).then(() =>
-            this.formCancel()
+        this.props.formAction(formData)
+        .then( () => this.props.fetchTags() )
+        .then(() => this.formCancel()
         );
     }
 

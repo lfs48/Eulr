@@ -77,9 +77,9 @@ class MediaForm extends React.Component {
             formData.append("post[media]", this.state.media.file);
         }
 
-        this.props.formAction(formData).then( () =>
-            this.formCancel()
-        );
+        this.props.formAction(formData)
+        .then(() => this.props.fetchTags())
+        .then(() => this.formCancel());
     }
 
     handleStage2(event) {
