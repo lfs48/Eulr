@@ -1,5 +1,6 @@
 .dash-container {
     display: flex;
+    justify-content: center;
 }
 
 .dash-header-container {
@@ -8,10 +9,6 @@
 
 .dash-container > * {
     margin: 20px;
-}
-
-.dash-center-column {
-    margin-left: 400px;
 }
 
 .post-creation-bar-container {
