@@ -14,9 +14,7 @@ const msp = (state) => {
 }
 
 const mdp = (dispatch) => ({
-    fetchFollows: (id) => dispatch( fetchFollows(id) ),
     fetchPosts: (authorIds) => dispatch( fetchPosts(authorIds) ),
-    fetchUsers: () => dispatch( fetchUsers() ),
     fetchTags: () => dispatch( fetchTags() )
 });
 
