@@ -59,6 +59,11 @@
     height: auto;
 }
 
+.photo-post-body p {
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
 .post-list-item {
     position: relative;
 }
