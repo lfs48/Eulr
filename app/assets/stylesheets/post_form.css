@@ -1,3 +1,7 @@
+.post-form-container {
+    margin-bottom: 20px;
+}
+
 .post-form-container form {
     background: white;
     border-radius: 3px;
