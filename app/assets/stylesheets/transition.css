@@ -58,7 +58,7 @@
    transform: scaleY(0.3448);
    transform-origin: top;
    height: 100px;
-   transition: height 0.25s;
+   transition: height 0.2s;
    transition-timing-function: linear;
    margin-bottom: 20px;
  }
