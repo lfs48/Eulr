@@ -87,7 +87,16 @@ class PostIndexItem extends React.Component {
             case ("audio"): {
                 return (
                     <div className="audio-post-body">
-                        <h4>Coming soon!</h4>
+                        <audio
+                            controls={true}
+                            width={540}
+                            height={304}
+                        >
+                            <source
+                                src={post.mediaUrls[0]}
+                                type="audio/mp3"
+                            ></source>
+                        </audio>
                         <p>{content.caption}</p>
                     </div>
                 );
@@ -96,11 +105,12 @@ class PostIndexItem extends React.Component {
                 return (
                     <div className="video-post-body">
                         <video 
+                            controls={true}
                             width={540} 
                             height={304}
                         >
                             <source
-                                src="https://youtu.be/fNodQpGVVyg"
+                                src={post.mediaUrls[0]}
                                 type="video/mp4"
                                 ></source>
                         </video>
