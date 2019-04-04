@@ -1,26 +1,25 @@
 import React from 'react';
 
-const DashSidebar = (props) => {
-    const lis = props.users.map( (user) => {
-        return(
-            <li key={user.id}>
-                <img src={user.avatar}></img>
-                <span>{user.username}</span>
-                {props.currentUser.followingIds.includes(user.id) ?
+class DashSidebar extends React.Component {
+
+    render() {
+        const lis = this.props.users.map( (user) => {
+            return(
+                <li key={user.id}>
+                    <img src={user.avatar}></img>
+                    <span>{user.username}</span>
                     <button>Follow</button>
-                    :
-                    <></>
-                }
-            </li>
+                </li>
+            );
+        });
+        return (
+            <div className="dash-sidebar-container">
+                <ul>
+                    {lis}
+                </ul>
+            </div>
         );
-    });
-    return (
-        <div className="dash-sidebar-container">
-            <ul>
-                {lis}
-            </ul>
-        </div>
-    );
+    }
 }
 
 export default DashSidebar;
