@@ -66,9 +66,11 @@ class PostIndexItem extends React.Component {
                 return (
                     <div className="link-post-body">
                         <div className="post-link-header-container">
+                            <a href={content.url}>
                             <h2 className="post-link-url">{content.url}</h2>
                             <h3 className="post-link-title">{content.title}</h3>
                             <span className="post-link-summary">{content.summary}</span>
+                            </a>
                         </div>
                         <p>{content.body}</p>
                     </div>
