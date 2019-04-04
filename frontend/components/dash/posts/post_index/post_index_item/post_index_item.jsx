@@ -37,12 +37,12 @@ class PostIndexItem extends React.Component {
                 if (post.mediaUrls.length >= 1) { 
                     imgs = post.mediaUrls.map( (url, idx) =>
                         <li key={idx}>
-                            <img src={url}></img>
+                            <img className="photo-post-img" src={url}></img>
                         </li>
                         )
                 } else {
                     imgs = <li>
-                        <img src={content.url}></img>
+                        <img className="photo-post-img" src={content.url}></img>
                     </li>
                 }
                 return (
