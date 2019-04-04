@@ -215,6 +215,11 @@
     cursor: pointer;
 }
 
+.media-post-body-container img {
+    width: 100%;
+    height: auto;
+}
+
 .post-form-tags-container {
     display: flex;
     margin-left: 20px;
