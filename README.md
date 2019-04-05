@@ -1,24 +1,31 @@
-# README
+# Eulr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+[Live Site](https://eulr.herokuapp.com)
 
-Things you may want to cover:
+## Background
 
-* Ruby version
+Eulr is a single-page blogging platform based off of Tumblr. Users can make text posts, share quotes and photos, upload videos, and much more. 
 
-* System dependencies
+## Screenshots
 
-* Configuration
+Coming soon
 
-* Database creation
+## Technologies
 
-* Database initialization
+* React/Redux frontend
+* Ruby on Rails backend
+* PostgreSQL database
+* AWS S3 file hosting
 
-* How to run the test suite
+## Code Highlights
 
-* Services (job queues, cache servers, search engines, etc.)
+* Editing a post causes the post itself to smoothly transition into the post editing form. This is achieved by wrapping each post in a container element, which conditionally renders either the post or the post edit form, depending on the redux store state.
 
-* Deployment instructions
+![](https://66.media.tumblr.com/d390361351787cd6d3eda5fc94017740/tumblr_ppgunpJpdf1wejsx8o2_540.gif)
 
-* ...
+## Feature Highlights
+
+Coming soon
+
+
+
