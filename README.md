@@ -1,16 +1,14 @@
-# Eulr
+# Eulr &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;  ![](https://66.media.tumblr.com/61773756681b960e0fb82b08cf6adf27/tumblr_pphrukLajl1wejsx8o1_75sq.gif)
 
-[Live Site](https://eulr.herokuapp.com)
+*An infinite series of possibilities converges here.*
 
-## Background
-
-Eulr is a single-page blogging platform based off of Tumblr. Users can make text posts, share quotes and photos, upload videos, and much more. 
+[Eulr](https://eulr.herokuapp.com) is a single-page blogging platform based off of Tumblr. Users can make text posts, share quotes and photos, upload videos, and much more. 
 
 ## Screenshots
 
 ![](https://66.media.tumblr.com/a1e5a5992a12d6e949d5f903850de3fd/tumblr_pphqfeCzGO1wejsx8o1_540.png)
 
-![](https://66.media.tumblr.com/a1e5a5992a12d6e949d5f903850de3fd/tumblr_pphqfeCzGO1wejsx8o1_540.png)
+![](https://66.media.tumblr.com/b9bc369a42e6e198b6cd02db3411651c/tumblr_pphqfeCzGO1wejsx8o2_540.png)
 
 ## Technologies
 
