@@ -88,18 +88,24 @@ class MediaForm extends React.Component {
 
     handleRemoveFile(idx) {
         return (event) => {
-            debugger
             event.preventDefault();
             let files = merge([], this.state.media.files);
             let urls = merge([], this.state.media.urls);
             files = files.slice(0, idx).concat(files.slice(idx+1, files.length));
             urls =urls.slice(0, idx).concat(urls.slice(idx + 1, urls.length));
-            this.setState({
-                media: {
-                    files: files,
-                    urls: urls
-                }
-            });
+            if (files.length < 1) {
+                this.setState({
+                    media: null,
+                    stage: 1
+                });
+            } else {
+                this.setState({
+                    media: {
+                        files: files,
+                        urls: urls
+                    }
+                });
+            }
         };
     }
 
@@ -234,12 +240,12 @@ class MediaForm extends React.Component {
                                     </div>
                                 </div>
                             :<></>}
-                            {this.state.stage !== 1 ?
-                                <ul>
-                                    {preview}
-                                </ul>
-                            :<></>}
                             <div className="media-post-body-container">
+                                {this.state.stage !== 1 ?
+                                    <ul>
+                                        {preview}
+                                    </ul>
+                                    : <></>}
                                 {this.state.stage === 2 ?
                                 <>
                                 {this.props.post.post_type === "photo" ?
