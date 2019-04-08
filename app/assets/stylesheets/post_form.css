@@ -236,6 +236,10 @@
     cursor: pointer;
 }
 
+.media-post-body-container ul {
+    padding: 0;
+}
+
 .media-post-body-container img {
     width: 100%;
     height: auto;
