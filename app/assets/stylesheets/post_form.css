@@ -45,6 +45,23 @@
     font-size: 13px;
 }
 
+.media-post-body-container li {
+    position: relative;
+}
+
+.media-post-body-container li button {
+    background: red;
+    border-radius: 100%;
+    border: none;
+    color: white;
+    position: absolute;
+    z-index: 4;
+    right: -5px;
+    top: -5px;
+    padding: 5px 8px;
+    font-weight: bold;
+}
+
 .post-link-url-input {
     height: 120px;
     background: lightgray;
