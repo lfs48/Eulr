@@ -245,7 +245,7 @@ class MediaForm extends React.Component {
                                 {this.state.stage === 3 ?
                                     <>
                                         <ul>
-                                            {imgs}
+                                            {preview}
                                         </ul>
                                         <input
                                             className="post-url-input"
