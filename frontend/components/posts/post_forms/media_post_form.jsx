@@ -32,13 +32,16 @@ class MediaForm extends React.Component {
         const file = event.currentTarget.files[0];
         const files = merge([], this.state.media.files);
         files.push(file);
-        reader.onloadend = () =>
+        const urls = merge([], this.state.media.urls);
+        reader.onloadend = () => {
+            urls.push(reader.result);
             this.setState({
                 media: {
                     files: files,
-                    url: reader.result
+                    urls: urls
                 }
             });
+        };
         if (file) {
             reader.readAsDataURL(file);
         } else {
@@ -57,7 +60,7 @@ class MediaForm extends React.Component {
                 stage: 2,
                 media: {
                     files: [file],
-                    url: reader.result
+                    urls: [reader.result]
                 },
                 content: {
                     caption: ""
@@ -109,7 +112,9 @@ class MediaForm extends React.Component {
         }
         let imgs = <></>
         if (this.state.media) {
-            imgs = <li><img src={this.state.media.url}></img></li>
+            imgs = this.state.media.urls.map( (url, idx) =>
+                <li key={idx}><img src={url}></img></li>
+            );
         } else if (this.state.content.url !== "") {
             imgs = <li><img src={this.state.content.url}></img></li>
         }
