@@ -1,18 +1,19 @@
 import React from 'react';
 import { merge } from 'lodash';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import * as PostFormUtil from '../../../util/forms/post_form_util';
 
 class LinkPostForm extends React.Component {
     
     constructor(props) {
         super(props);
-        this.handleSubmit = this.handleSubmit.bind(this);
-        this.handleInput = this.handleInput.bind(this);
-        this.handleCancel = this.handleCancel.bind(this);
+        this.handleSubmit = PostFormUtil.handleSubmit.bind(this);
+        this.handleInput = PostFormUtil.handleInput.bind(this);
+        this.handleCancel = PostFormUtil.handleCancel.bind(this);
         this.formCancel = props.formCancel.bind(this);
         this.urlIsComplete = this.urlIsComplete.bind(this);
-        this.handleTagInput = this.handleTagInput.bind(this);
-        this.handleTagKeypress = this.handleTagKeypress.bind(this);
+        this.handleTagInput = PostFormUtil.handleTagInput.bind(this);
+        this.handleTagKeypress = PostFormUtil.handleTagKeypress.bind(this);
         this.state = {
             post: props.post,
             content: props.content,
@@ -21,81 +22,11 @@ class LinkPostForm extends React.Component {
         };
     }
 
-    handleSubmit(event) {
-        event.preventDefault();
-        const content = JSON.stringify(this.state.content);
-        const formData = new FormData();
-        if (this.state.post.id) {
-            formData.append("post[id]", this.state.post.id);
-        }
-        formData.append("post[author_id]", this.state.post.author_id);
-        formData.append("post[poster_id]", this.state.post.poster_id);
-        formData.append("post[post_type]", this.state.post.post_type);
-        formData.append("post[content]", content);
-        const tags = this.state.tags;
-        tags.push(this.state.currentTag);
-        formData.append("post[tags]", tags.join(","));
-        this.props.formAction(formData)
-        .then( () => this.props.fetchTags() )
-        .then(() => this.formCancel()
-        );
-    }
-
-    handleInput(type) {
-        return (event) => {
-            const content = merge({}, this.state.content);
-            content[type] = event.target.value;
-            this.setState({
-                content: content
-            });
-        };
-    }
-
-    handleCancel(event) {
-        event.preventDefault();
-        this.formCancel();
-    }
-
     urlIsComplete(url) {
         if (url.includes(".com") ) {
             return true;
         }
         return false;
-    }
-
-    handleTagInput(event) {
-        event.preventDefault();
-        const input = event.target.value;
-        if (input.charAt(input.length - 1) === ",") {
-            const tags = merge([], this.state.tags);
-            tags.push(input.slice(0, input.length - 1));
-            this.setState({
-                tags: tags,
-                currentTag: ""
-            });
-        } else {
-            this.setState({
-                currentTag: event.target.value
-            });
-        }
-    }
-
-    handleTagKeypress(event) {
-        let tags = merge([], this.state.tags);
-        if (event.key === "Enter" || event.key === ",") {
-            event.preventDefault();
-            tags.push(this.state.currentTag);
-            this.setState({
-                tags: tags,
-                currentTag: ""
-            });
-        } else if (event.key == "Backspace" && this.state.currentTag === "") {
-            tags = tags.slice(0, tags.length - 1);
-            this.setState({
-                tags: tags,
-                currentTag: ""
-            });
-        }
     }
 
     render() {
