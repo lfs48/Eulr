@@ -16,6 +16,7 @@ class MediaForm extends React.Component {
         this.handleTagInput = PostFormUtil.handleTagInput.bind(this);
         this.handleTagKeypress = PostFormUtil.handleTagKeypress.bind(this);
         this.formCancel = props.formCancel.bind(this);
+        this.handleRemoveFile = this.handleRemoveFile.bind(this);
         this.state = {
             stage: this.props.stage,
             post: props.post,
@@ -85,6 +86,23 @@ class MediaForm extends React.Component {
         });
     }
 
+    handleRemoveFile(idx) {
+        return (event) => {
+            debugger
+            event.preventDefault();
+            let files = merge([], this.state.media.files);
+            let urls = merge([], this.state.media.urls);
+            files = files.slice(0, idx).concat(files.slice(idx+1, files.length));
+            urls =urls.slice(0, idx).concat(urls.slice(idx + 1, urls.length));
+            this.setState({
+                media: {
+                    files: files,
+                    urls: urls
+                }
+            });
+        };
+    }
+
     render() {
         let icon = <></>;
         let caption = "";
@@ -99,10 +117,15 @@ class MediaForm extends React.Component {
 
                 if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
-                        <li key={idx}><img src={url}></img></li>
+                        <li key={idx}>
+                            <img src={url}></img>
+                            <button onClick={this.handleRemoveFile(idx)}>X</button>
+                        </li>
                     );
                 } else if (this.state.content.url !== "") {
-                    preview = <li><img src={this.state.content.url}></img></li>
+                    preview = <li>
+                        <img src={this.state.content.url}></img>
+                    </li>
                 }
 
                 break;
