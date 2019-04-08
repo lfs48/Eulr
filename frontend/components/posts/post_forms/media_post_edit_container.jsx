@@ -17,10 +17,10 @@ const msp = (state, ownProps) => {
         content: JSON.parse(post.content),
         author: state.entities.users[post.author_id],
         media: {
-            file: null,
-            url: post.mediaUrls[0]
+            files: null,
+            urls: post.mediaUrls
         },
-        stage: 3,
+        stage: 4,
         tags: tags
     };
 };
