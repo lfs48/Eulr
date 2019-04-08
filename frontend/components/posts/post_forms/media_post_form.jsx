@@ -27,7 +27,6 @@ class MediaForm extends React.Component {
     }
 
     handleUpload(event) {
-        debugger
         const reader = new FileReader();
         const file = event.currentTarget.files[0];
         const files = merge([], this.state.media.files);
