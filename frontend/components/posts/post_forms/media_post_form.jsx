@@ -115,10 +115,24 @@ class MediaForm extends React.Component {
 
                 if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
-                        <li key={idx}><audio src={url}></audio></li>
+                        preview = <li>
+                            <audio
+                                src={url}
+                                controls={true}
+                                width={540}
+                                height={304}
+                            ></audio>
+                        </li>
                     );
                 } else if (this.state.content.url !== "") {
-                    preview = <li><audio src={this.state.content.url}></audio></li>
+                    preview = <li>
+                        <audio
+                            src={this.state.content.url}
+                            controls={true}
+                            width={540}
+                            height={304}
+                        ></audio>
+                    </li>
                 }
 
                 break;
@@ -130,10 +144,24 @@ class MediaForm extends React.Component {
 
                 if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
-                        <li key={idx}><video src={url}></video></li>
+                        preview = <li>
+                            <video
+                                src={url}
+                                controls={true}
+                                width={540}
+                                height={304}
+                            ></video>
+                        </li>
                     );
                 } else if (this.state.content.url !== "") {
-                    preview = <li><video src={this.state.content.url}></video></li>
+                    preview = <li>
+                            <video 
+                                src={this.state.content.url}
+                                controls={true}
+                                width={540}
+                                height={304}
+                                ></video>
+                        </li>
                 }
 
                 break;
