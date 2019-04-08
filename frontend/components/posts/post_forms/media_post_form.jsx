@@ -212,12 +212,14 @@ class MediaForm extends React.Component {
                                     </div>
                                 </div>
                             :<></>}
-                            <div className="media-post-body-container">
-                                {this.state.stage === 2 ?
-                                <>
+                            {this.state.stage !== 1 ?
                                 <ul>
                                     {preview}
                                 </ul>
+                            :<></>}
+                            <div className="media-post-body-container">
+                                {this.state.stage === 2 ?
+                                <>
                                 {this.props.post.post_type === "photo" ?
                                     <>
                                     <label htmlFor="additionalUpload">
@@ -244,9 +246,6 @@ class MediaForm extends React.Component {
                                 :<></>}
                                 {this.state.stage === 3 ?
                                     <>
-                                        <ul>
-                                            {preview}
-                                        </ul>
                                         <input
                                             className="post-url-input"
                                             type="text"
@@ -267,6 +266,16 @@ class MediaForm extends React.Component {
                                         }
                                     </>
                                 : <></>}
+                                {this.state.stage === 4 ?
+                                    <input
+                                        className="post-body-input"
+                                        type="text"
+                                        placeholder="Enter a caption, if you like"
+                                        value={this.state.content.caption}
+                                        onChange={this.handleInput("caption")}
+                                    ></input>
+
+                                :<></>}
                             </div>
                             {this.state.stage !== 1 ?
                             <div className="post-form-tags-container">
