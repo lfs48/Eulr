@@ -143,13 +143,14 @@ class MediaForm extends React.Component {
 
                 if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
-                        preview = <li>
+                        preview = <li key={idx}>
                             <audio
                                 src={url}
                                 controls={true}
                                 width={540}
                                 height={304}
                             ></audio>
+                            <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
                 } else if (this.state.content.url !== "") {
@@ -172,13 +173,14 @@ class MediaForm extends React.Component {
 
                 if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
-                        preview = <li>
+                        preview = <li key={idx}>
                             <video
                                 src={url}
                                 controls={true}
                                 width={540}
                                 height={304}
                             ></video>
+                            <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
                 } else if (this.state.content.url !== "") {
