@@ -90,34 +90,56 @@ class MediaForm extends React.Component {
         let icon = <></>;
         let caption = "";
         let file_types = "";
+        let preview = <></>
         switch (this.props.post.post_type) {
             case("photo"): {
                 icon = <i className="fas fa-camera"></i>;
                 caption = "Upload photos";
                 file_types = ".jpg, .gif, .png, .jpeg"
+
+
+                if (this.state.media) {
+                    preview = this.state.media.urls.map((url, idx) =>
+                        <li key={idx}><img src={url}></img></li>
+                    );
+                } else if (this.state.content.url !== "") {
+                    preview = <li><img src={this.state.content.url}></img></li>
+                }
+
                 break;
             }
             case("audio"): {
                 icon = <i className="fas fa-headphones"></i>;
                 caption = "Upload a song";
                 file_types = ".mp3"
+
+                if (this.state.media) {
+                    preview = this.state.media.urls.map((url, idx) =>
+                        <li key={idx}><audio src={url}></audio></li>
+                    );
+                } else if (this.state.content.url !== "") {
+                    preview = <li><audio src={this.state.content.url}></audio></li>
+                }
+
                 break;
             }
             case("video"): {
                 icon = <i className="fas fa-video"></i>;
                 caption = "Upload a video";
                 file_types = ".mp4"
+
+                if (this.state.media) {
+                    preview = this.state.media.urls.map((url, idx) =>
+                        <li key={idx}><video src={url}></video></li>
+                    );
+                } else if (this.state.content.url !== "") {
+                    preview = <li><video src={this.state.content.url}></video></li>
+                }
+
                 break;
             }
         }
-        let imgs = <></>
-        if (this.state.media) {
-            imgs = this.state.media.urls.map( (url, idx) =>
-                <li key={idx}><img src={url}></img></li>
-            );
-        } else if (this.state.content.url !== "") {
-            imgs = <li><img src={this.state.content.url}></img></li>
-        }
+        
         const tags = this.state.tags.map((tag, idx) =>
             <li key={idx}>{`#${tag}`}</li>
         );
@@ -166,19 +188,23 @@ class MediaForm extends React.Component {
                                 {this.state.stage === 2 ?
                                 <>
                                 <ul>
-                                    {imgs}
+                                    {preview}
                                 </ul>
-                                <label htmlFor="additionalUpload">
+                                {this.props.post.post_type === "photo" ?
+                                    <>
+                                    <label htmlFor="additionalUpload">
                                         {icon}
                                         <span>Add Another</span>
-                                </label>
-                                <input 
-                                    className="file-input-invisible"
-                                    id="additionalUpload"
-                                    type="file" 
-                                    accept={file_types}
-                                    onChange={this.handleUpload}
-                                ></input>
+                                    </label>
+                                    <input 
+                                        className="file-input-invisible"
+                                        id="additionalUpload"
+                                        type="file" 
+                                        accept={file_types}
+                                        onChange={this.handleUpload}
+                                    ></input>
+                                    </>
+                                :<></>}
                                 <input
                                     className="post-body-input"
                                     type="text"
