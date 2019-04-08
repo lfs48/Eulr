@@ -19,8 +19,11 @@ export const handleSubmit = function(event) {
     const tags = this.state.tags;
     tags.push(this.state.currentTag);
     formData.append("post[tags]", tags.join(","));
-    if (this.state.media && this.state.media.file) {
-        formData.append("post[media]", this.state.media.file);
+    if (this.state.media && this.state.media.files) {
+        for(let i = 0; i < this.state.media.files.length; i++) {
+            const file = this.state.media.files[i];
+            formData.append("post[media][]", file);
+        }
     }
     this.props.formAction(formData)
         .then(() => this.props.fetchTags())
