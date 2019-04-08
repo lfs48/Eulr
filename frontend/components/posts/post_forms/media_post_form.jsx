@@ -27,12 +27,15 @@ class MediaForm extends React.Component {
     }
 
     handleUpload(event) {
+        debugger
         const reader = new FileReader();
         const file = event.currentTarget.files[0];
+        const files = merge([], this.state.media.files);
+        files.push(file);
         reader.onloadend = () =>
             this.setState({
                 media: {
-                    file: file,
+                    files: files,
                     url: reader.result
                 }
             });
@@ -40,7 +43,7 @@ class MediaForm extends React.Component {
             reader.readAsDataURL(file);
         } else {
             this.setState({
-                media: null
+                media: this.state.media
             });
         }
     }
@@ -53,7 +56,7 @@ class MediaForm extends React.Component {
             this.setState({
                 stage: 2,
                 media: {
-                    file: file,
+                    files: [file],
                     url: reader.result
                 },
                 content: {
@@ -83,20 +86,24 @@ class MediaForm extends React.Component {
     render() {
         let icon = <></>;
         let caption = "";
+        let file_types = "";
         switch (this.props.post.post_type) {
             case("photo"): {
                 icon = <i className="fas fa-camera"></i>;
                 caption = "Upload photos";
+                file_types = ".jpg, .gif, .png, .jpeg"
                 break;
             }
             case("audio"): {
                 icon = <i className="fas fa-headphones"></i>;
                 caption = "Upload a song";
+                file_types = ".mp3"
                 break;
             }
             case("video"): {
                 icon = <i className="fas fa-video"></i>;
                 caption = "Upload a video";
+                file_types = ".mp4"
                 break;
             }
         }
@@ -138,6 +145,7 @@ class MediaForm extends React.Component {
                                         className="file-input-invisible"
                                         id="upload" 
                                         type="file" 
+                                        accept={file_types}
                                         onChange={this.handleStage2}
                                     ></input>
                                     </div>
@@ -163,6 +171,7 @@ class MediaForm extends React.Component {
                                     className="file-input-invisible"
                                     id="additionalUpload"
                                     type="file" 
+                                    accept={file_types}
                                     onChange={this.handleUpload}
                                 ></input>
                                 <input
