@@ -32,21 +32,23 @@ class PostNotesIndex extends React.Component {
     render() {
         const lis = this.props.likers.map( (liker, idx) => 
             <li key={idx}>
-                <img className="avatar-tiny" src={liker.avatar_url}></img>
+                <div className="avatar-icon-wrapper">
+                    <img className="avatar-tiny" src={liker.avatar}></img>
+                    <i className="fas fa-heart"></i>
+                </div>
                 <span>{liker.username}</span>
             </li>
         )
-        if (this.state.open) {
             return(
-                <ul>
-                    {lis}
-                </ul>
+                <div className="post-notes-container">
+                    <button onClick={this.handleOpen}>{this.props.likers.length}</button>
+                    {this.state.open ?
+                    <ul>
+                        {lis}
+                    </ul>
+                    :<></>}
+                </div>
             );
-        } else {
-            return(
-                <button onClick={this.handleOpen}>{this.props.likers.length}</button>
-            );
-        }
     }
 }
 
