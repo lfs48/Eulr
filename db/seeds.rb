@@ -47,13 +47,13 @@ follows_list.each do |follower_id, followee_id|
     Follow.create(follower_id: follower_id, followee_id: followee_id)
 end
 
-# likes_list = [
-#     [User.second.id, Post.first.id],
-#     [User.first.id, Post.second.id],
-#     [User.third.id, Post.first.id],
-#     [User.fourth.id, Post.first.id]
-# ]
+likes_list = [
+    [User.second.id, Post.first.id],
+    [User.first.id, Post.second.id],
+    [User.third.id, Post.first.id],
+    [User.fourth.id, Post.first.id]
+]
 
-# likes_list.each do |user_id, post_id|
-#     Like.create(user_id: user_id, post_id: post_id)
-# end
+likes_list.each do |user_id, post_id|
+    Like.create(user_id: user_id, post_id: post_id)
+end
