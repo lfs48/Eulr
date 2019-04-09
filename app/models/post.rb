@@ -18,6 +18,12 @@ class Post < ApplicationRecord
         through: :post_tags,
         source: :tag
 
+    has_many :likes
+
+    has_many :likers,
+        through: :likes,
+        source: :user
+
     has_many_attached :media
 
     def add_tags_from_strings(tagStrs)
