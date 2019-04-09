@@ -9,6 +9,7 @@ class PostIndexItem extends React.Component {
         this.handleEdit = this.handleEdit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.handleToggleMenu = this.handleToggleMenu.bind(this);
+        this.handleLike = this.handleLike.bind(this);
         this.state = {
             open: false
         };
@@ -20,6 +21,10 @@ class PostIndexItem extends React.Component {
 
     handleDelete() {
         this.props.deletePost(this.props.post.id);
+    }
+
+    handleLike(event) {
+        event.preventDefault();
     }
 
     formatContent(post) {
@@ -154,7 +159,10 @@ class PostIndexItem extends React.Component {
                         <button onClick={this.handleToggleMenu}>
                             <i className="fas fa-cog"></i>
                         </button>
-                        :<></>
+                        :
+                        <button onClick={this.handleLike}>
+                            <i className="fas fa-heart"></i>
+                        </button>
                         }
                         </div>
                     </div>
