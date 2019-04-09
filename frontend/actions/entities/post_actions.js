@@ -4,6 +4,7 @@ export const RECEIVE_POST = "RECEIVE_POST";
 export const RECEIVE_ALL_POSTS = "RECEIVE_ALL_POSTS";
 export const REMOVE_POST = "REMOVE_POST";
 export const RECEIVE_POST_ERRORS = "RECEIVE_POST_ERRORS";
+export const REMOVE_LIKE = "REMOVE_LIKE";
 
 // Standard actions
 
@@ -20,6 +21,11 @@ const receiveAllPosts = (posts) => ({
 const removePost = (id) => ({
     type: REMOVE_POST,
     id: id
+});
+
+const removeLike = (like) => ({
+    type: REMOVE_LIKE,
+    like: like
 });
 
 const receivePostErrors = (errors) => ({
@@ -69,6 +75,6 @@ export const likePost = (like) => (dispatch) => {
 
 export const unlikePost = (like) => (dispatch) => {
     return PostsAPIUtil.unlikePost(like).then(
-        (post) => dispatch(receivePost(post))
+        (like) => dispatch(removeLike(like))
     )
 }
