@@ -39,16 +39,22 @@ class PostNotesIndex extends React.Component {
                 <span>{liker.username}</span>
             </li>
         )
-            return(
-                <div className="post-notes-container">
-                    <button onClick={this.handleOpen}>{this.props.likers.length}</button>
-                    {this.state.open ?
-                    <ul>
-                        {lis}
-                    </ul>
-                    :<></>}
-                </div>
-            );
+            if (this.props.likers.length > 0) {
+                return(
+                    <div className="post-notes-container">
+                        <button onClick={this.handleOpen}>{this.props.likers.length} notes</button>
+                        {this.state.open ?
+                        <ul>
+                            {lis}
+                        </ul>
+                        :<></>}
+                    </div>
+                );
+            } else {
+                return (
+                    <div className="post-notes-container"></div>
+                );
+            }
     }
 }
 
