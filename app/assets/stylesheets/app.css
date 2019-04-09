@@ -16,3 +16,8 @@
     margin-right: 10px;
 }
 
+.avatar-tiny {
+    height: 25px;
+    width: 25px;
+    border-radius: 3px;
+}
