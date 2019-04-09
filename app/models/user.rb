@@ -39,6 +39,12 @@ class User < ApplicationRecord
         primary_key: :id,
         foreign_key: :followee_id
 
+    has_many :likes
+
+    has_many :liked_posts,
+        through: :likes,
+        source: :post
+
     has_one_attached :avatar
 
     attr_reader :password
