@@ -5,3 +5,7 @@ json.tags do
 end
 
 json.mediaUrls post.media.map { |file| url_for(file) }
+
+json.likers do
+    json.array! post.likers.map { |liker| liker.id }
+end
