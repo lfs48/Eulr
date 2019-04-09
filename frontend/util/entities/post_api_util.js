@@ -39,3 +39,19 @@ export const deletePost = (id) => {
         url: `api/posts/${id}`
     });
 };
+
+export const likePost = (like) => {
+    return $.ajax({
+        method: 'POST',
+        url: 'api/likes/',
+        data: { like: like }
+    })
+};
+
+export const unlikePost = (like) => {
+    return $.ajax({
+        method: 'DELETE',
+        url: 'api/likes/',
+        data: { like: like }
+    })
+}
