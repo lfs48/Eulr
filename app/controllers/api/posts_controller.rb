@@ -5,17 +5,16 @@ class Api::PostsController < ApplicationController
 
     def index
         if (params[:tag_id]) 
-            @posts = Post.includes(:tags).all.select do |post|
+            @posts = Post.includes(:author, :tags, :likes).all.select do |post|
                 post.tags.any? {|tag| tag.id == params[:tag_id].to_i}
             end
         elsif (params[:authorIds] && params[:authorIds].length > 0)
             authors = User.includes(:authored_posts).where( :id => params[:authorIds] )
-            @posts = Post.includes(:author, :tags).where(:author => authors)
-            #@posts = Post.includes(:author).where(:author => params[:authors].to_a.include?(author.id))
+            @posts = Post.includes(:author, :tags, :likes).where(:author => authors)
         elsif (params[:user_id])
-            @posts = Post.includes(:author, :tags).all.select {|post| post.author_id == params[:user_id].to_i}
+            @posts = Post.includes(:author, :tags, :likes).all.select {|post| post.author_id == params[:user_id].to_i}
         else 
-            @posts = Post.includes(:author, :tags).all
+            @posts = Post.includes(:author, :tags, :likes).all
         end
         render "api/posts/index"
     end
