@@ -146,6 +146,10 @@
     border: none;
 }
 
+.post-controls-container .unlike-button {
+    color: red;
+}
+
 .post-form-footer input:hover {
     cursor: pointer;
 }
