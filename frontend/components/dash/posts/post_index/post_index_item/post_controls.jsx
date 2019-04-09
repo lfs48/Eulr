@@ -12,7 +12,7 @@ class PostControls extends React.Component {
 
         this.state = {
             open: false,
-            liked: props.isLiked
+            isLiked: props.isLiked
         }
     }
 
@@ -63,18 +63,18 @@ class PostControls extends React.Component {
                         </button>
                         :
                         this.state.isLiked ?
-                            <button onClick={this.handleUnlike}>
+                            <button className="unlike-button" onClick={this.handleUnlike}>
                                 <i className="fas fa-heart"></i>
                             </button>
                             :
-                            <button onClick={this.handleLike}>
+                            <button className="like-button" onClick={this.handleLike}>
                                 <i className="fas fa-heart"></i>
                             </button>
                 }
                 {this.state.open ?
                         <div className="post-menu">
                             <button onClick={this.handleEdit}>Edit</button>
-                            <button onClick={this.handleDelete}>Delete</button>
+                            <button className="unlike-button" onClick={this.handleDelete}>Delete</button>
                         </div>
                 : <></>}
             </div>
