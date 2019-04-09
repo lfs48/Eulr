@@ -16,6 +16,7 @@ import Dash from './dash/dash_container';
 import Logout from './session/logout';
 import FollowersIndex from '../components/follows/followers_index_container';
 import FollowingsIndex from '../components/follows/followings_index_container';
+import LikesIndex from './likes/likes_index_container';
 
 const App = (props) => (
     <main className="app-container">
@@ -27,7 +28,7 @@ const App = (props) => (
             <ProtectedRoute path="/dashboard" component={Dash} />
             <ProtectedRoute path="/following" component={FollowingsIndex} />
             <ProtectedRoute path="/followers" component={FollowersIndex} />
-            <ProtectedRoute path="/likes" component={UnderConstruction} />
+            <ProtectedRoute path="/likes" component={LikesIndex} />
             <ProtectedRoute path="/settings" component={UnderConstruction} />
             <ProtectedRoute path="/help" component={UnderConstruction} />
             <AuthRoute path="/" component={Splash} />
