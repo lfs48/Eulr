@@ -6,9 +6,12 @@ import { fetchTags } from '../../../../actions/entities/tag_actions';
 import { fetchFollows } from '../../../../actions/entities/follow_actions';
 
 const msp = (state) => {
+    const currentUser = state.entities.users[state.session.id];
+    const authors = currentUser.followingIds ? currentUser.followingIds.concat(currentUser.id) : [currentUser.id]
     return({
         posts: Object.values(state.entities.posts),
-        currentUser: state.entities.users[state.session.id],
+        currentUser: currentUser,
+        authors: authors,
         editId: state.ui.postIndex
     });
 }
