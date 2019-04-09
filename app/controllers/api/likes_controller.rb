@@ -12,8 +12,9 @@ class Api::LikesController < ApplicationController
     def destroy
         like = Like.find_by(post_id: params[:like][:post_id], user_id: params[:like][:user_id])
         @post = like.post
+        likeDup = like.dup
         like.destroy
-        render "api/posts/show"
+        render json: likeDup
     end
 
     private
