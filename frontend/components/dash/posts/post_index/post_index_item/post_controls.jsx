@@ -74,7 +74,7 @@ class PostControls extends React.Component {
                 {this.state.open ?
                         <div className="post-menu">
                             <button onClick={this.handleEdit}>Edit</button>
-                            <button className="unlike-button" onClick={this.handleDelete}>Delete</button>
+                            <button onClick={this.handleDelete}>Delete</button>
                         </div>
                 : <></>}
             </div>
