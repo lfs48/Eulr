@@ -1,5 +1,6 @@
 import React from 'react';
 import TextPostEditForm from '../../../../posts/post_forms/text_post_edit_container';
+import PostNotesIndex from '../../../../posts/post_notes/post_notes_index_container';
 
 class PostIndexItem extends React.Component {
 
@@ -148,6 +149,7 @@ class PostIndexItem extends React.Component {
                             </ul>
                         </div>
                         <div className="post-footer-container">
+                        <PostNotesIndex post={this.props.post}/>
                         {this.props.isOwnPost ? 
                         <button onClick={this.handleToggleMenu}>
                             <i className="fas fa-cog"></i>
