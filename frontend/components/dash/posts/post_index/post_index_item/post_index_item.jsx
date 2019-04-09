@@ -1,31 +1,9 @@
 import React from 'react';
 import TextPostEditForm from '../../../../posts/post_forms/text_post_edit_container';
 import PostNotesIndex from '../../../../posts/post_notes/post_notes_index_container';
+import PostControls from './post_controls_container';
 
 class PostIndexItem extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.handleEdit = this.handleEdit.bind(this);
-        this.handleDelete = this.handleDelete.bind(this);
-        this.handleToggleMenu = this.handleToggleMenu.bind(this);
-        this.handleLike = this.handleLike.bind(this);
-        this.state = {
-            open: false
-        };
-    }
-
-    handleEdit() {
-        this.props.openEditForm(this.props.post.id);
-    }
-
-    handleDelete() {
-        this.props.deletePost(this.props.post.id);
-    }
-
-    handleLike(event) {
-        event.preventDefault();
-    }
 
     formatContent(post) {
         const content = JSON.parse(post.content);
@@ -126,12 +104,6 @@ class PostIndexItem extends React.Component {
             }
         }
     }
-    
-    handleToggleMenu() {
-        this.setState({
-            open: !this.state.open
-        })
-    }
 
     render() {
         const tags = this.props.tags.map( (tag, idx) =>
@@ -140,39 +112,23 @@ class PostIndexItem extends React.Component {
             </li>
         )
         return(
-                <>
-                    <div className="post-container">
-                        <div className="post-header-container">
-                            <h4>{this.props.author ? this.props.author.username : ""}</h4>
-                        </div>
-                        <div className="post-body-container">
-                        {this.formatContent(this.props.post)}
-                        </div>
-                        <div className="post-tags-container">
-                            <ul>
-                                {tags}
-                            </ul>
-                        </div>
-                        <div className="post-footer-container">
-                        <PostNotesIndex post={this.props.post}/>
-                        {this.props.isOwnPost ? 
-                        <button onClick={this.handleToggleMenu}>
-                            <i className="fas fa-cog"></i>
-                        </button>
-                        :
-                        <button onClick={this.handleLike}>
-                            <i className="fas fa-heart"></i>
-                        </button>
-                        }
-                        </div>
-                    </div>
-                    {this.state.open ?
-                        <div className="post-menu">
-                            <button onClick={this.handleEdit}>Edit</button>
-                            <button onClick={this.handleDelete}>Delete</button>
-                        </div>
-                    : <></>}
-                </>
+            <div className="post-container">
+                <div className="post-header-container">
+                    <h4>{this.props.author ? this.props.author.username : ""}</h4>
+                </div>
+                <div className="post-body-container">
+                    {this.formatContent(this.props.post)}
+                </div>
+                <div className="post-tags-container">
+                    <ul>
+                        {tags}
+                    </ul>
+                </div>
+                <div className="post-footer-container">
+                    <PostNotesIndex post={this.props.post}/>
+                    <PostControls post={this.props.post} />
+                </div>
+            </div>
             )
     }
 }
