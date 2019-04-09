@@ -146,6 +146,10 @@
     border: none;
 }
 
+.post-controls-container {
+    margin-right: 10px;
+}
+
 .post-controls-container .unlike-button {
     color: red;
 }
