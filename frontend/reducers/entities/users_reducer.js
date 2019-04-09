@@ -2,6 +2,7 @@ import { merge } from 'lodash';
 import { RECEIVE_USER, RECEIVE_ALL_USERS } from '../../actions/entities/user_actions';
 import { LOGIN_USER } from '../../actions/session/session_actions';
 import { RECEIVE_USER_FOLLOwS, RECEIVE_FOLLOW, REMOVE_FOLLOW } from '../../actions/entities/follow_actions';
+import { REMOVE_LIKE} from '../../actions/entities/post_actions';
 
 const usersReducer = (state = {}, action) => {
     const newState = merge({}, state);
@@ -67,6 +68,15 @@ const usersReducer = (state = {}, action) => {
                 const idx = followee.followerIds.indexOf(action.follow.followee_id);
                 followee.followerIds = followee.followerIds.slice(0, idx).concat(follower.followingIds.slice(idx + 1))
              }
+            return newState;
+        }
+
+        case(REMOVE_LIKE): {
+            const user = newState[action.like.user_id];
+            if (user && user.likes) {
+                const idx = user.likes.indexOf(action.like.post_id);
+                user.likes = user.likes.slice(0, idx).concat( user.likes.slice(idx + 1, user.likes.length) );
+            }
             return newState;
         }
     }
