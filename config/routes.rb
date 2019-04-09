@@ -9,15 +9,14 @@ Rails.application.routes.draw do
         resources :follows, only: [:index]
       end
     resource :session, only: [:create, :destroy]
-    resources :posts, only: [:index, :create, :update, :show, :destroy] do
-      resources :likes, only: [:create]
-      resource :likes, only: [:destroy]
-    end
+    resources :posts, only: [:index, :create, :update, :show, :destroy]
     resources :follows, only: [:create]
     resource :follows, only: [:destroy]
     resources :tags, only: [:index, :show] do
       resources :posts, only: [:index]
     end
+    resources :likes, only: [:create]
+    resource :likes, only: [:destroy]
   end
   
 end
