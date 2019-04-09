@@ -61,3 +61,14 @@ export const deletePost = (id) => (dispatch) => {
     );
 };
 
+export const likePost = (like) => (dispatch) => {
+    return PostsAPIUtil.likePost(like).then(
+        (post) => dispatch(receivePost(post))
+    )
+}
+
+export const unlikePost = (like) => (dispatch) => {
+    return PostsAPIUtil.unlikePost(like).then(
+        (post) => dispatch(receivePost(post))
+    )
+}
