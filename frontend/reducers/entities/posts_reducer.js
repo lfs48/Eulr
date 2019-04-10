@@ -10,11 +10,12 @@ const postsReducer = (state = {}, action) => {
         default: return state;
 
         case(RECEIVE_ALL_POSTS): {
-            return action.posts;
+            const posts = action.payload.posts;
+            return posts;
         }
 
         case(RECEIVE_POST): {
-            const post = action.post;
+            const post = action.payload.post;
             newState[post.id] = post;
             return newState;
         }
