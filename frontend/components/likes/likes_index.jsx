@@ -12,7 +12,9 @@ class LikesIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.setState({ loaded: true });
+        this.props.fetchUsers()
+        .then( () => this.props.fetchPosts() )
+        .then( () => this.setState({ posts: this.props.posts, loaded: true }) );
     }
 
     render() {
