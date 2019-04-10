@@ -15,7 +15,6 @@ class Dash extends React.Component {
     componentDidMount() {
         this.props.navToggleClear();
         this.props.fetchUsers()
-        .then( () => this.props.fetchFollows(this.props.currentUser.id) )
         .then( () => this.setState({
             loaded: true
             }) 

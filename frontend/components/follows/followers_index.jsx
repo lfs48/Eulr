@@ -8,9 +8,7 @@ class FollowersIndex extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchUsers().then( () =>
-            this.props.fetchFollows(this.props.currentUser.id)
-        );
+        this.props.fetchUsers()
     }
 
     handleFollow(followeeId) {

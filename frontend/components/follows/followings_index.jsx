@@ -13,11 +13,9 @@ class FollowersIndex extends React.Component {
 
     componentDidMount() {
         this.props.fetchUsers().then( () =>
-            this.props.fetchFollows(this.props.currentUser.id).then( () =>
-                this.setState({
-                    followingList: this.props.followings,
-                })
-            )
+            this.setState({
+                followingList: this.props.followings,
+            })
         );
     }
 

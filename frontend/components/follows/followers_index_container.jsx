@@ -1,6 +1,6 @@
 import { connect} from 'react-redux';
 import FollowersIndex from './followers_index';
-import { createFollow, destroyFollow, fetchFollows } from '../../actions/entities/follow_actions';
+import { createFollow, destroyFollow } from '../../actions/entities/follow_actions';
 import { fetchUsers } from '../../actions/entities/user_actions';
 
 const msp = (state) => {
@@ -20,7 +20,6 @@ const msp = (state) => {
 
 const mdp = (dispatch) => ({
     fetchUsers: () => dispatch( fetchUsers() ),
-    fetchFollows: (userId) => dispatch( fetchFollows(userId) ),
     createFollow: (follow) => dispatch( createFollow(follow) ),
     destroyFollow: (followId) => dispatch( destroyFollow(followId) )
 });
