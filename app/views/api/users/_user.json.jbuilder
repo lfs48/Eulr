@@ -5,11 +5,11 @@ end
 json.avatar url_for(user.avatar)
 
 if user.id == current_user.id
-    json.followings do
-        json.array! user.followings.map { |following| following.id }
+    json.followingIds do
+        json.array! user.followings.map { |follow| follow.followee_id }
     end
 
-    json.followers do
-        json.array! user.followers.map { |follower| follower.id }
+    json.followerIds do
+        json.array! user.followers.map { |follow| follow.follower_id }
     end
 end
