@@ -17,13 +17,17 @@ class MediaForm extends React.Component {
         this.handleTagKeypress = PostFormUtil.handleTagKeypress.bind(this);
         this.formCancel = props.formCancel.bind(this);
         this.handleRemoveFile = this.handleRemoveFile.bind(this);
+        this.handleUrlInput = this.handleUrlInput.bind(this);
+        this.handleUrlComplete = this.handleUrlComplete.bind(this);
         this.state = {
             stage: this.props.stage,
             post: props.post,
             content: props.content,
             media: props.media,
             tags: props.tags,
-            currentTag: ""
+            currentTag: "",
+            urls: props.urls,
+            currentUrl: "",
         };
     }
 
@@ -109,6 +113,28 @@ class MediaForm extends React.Component {
         };
     }
 
+    handleUrlInput(event) {
+        clearTimeout(this.state.timer);
+        event.preventDefault();
+        this.setState({
+            currentUrl: event.target.value,
+            timer: setTimeout( this.handleUrlComplete, 3000 )
+        });
+    }
+
+    handleUrlComplete() {
+        $.get(this.state.content.url)
+        .then( () => {
+            const urls = merge([], this.state.urls);
+            urls.push(this.state.currentUrl);
+            this.setState({
+                urls: urls,
+                currentUrl: ""
+            })
+        }, () => {}
+        )
+    }
+
     render() {
         let icon = <></>;
         let caption = "";
@@ -128,10 +154,13 @@ class MediaForm extends React.Component {
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else if (this.state.content.url !== "") {
-                    preview = <li>
-                        <img src={this.state.content.url}></img>
-                    </li>
+                } else {
+                    preview = this.state.urls.map((url, idx) =>
+                        <li key={idx}>
+                            <img src={url}></img>
+                            <button onClick={this.handleRemoveFile(idx)}>X</button>
+                        </li>
+                    );
                 }
 
                 break;
@@ -202,7 +231,7 @@ class MediaForm extends React.Component {
             <li key={idx}>{`#${tag}`}</li>
         );
         let disabled = false;
-        if (this.state.content.url === "") {
+        if (this.state.urls.length < 1) {
             disabled = true;
         }
         return(
@@ -280,8 +309,8 @@ class MediaForm extends React.Component {
                                             className="post-url-input"
                                             type="text"
                                             placeholder="Enter a URL"
-                                            value={this.state.content.url}
-                                            onChange={this.handleInput("url")}
+                                            value={this.state.currentUrl}
+                                            onChange={this.handleUrlInput}
                                         ></input>
                                         {disabled ?
                                         <></>
