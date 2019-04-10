@@ -3,7 +3,6 @@ import { createPost } from '../../../actions/entities/post_actions';
 import { withRouter } from 'react-router-dom';
 import TextPostForm from './text_post_form';
 import LinkPostForm from './link_post_form';
-import { fetchTags } from "../../../actions/entities/tag_actions";
 
 const msp = (state, ownProps) => ({
     post: {
@@ -21,7 +20,6 @@ const msp = (state, ownProps) => ({
 const mdp = (dispatch) => ({
     formAction: (post) => dispatch( createPost(post) ),
     formCancel: function() { this.props.history.push("/dashboard"); },
-    fetchTags: () => dispatch( fetchTags() )
 });
 
 export const TextPostCreateForm = withRouter(connect(msp, mdp)(TextPostForm));

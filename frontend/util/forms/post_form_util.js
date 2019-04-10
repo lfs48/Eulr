@@ -33,8 +33,7 @@ export const handleSubmit = function(event) {
         }
     }
     this.props.formAction(formData)
-        .then(() => this.props.fetchTags())
-        .then(() => this.formCancel());
+    .then(() => this.formCancel());
 };
 
 export const handleInput = function(type) {

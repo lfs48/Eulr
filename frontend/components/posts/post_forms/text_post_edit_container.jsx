@@ -6,7 +6,6 @@ import { merge } from 'lodash';
 import TextPostForm from './text_post_form';
 import LinkPostForm from './link_post_form';
 import { closeEditForm } from '../../../actions/ui/post_index_actions';
-import { fetchTags } from '../../../actions/entities/tag_actions';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
@@ -29,7 +28,6 @@ const mdp = (dispatch) => ({
     fetchPost: (id) => dispatch( fetchPost(id) ),
     formAction: (post) => dispatch( updatePost(post) ),
     formCancel: () => dispatch( closeEditForm() ),
-    fetchTags: () => dispatch(fetchTags())
 });
 
 export const TextPostEditForm = withRouter(connect(msp, mdp)(TextPostForm));
