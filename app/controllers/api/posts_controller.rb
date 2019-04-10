@@ -16,6 +16,9 @@ class Api::PostsController < ApplicationController
         else 
             @posts = Post.includes(:author, :tags, :likes).all
         end
+        postIds = @posts.map { |post| post.id }
+        tagIds = PostTag.where( :post_id => postIds).map { |postTag| postTag.tag_id }
+        @tags = Tag.where( :id => tagIds )
         render "api/posts/index"
     end
 
