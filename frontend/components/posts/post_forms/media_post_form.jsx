@@ -181,10 +181,10 @@ class MediaForm extends React.Component {
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else if (this.state.content.url !== "") {
+                } else if (this.state.urls.length > 0) {
                     preview = <li>
                         <audio
-                            src={this.state.content.url}
+                            src={this.state.urls[0]}
                             controls={true}
                             width={540}
                             height={304}
@@ -211,10 +211,10 @@ class MediaForm extends React.Component {
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else if (this.state.content.url !== "") {
+                } else if (this.state.urls > 0) {
                     preview = <li>
                             <video 
-                                src={this.state.content.url}
+                                src={this.state.urls[0]}
                                 controls={true}
                                 width={540}
                                 height={304}
