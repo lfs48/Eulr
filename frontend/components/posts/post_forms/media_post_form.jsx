@@ -84,8 +84,7 @@ class MediaForm extends React.Component {
         this.setState({
             stage: 3,
             content: {
-                caption: "",
-                url: ""
+                caption: ""
             }
         });
     }
