@@ -7,7 +7,14 @@ export const handleCancel = function(event) {
 
 export const handleSubmit = function(event) {
     event.preventDefault();
-    const content = JSON.stringify(this.state.content);
+    let content = {};
+    if (this.state.urls) {
+        content = merge({}, this.state.content);
+        content.urls = this.state.urls
+        content = JSON.stringify(content);
+    } else {
+        content = JSON.stringify(this.state.content);
+    }
     const formData = new FormData();
     if (this.state.post.id) {
         formData.append("post[id]", this.state.post.id);
