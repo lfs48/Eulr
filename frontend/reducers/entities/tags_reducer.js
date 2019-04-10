@@ -14,7 +14,7 @@ const tagsReducer = (state = {}, action) => {
         }
 
         case(RECEIVE_POST): {
-            const tags = payload.tags;
+            const tags = action.payload.tags;
             return merge(newState, tags);
         }
     }
