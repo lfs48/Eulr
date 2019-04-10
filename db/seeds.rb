@@ -10,10 +10,10 @@ user_list.each do |username, email, pw|
     User.create(username: username, email: email, password: pw)
 end
 
-# fermats_first_post = "{title:'', body: 'It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers. I have discovered a truly marvelous proof of this, which the character limit on this post is too small to contain.'}"
+# fermats_first_post = "{'title':'','body':'It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers. I have discovered a truly marvelous proof of this, which the character limit on this post is too small to contain.'}"
 
 # post_list = [
-#     [User.first.id, User.first.id, "{title: '', body: 'anyone else read ln as latural nogarithmn' }", "text"],
+#     [User.first.id, User.first.id, "{'title':'','body':'anyone else read ln as latural nogarithmn'}", "text"],
 #     [User.second.id, User.second.id, fermats_first_post, "text"],
 # ]
 
@@ -47,13 +47,13 @@ follows_list.each do |follower_id, followee_id|
     Follow.create(follower_id: follower_id, followee_id: followee_id)
 end
 
-likes_list = [
-    [User.second.id, Post.first.id],
-    [User.first.id, Post.second.id],
-    [User.third.id, Post.first.id],
-    [User.fourth.id, Post.first.id]
-]
+# likes_list = [
+#     [User.second.id, Post.first.id],
+#     [User.first.id, Post.second.id],
+#     [User.third.id, Post.first.id],
+#     [User.fourth.id, Post.first.id]
+# ]
 
-likes_list.each do |user_id, post_id|
-    Like.create(user_id: user_id, post_id: post_id)
-end
+# likes_list.each do |user_id, post_id|
+#     Like.create(user_id: user_id, post_id: post_id)
+# end
