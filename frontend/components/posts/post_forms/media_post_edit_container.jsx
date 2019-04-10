@@ -20,7 +20,7 @@ const msp = (state, ownProps) => {
             files: null,
             urls: post.mediaUrls
         },
-        urls: [],
+        urls: JSON.parse(post.content).urls,
         stage: 4,
         tags: tags
     };
