@@ -8,14 +8,14 @@ export const REMOVE_LIKE = "REMOVE_LIKE";
 
 // Standard actions
 
-const receivePost = (post) => ({
+const receivePost = (payload) => ({
     type: RECEIVE_POST,
-    post: post
+    payload: payload
 });
 
-const receiveAllPosts = (posts) => ({
+const receiveAllPosts = (payload) => ({
     type: RECEIVE_ALL_POSTS,
-    posts: posts
+    payload: payload
 });
 
 const removePost = (id) => ({
@@ -37,13 +37,13 @@ const receivePostErrors = (errors) => ({
 
 export const fetchPost = (id) => (dispatch) => {
     return PostsAPIUtil.fetchPost(id).then(
-        (post) => dispatch( receivePost(post) )
+        (payload) => dispatch( receivePost(payload) )
     );
 };
 
 export const fetchPosts = (authorIds = null) => (dispatch) => {
     return PostsAPIUtil.fetchPosts(authorIds).then(
-        (posts) => dispatch( receiveAllPosts(posts) )
+        (payload) => dispatch( receiveAllPosts(payload) )
     );
 };
 
