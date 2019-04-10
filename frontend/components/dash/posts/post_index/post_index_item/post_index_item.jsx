@@ -25,9 +25,11 @@ class PostIndexItem extends React.Component {
                         </li>
                         )
                 } else {
-                    imgs = <li>
-                        <img className="photo-post-img" src={content.url}></img>
+                    imgs = content.urls.map( (url, idx) =>
+                    <li key={idx}>
+                        <img className="photo-post-img" src={url}></img>
                     </li>
+                    )
                 }
                 return (
                     <div className="photo-post-body">
