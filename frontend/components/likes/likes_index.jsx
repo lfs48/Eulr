@@ -32,7 +32,7 @@ class LikesIndex extends React.Component {
                 }
             );
             return (
-                <div>
+                <div className="likes-index-container">
                     <ul>
                         {lis}
                     </ul>
