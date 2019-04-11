@@ -10,7 +10,7 @@ const tagsReducer = (state = {}, action) => {
         default: return state;
 
         case(RECEIVE_ALL_POSTS): {
-            return action.payload.tags
+            return merge({},action.payload.tags);
         }
 
         case(RECEIVE_POST): {
