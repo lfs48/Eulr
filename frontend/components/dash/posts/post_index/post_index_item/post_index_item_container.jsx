@@ -1,6 +1,5 @@
 import { connect } from 'react-redux';
 import PostIndexItem from './post_index_item';
-import { fetchUser } from "../../../../../actions/entities/user_actions";
 import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => ({
@@ -16,7 +15,7 @@ const msp = (state, ownProps) => ({
 });
 
 const mdp = (dispatch) => ({
-    fetchUser: (id) => dispatch( fetchUser(id) )
+
 });
 
 export default withRouter(connect(msp, mdp)(PostIndexItem));
