@@ -13,6 +13,13 @@ export const fetchPosts = (authorIds = null) => {
     });
 };
 
+export const fetchExplorePosts = () => {
+    return $.ajax({
+        method: "GET",
+        url: 'api/explore'
+    })
+}
+
 export const createPost = (formData) => {
     return $.ajax({
         method: "POST",

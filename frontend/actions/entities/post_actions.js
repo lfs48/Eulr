@@ -47,6 +47,12 @@ export const fetchPosts = (authorIds = null) => (dispatch) => {
     );
 };
 
+export const fetchExplorePosts = () => (dispatch) => {
+    return PostsAPIUtil.fetchExplorePosts().then(
+        (payload) => dispatch( receiveAllPosts(payload) )
+    );
+};
+
 export const createPost = (formPost) => (dispatch) => {
     return PostsAPIUtil.createPost(formPost).then(
         (post) => dispatch( receivePost(post) ),
