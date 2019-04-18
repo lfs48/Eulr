@@ -16,12 +16,17 @@ class DashSidebar extends React.Component {
                 follower_id: this.props.currentUser.id,
                 followee_id: followeeId
             }
-            this.props.createFollow(follow);
+            this.props.createFollow(follow)
+            .then( () =>
+                this.setState({
+                    users: this.state.users.filter( (user) => user.id !== followeeId )
+                })
+            );
         }
     }
 
     render() {
-        const lis = this.state.users.map( (user) => {
+        const lis = this.state.users.slice(0,2).map( (user) => {
             return(
                 <li key={user.id}>
                     <div>
