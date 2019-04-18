@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import PostControls from './post_controls';
 import { likePost, unlikePost, deletePost } from '../../../../../actions/entities/post_actions';
 import { openEditForm } from '../../../../../actions/ui/post_index_actions';
+import { withRouter } from 'react-router-dom';
 
 const msp = (state, ownProps) => {
     const post = ownProps.post;
@@ -10,7 +11,8 @@ const msp = (state, ownProps) => {
         post: post,
         currentUser: currentUser,
         isOwnPost: state.session.id === post.author_id,
-        isLiked: currentUser.likes.includes(post.id)
+        isLoggedIn: currentUser ? true : false,
+        isLiked: currentUser ? currentUser.likes.includes(post.id) : false
     });
 };
 
@@ -21,4 +23,4 @@ const mdp = (dispatch) => ({
     openEditForm: (id) => dispatch( openEditForm(id) )
 })
 
-export default connect(msp, mdp)(PostControls);
+export default withRouter(connect(msp, mdp)(PostControls));

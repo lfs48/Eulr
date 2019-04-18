@@ -1,5 +1,6 @@
 import { connect } from 'react-redux';
 import { fetchExplorePosts } from '../../../actions/entities/post_actions';
+import { fetchUsers } from '../../../actions/entities/user_actions';
 import Explore from './explore';
 
 const msp = (state) => {
@@ -21,7 +22,8 @@ const msp = (state) => {
 };    
 
 const mdp = (dispatch) => ({
-    fetchExplorePosts: () => dispatch( fetchExplorePosts() )
+    fetchExplorePosts: () => dispatch( fetchExplorePosts() ),
+    fetchUsers: () => dispatch( fetchUsers() )
 });
 
 export default connect(msp, mdp)(Explore);

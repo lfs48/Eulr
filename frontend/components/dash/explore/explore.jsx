@@ -10,7 +10,8 @@ class Explore extends React.Component {
     }
 
     componentDidMount() {
-        this.props.fetchExplorePosts()
+        this.props.fetchUsers()
+        .then( () => this.props.fetchExplorePosts() )
         .then( () =>
             this.setState({
                 loaded: true

@@ -34,13 +34,17 @@ class PostControls extends React.Component {
 
     handleLike(event) {
         event.preventDefault();
-        this.props.likePost({
-            user_id: this.props.currentUser.id,
-            post_id: this.props.post.id
-        }).then( () => this.setState({
-            isLiked: true
-        })
-        );
+        if (this.props.isLoggedIn) {
+            this.props.likePost({
+                user_id: this.props.currentUser.id,
+                post_id: this.props.post.id
+            }).then( () => this.setState({
+                isLiked: true
+            })
+            );
+        } else {
+            this.props.history.push("/login");
+        } 
     }
 
     handleUnlike(event) {
