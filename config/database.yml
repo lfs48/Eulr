@@ -24,8 +24,6 @@ default: &default
 development:
   <<: *default
   database: Eulr_development
-  user: postgres
-  password: kininarima5u
 
   # The specified database role being used to connect to postgres.
   # To create additional roles in postgres see `$ createuser --help`.
