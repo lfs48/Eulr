@@ -145,16 +145,15 @@ class MediaForm extends React.Component {
                 caption = "Upload photos";
                 file_types = ".jpg, .gif, .png, .jpeg"
 
-
-                if (this.state.media) {
-                    preview = this.state.media.urls.map((url, idx) =>
+                if (this.state.urls.length > 0) {
+                    preview = this.state.urls.map((url, idx) =>
                         <li key={idx}>
                             <img src={url}></img>
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else {
-                    preview = this.state.urls.map((url, idx) =>
+                } else if (this.state.media) {
+                    preview = this.state.media.urls.map((url, idx) =>
                         <li key={idx}>
                             <img src={url}></img>
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
@@ -169,7 +168,16 @@ class MediaForm extends React.Component {
                 caption = "Upload a song";
                 file_types = ".mp3"
 
-                if (this.state.media) {
+                if (this.state.urls.length > 0) {
+                    preview = <li>
+                        <audio
+                            src={this.state.urls[0]}
+                            controls={true}
+                            width={540}
+                            height={304}
+                        ></audio>
+                    </li>
+                } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
                         preview = <li key={idx}>
                             <audio
@@ -181,15 +189,6 @@ class MediaForm extends React.Component {
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else if (this.state.urls.length > 0) {
-                    preview = <li>
-                        <audio
-                            src={this.state.urls[0]}
-                            controls={true}
-                            width={540}
-                            height={304}
-                        ></audio>
-                    </li>
                 }
 
                 break;
@@ -199,7 +198,16 @@ class MediaForm extends React.Component {
                 caption = "Upload a video";
                 file_types = ".mp4"
 
-                if (this.state.media) {
+                if (this.state.urls.length > 0) {
+                    preview = <li>
+                            <video 
+                                src={this.state.urls[0]}
+                                controls={true}
+                                width={540}
+                                height={304}
+                                ></video>
+                        </li>
+                } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
                         preview = <li key={idx}>
                             <video
@@ -211,15 +219,6 @@ class MediaForm extends React.Component {
                             <button onClick={this.handleRemoveFile(idx)}>X</button>
                         </li>
                     );
-                } else if (this.state.urls > 0) {
-                    preview = <li>
-                            <video 
-                                src={this.state.urls[0]}
-                                controls={true}
-                                width={540}
-                                height={304}
-                                ></video>
-                        </li>
                 }
 
                 break;
