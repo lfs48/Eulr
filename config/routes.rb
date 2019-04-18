@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     end
     resources :likes, only: [:create]
     resource :likes, only: [:destroy]
+    resources :explore, only: [:index]
   end
   
 end
