@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import DashSidebar from './dash_sidebar';
-import { fetchUsers } from '../../actions/entities/user_actions';
+import { createFollow } from '../../actions/entities/follow_actions';
 
 const msp = (state, ownProps) => {
     const currentUser = ownProps.currentUser;
@@ -8,10 +8,7 @@ const msp = (state, ownProps) => {
     let randomUsers = [];
     while (randomUsers.length < 2) {
         const randomUser = users[Math.floor(Math.random() * users.length)];
-        // I want to include a condition to make sure the user isn't already following the random user
-        // but trying to access currentUser.followingIds breaks the app
-        // even though this component should never render until the dashboard resolves fetchFollowers
-        if ( randomUsers.includes(randomUser) || randomUser.id === currentUser.id) {
+        if ( randomUsers.includes(randomUser) || randomUser.id === currentUser.id || currentUser.followingIds.includes(randomUser.id)) {
             continue;
         }
         randomUsers.push(randomUser);
@@ -22,7 +19,7 @@ const msp = (state, ownProps) => {
 };
 
 const mdp = (dispatch) => ({
-    fetchUsers: dispatch( fetchUsers() )
+    createFollow: (follow) => dispatch( createFollow(follow) )
 });
 
 export default connect(msp, mdp)(DashSidebar);
