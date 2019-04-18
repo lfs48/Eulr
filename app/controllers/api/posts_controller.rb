@@ -12,9 +12,9 @@ class Api::PostsController < ApplicationController
             authors = User.includes(:authored_posts).where( :id => params[:authorIds] )
             @posts = Post.includes(:author, :tags, :likers).with_attached_media.all.where(:author => authors)
         elsif (params[:user_id])
-            @posts = Post.includes(:author, :tags, :likers).with_attached_media.all.all.select {|post| post.author_id == params[:user_id].to_i}
+            @posts = Post.includes(:author, :tags, :likers).with_attached_media.all.select {|post| post.author_id == params[:user_id].to_i}
         else 
-            @posts = Post.includes(:author, :tags, :likers).with_attached_media.all.all
+            @posts = Post.includes(:author, :tags, :likers).with_attached_media.all
         end
         postIds = @posts.map { |post| post.id }
         tagIds = PostTag.where( :post_id => postIds).map { |postTag| postTag.tag_id }
