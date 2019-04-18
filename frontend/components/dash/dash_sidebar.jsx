@@ -24,11 +24,20 @@ class DashSidebar extends React.Component {
             );
         }
     }
+    
+    handleRemove(id) {
+        return () => {
+            this.setState({
+                users: this.state.users.filter( (user) => user.id !== id)
+            });
+        }
+    }
 
     render() {
         const lis = this.state.users.slice(0,2).map( (user) => {
             return(
-                <li key={user.id}>
+                <div key={user.id}>
+                <li>
                     <div>
                     <img className="avatar-small" src={user.avatar}></img>
                     <span>{user.username}</span>
@@ -37,6 +46,10 @@ class DashSidebar extends React.Component {
                         <i className="fas fa-plus"></i>
                     </button>
                 </li>
+                <button className="rec-remove-button" onClick={this.handleRemove(user.id)}>
+                        <i className="fas fa-times"></i>
+                </button>
+                </div>
             );
         });
         return (
