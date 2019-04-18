@@ -12,7 +12,7 @@ const msp = (state) => {
             return 0;
         }
     }
-    const posts = Object.values(state.entities.posts).sort(comparator).slice(0,2);
+    const posts = Object.values(state.entities.posts).sort(comparator).slice(0,5);
     return {
         posts: posts
     }
