@@ -2,7 +2,7 @@ json.extract! user, :id, :username, :email
 
 json.avatar url_for(user.avatar)
 
-if user.id == current_user.id
+if logged_in? && user.id == current_user.id
     json.followingIds do
         json.array! user.followings.map { |follow| follow.followee_id }
     end
