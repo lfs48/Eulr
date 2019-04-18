@@ -50,21 +50,21 @@ class AccountControls extends React.Component {
                             <button onClick={this.handleLogout}>Log Out</button>
                         </header>
                         <ul>
-                            <li>
+                            <li onClick={()=>{this.props.history.push("/likes")}}>
                                 <i className="fas fa-heart"></i>
                                 <Link className="account-menu-link" to="/likes">Likes</Link>
                             </li>
-                            <li>
+                            <li onClick={()=>{this.props.history.push("/following")}}>
                                 <i className="fas fa-user-plus"></i>
                                 <Link className="account-menu-link" to="/following">Following</Link>
                             </li>
-                            <li>
+                            <li onClick={()=>{this.props.history.push("/settings")}}>
                                 <i className="fas fa-cog"></i>
                                 <Link className="account-menu-link" to="/settings">Settings</Link>
                             </li>
-                            <li>
+                            <li onClick={()=>{this.props.history.push("/help")}}>
                                 <i className="fas fa-question-circle"></i>
-                                <Link className="account-menu-link" to="help">Help</Link>
+                                <Link className="account-menu-link" to="/help">Help</Link>
                             </li>
                         </ul>
                         <header>
@@ -75,7 +75,7 @@ class AccountControls extends React.Component {
                                 <li>
                                     <span>Posts</span>
                                 </li>
-                                <li>
+                                <li onClick={()=>{this.props.history.push("/followers")}}>
                                 <Link className="account-menu-link" to="/followers">Followers</Link>
                                 </li>
                                 <li>
