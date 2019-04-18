@@ -19,6 +19,7 @@ class MediaForm extends React.Component {
         this.handleRemoveFile = this.handleRemoveFile.bind(this);
         this.handleUrlInput = this.handleUrlInput.bind(this);
         this.handleUrlComplete = this.handleUrlComplete.bind(this);
+        this.handleRemoveUrl = this.handleRemoveUrl.bind(this);
         this.state = {
             stage: this.props.stage,
             post: props.post,
@@ -89,6 +90,23 @@ class MediaForm extends React.Component {
         });
     }
 
+    handleRemoveUrl(idx) {
+        return (event) => {
+            event.preventDefault();
+            let urls = merge([], this.state.urls);
+            urls = urls.slice(0, idx).concat(urls.slice(idx + 1, urls.length));
+            if (urls.length < 1) {
+                this.setState({
+                    stage: 1
+                });
+            } else {
+                this.setState({
+                    urls: urls
+                });
+            }
+        };
+    }
+
     handleRemoveFile(idx) {
         return (event) => {
             event.preventDefault();
@@ -149,7 +167,7 @@ class MediaForm extends React.Component {
                     preview = this.state.urls.map((url, idx) =>
                         <li key={idx}>
                             <img src={url}></img>
-                            <button onClick={this.handleRemoveFile(idx)}>X</button>
+                            <button onClick={this.handleRemoveUrl(idx)}>X</button>
                         </li>
                     );
                 } else if (this.state.media) {
@@ -176,6 +194,7 @@ class MediaForm extends React.Component {
                             width={540}
                             height={304}
                         ></audio>
+                        <button onClick={this.handleRemoveUrl(idx)}>X</button>
                     </li>
                 } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
@@ -206,6 +225,7 @@ class MediaForm extends React.Component {
                                 width={540}
                                 height={304}
                                 ></video>
+                                <button onClick={this.handleRemoveUrl(idx)}>X</button>
                         </li>
                 } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
