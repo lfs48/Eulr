@@ -1,4 +1,5 @@
 import React from 'react';
+import PostWrapper from '../posts/post_index/post_wrapper_container';
 
 class Explore extends React.Component {
     constructor(props) {
@@ -18,9 +19,25 @@ class Explore extends React.Component {
     }
 
     render() {
+        const lis = this.props.posts.reverse().map( post => {
+            return (
+                <li className="post-list-item" key={post.id}>
+                    {this.props.editId === post.id ?
+                    <>
+                    <PostWrapper post={post} edit={true} />
+                     <div className="modal-background"></div>
+                    </>
+                    :
+                    <PostWrapper post={post} edit={false} />
+                    }
+                </li>);
+            }
+        );
         if (this.state.loaded) {
             return(
-                <span>"h-h-hewwo"</span>
+                <ul>
+                    {lis}
+                </ul>
             );
         } else {
             return (<></>);
