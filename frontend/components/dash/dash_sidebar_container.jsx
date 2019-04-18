@@ -6,7 +6,7 @@ const msp = (state, ownProps) => {
     const currentUser = ownProps.currentUser;
     const users = Object.values(state.entities.users);
     let randomUsers = [];
-    while (randomUsers.length < 2) {
+    while (randomUsers.length < 5) {
         const randomUser = users[Math.floor(Math.random() * users.length)];
         if ( randomUsers.includes(randomUser) || randomUser.id === currentUser.id || currentUser.followingIds.includes(randomUser.id)) {
             continue;
