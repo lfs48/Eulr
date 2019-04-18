@@ -8,8 +8,8 @@ class Api::UsersController < ApplicationController
     def create
         @user = User.new(user_params)
         if @user.save
-            file = File.open('app/assets/images/default-avatar.png')
-            @user.avatar.attach(io: file, filename: 'avatar.png')
+            # file = File.open('app/assets/images/default-avatar.png')
+            # @user.avatar.attach(io: file, filename: 'avatar.png')
             render "api/users/show"
         else
             render json: @user.errors.full_messages, status: 422

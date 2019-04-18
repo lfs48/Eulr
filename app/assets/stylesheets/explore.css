@@ -1,0 +1,9 @@
+.explore-container ul {
+    display: flex;
+    flex-direction: row;
+}
+
+.explore-container li {
+    margin-top: 20px;
+    margin-left: 20px;
+}
