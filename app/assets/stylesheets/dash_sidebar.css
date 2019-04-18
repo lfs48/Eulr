@@ -34,3 +34,18 @@
     width: 24px;
     border: none;
 }
+
+.dash-sidebar-container li button:hover {
+    background: rgb(0, 184, 255);
+    color: white;
+}
+
+.rec-remove-button {
+    border: none;
+    background: none;
+    color: gray;
+}
+
+.rec-remove-button:hover {
+    color: white;
+}
