@@ -1,9 +1,27 @@
-import React from 'react';
+import { connect } from 'react-redux';
+import { fetchExplorePosts } from '../../../actions/entities/post_actions';
+import Explore from './explore';
 
-const Explore = () => {
-    return(
-        <h1>Coming Soon!</h1>
-    );
-}
+const msp = (state) => {
+    const comparator = (postA, postB) => {
+        if (postA.likers.length > postB.likers.length) {
+            return 1;
+        } else if (postA.likers.length < postB.likers.length) {
+            return -1;
+        } else {
+            return -1;
+        }
+    }
+    const posts = Object.values(state.entities.posts).sort(comparator).slice(0,2);
+    return {
+        posts: posts
+    }
 
-export default Explore;
+
+};    
+
+const mdp = (dispatch) => ({
+    fetchExplorePosts: () => dispatch( fetchExplorePosts() )
+});
+
+export default connect(msp, mdp)(Explore);
