@@ -35,9 +35,11 @@ class Explore extends React.Component {
         );
         if (this.state.loaded) {
             return(
-                <ul>
-                    {lis}
-                </ul>
+                <div className="explore-container">
+                    <ul>
+                        {lis}
+                    </ul>
+                </div>
             );
         } else {
             return (<></>);
