@@ -12,29 +12,24 @@ class Explore extends React.Component {
     componentDidMount() {
         this.props.fetchUsers()
         .then( () => this.props.fetchExplorePosts() )
-        .then( () =>
+        .then( () => 
             this.setState({
-                loaded: true
+                loaded: true,
+                posts: this.props.posts.reverse()
             })
         );
     }
 
     render() {
-        const lis = this.props.posts.reverse().map( post => {
-            return (
-                <li className="post-list-item" key={post.id}>
-                    {this.props.editId === post.id ?
-                    <>
-                    <PostWrapper post={post} edit={true} />
-                     <div className="modal-background"></div>
-                    </>
-                    :
-                    <PostWrapper post={post} edit={false} />
-                    }
-                </li>);
-            }
-        );
+        debugger
         if (this.state.loaded) {
+            const lis = this.state.posts.map( post => {
+                return (
+                    <li className="post-list-item" key={post.id}>
+                        <PostWrapper post={post} edit={false} />
+                    </li>);
+                }
+            );
             return(
                 <div className="explore-container">
                     <ul>
