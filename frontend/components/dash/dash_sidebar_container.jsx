@@ -3,7 +3,7 @@ import DashSidebar from './dash_sidebar';
 import { createFollow } from '../../actions/entities/follow_actions';
 
 const msp = (state, ownProps) => {
-    const currentUser = ownProps.currentUser;
+    const currentUser = state.entities.users[state.session.id]
     const users = Object.values(state.entities.users);
     let randomUsers = [];
     while (randomUsers.length < 5) {
