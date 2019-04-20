@@ -2,15 +2,14 @@
     margin-top: 20px;
     margin-left: 20px;
     display: flex;
+}
+
+.explore-list {
+    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
-.explore-container ul {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-}
-
-.explore-container li {
+.explore-list li {
     margin-left: 20px;
 }
