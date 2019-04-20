@@ -1,6 +1,6 @@
 import React from 'react';
 import PostWrapper from '../posts/post_index/post_wrapper_container';
-import PostIndexItem from '../posts/post_index/post_index_item/post_index_item_container';
+import DashSidebar from '../dash_sidebar_container';
 
 class Explore extends React.Component {
     constructor(props) {
@@ -26,20 +26,23 @@ class Explore extends React.Component {
             const lis = this.state.posts.map( post => {
                 return (
                     <li className="post-list-item" key={post.id}>
-                        <PostIndexItem post={post} />
+                        <PostWrapper post={post} edit={false}/>
                     </li>);
                 }
             );
 
             return(
                 <div className="explore-container">
-                    <ul id="explore-list">
+                    <ul className="explore-list">
                         {lis}
                     </ul>
+                    {this.props.loggedIn ?
+                        <DashSidebar />
+                    :<></>}
                 </div>
             );
         } else {
-            return (<div className="explore-container"><ul id="explore-list"></ul></div>);
+            return (<></>);
         }
         
     }
