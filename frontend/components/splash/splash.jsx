@@ -18,7 +18,7 @@ class Splash extends React.Component {
     handleDemoLogin() {
         const demoUser = {
             email: "leuler@mathmail.com",
-            password: "123456"
+            password: "123456789"
         };
         this.props.demoLogin(demoUser).then(
             this.props.history.push("/dashboard")
