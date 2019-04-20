@@ -1,6 +1,6 @@
 import React from 'react';
 import PostWrapper from '../posts/post_index/post_wrapper_container';
-import PostIndexItem from '../posts/post_index/post_index_item/post_index_item';
+import PostIndexItem from '../posts/post_index/post_index_item/post_index_item_container';
 
 class Explore extends React.Component {
     constructor(props) {
@@ -30,15 +30,16 @@ class Explore extends React.Component {
                     </li>);
                 }
             );
+
             return(
                 <div className="explore-container">
-                    <ul>
+                    <ul id="explore-list">
                         {lis}
                     </ul>
                 </div>
             );
         } else {
-            return (<></>);
+            return (<div className="explore-container"><ul id="explore-list"></ul></div>);
         }
         
     }
