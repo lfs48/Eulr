@@ -1,5 +1,6 @@
 import React from 'react';
 import PostWrapper from '../posts/post_index/post_wrapper_container';
+import PostIndexItem from '../posts/post_index/post_index_item/post_index_item';
 
 class Explore extends React.Component {
     constructor(props) {
@@ -21,12 +22,11 @@ class Explore extends React.Component {
     }
 
     render() {
-        debugger
         if (this.state.loaded) {
             const lis = this.state.posts.map( post => {
                 return (
                     <li className="post-list-item" key={post.id}>
-                        <PostWrapper post={post} edit={false} />
+                        <PostIndexItem post={post} />
                     </li>);
                 }
             );
