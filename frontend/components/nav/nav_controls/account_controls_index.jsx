@@ -58,31 +58,14 @@ class AccountControls extends React.Component {
                                 <i className="fas fa-user-plus"></i>
                                 <Link className="account-menu-link" to="/following">Following</Link>
                             </li>
-                            <li onClick={()=>{this.props.history.push("/settings")}}>
-                                <i className="fas fa-cog"></i>
-                                <Link className="account-menu-link" to="/settings">Settings</Link>
-                            </li>
-                            <li onClick={()=>{this.props.history.push("/help")}}>
-                                <i className="fas fa-question-circle"></i>
-                                <Link className="account-menu-link" to="/help">Help</Link>
-                            </li>
                         </ul>
                         <header>
                             <h5>Tumblrs</h5>
                             <button>+ New</button>
                         </header>
                             <ul>
-                                <li>
-                                    <span>Posts</span>
-                                </li>
                                 <li onClick={()=>{this.props.history.push("/followers")}}>
                                 <Link className="account-menu-link" to="/followers">Followers</Link>
-                                </li>
-                                <li>
-                                    <span>Activity</span>
-                                </li>
-                                <li>
-                                    <span>Drafts</span>
                                 </li>
                             </ul>
                     </div>
