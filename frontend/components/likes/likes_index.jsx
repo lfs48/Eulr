@@ -7,19 +7,19 @@ class LikesIndex extends React.Component {
         super(props);
         this.state = {
             loaded: false,
-            posts: props.posts
+            posts: []
         };
     }
 
     componentDidMount() {
         this.props.fetchUsers()
         .then( () => this.props.fetchPosts() )
-        .then( () => this.setState({ posts: this.props.posts, loaded: true }) );
+        .then( () => this.setState({ posts: this.props.posts.reverse(), loaded: true }) );
     }
 
     render() {
         if (this.state.loaded) {
-            const lis = this.state.posts.reverse().map( post => {
+            const lis = this.state.posts.map( post => {
                     return (
                         <li className="post-list-item" key={post.id}>
                             {this.props.editId === post.id ?
