@@ -43,8 +43,16 @@ post_list = [
     [users[6].id, users[6].id, "{\"urls\":[\"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-1.png\", \"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-2.png\"],\"caption\":\"\"}", "photo", ["turing machine", "compsci"] ],
     [users[7].id, users[7].id, "{\"url\":\"https://www.cmi.ac.in/~smahanta/hilbert.html\",\"title\":\"Hilbert Problems\",\"summary\":\"23 Mathematical Problems\",\"body\":\"I just put out this really cool list of mathematics problems, check it out!\"}", "link", ["math"] ],
     [users[8].id, users[8].id, "{\"urls\":[\"https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2017/58e7ac0b7b501.jpg\"],\"caption\":\"\"}", "photo", ["zeta function", "graphs", "beauty"] ],
-    [users[8].id, users[8].id, "{\"urls\":[\"https://i2.wp.com/peterjamesthomas.com/wp-content/uploads/2017/03/solve-if-u-r-a-genius-w5001.png?resize=500%2C538&ssl=1\"],\"caption\":\"\"}", "photo", ["zeta function", "graphs", "beauty"] ],
-    [users[9].id, users[9].id, "{\"title\":\"Logic is the foundation of the certainty of all the knowledge we acquire.\",\"body\":\"Leonard Euler\"}", "quote", ["euler", "truth", "logic"] ]
+    [users[8].id, users[8].id, "{\"urls\":[\"https://i2.wp.com/peterjamesthomas.com/wp-content/uploads/2017/03/solve-if-u-r-a-genius-w5001.png?resize=500%2C538&ssl=1\"],\"caption\":\"\"}", "photo", ["zeta function", "memes", "funny"] ],
+    [users[9].id, users[9].id, "{\"title\":\"Logic is the foundation of the certainty of all the knowledge we acquire.\",\"body\":\"Leonard Euler\"}", "quote", ["euler", "truth", "logic"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://cdn-images-1.medium.com/max/1200/1*32QmDBSjVMdChC7pM58oEg.jpeg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://i0.wp.com/braungardt.trialectics.com/wp-content/uploads/2012/02/fibonacci-sunflower.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://blogs.unimelb.edu.au/sciencecommunication/files/2018/09/fibonacci-spiral-galaxy-1pbbryd.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"http://www.zlechien.ca/uploads/2/2/7/1/22716436/fibonacci-3_orig.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://www.ashley-spencer.com/ArtIsEverywhere/wp-content/uploads/2016/04/Golden-Ratio-shell-1.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://cdn-images-1.medium.com/max/2600/1*Fd_-KG39nKRljWkGHYHQQQ.jpeg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
+    [users[10].id, users[10].id, "{\"urls\":[\"https://static.boredpanda.com/blog/wp-content/uploads/2016/02/fibonacci-composition-cats-furbonacci-url-4__700.jpg\"],\"caption\":\"\"}", "photo", ["cat", "kitty"] ],
+    [users[11].id, users[11].id, "{\"urls\":[\"https://i.ytimg.com/vi/CxlHLqJ9I0A/maxresdefault.jpg\"],\"caption\":\"\"}", "photo", ["theorem", "physics"] ],
 ].shuffle
 
 post_list.each do |author_id, poster_id, content, post_type, tags|
