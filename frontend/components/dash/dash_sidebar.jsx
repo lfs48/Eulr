@@ -34,7 +34,7 @@ class DashSidebar extends React.Component {
     }
 
     render() {
-        const lis = this.state.users.slice(0,2).map( (user) => {
+        const lis = this.state.users.slice(0,4).map( (user) => {
             return(
                 <div key={user.id}>
                 <li>
