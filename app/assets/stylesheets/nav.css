@@ -69,6 +69,10 @@
     border: none;
 }
 
+.nav-controls-container {
+    margin-right: 10%;
+}
+
 .nav-controls-container > ul {
     height: 100%;
     width: 100%;
