@@ -194,7 +194,7 @@ class MediaForm extends React.Component {
                             width={540}
                             height={304}
                         ></audio>
-                        <button onClick={this.handleRemoveUrl(idx)}>X</button>
+                        <button onClick={this.handleRemoveUrl(0)}>X</button>
                     </li>
                 } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
@@ -225,7 +225,7 @@ class MediaForm extends React.Component {
                                 width={540}
                                 height={304}
                                 ></video>
-                                <button onClick={this.handleRemoveUrl(idx)}>X</button>
+                                <button onClick={this.handleRemoveUrl(0)}>X</button>
                         </li>
                 } else if (this.state.media) {
                     preview = this.state.media.urls.map((url, idx) =>
