@@ -30,7 +30,7 @@ class Dash extends React.Component {
                         <PostIndex />
                     </section>
                     <section className="dash-right-column">
-                        <DashSidebar currentUser={this.props.currentUser} />
+                        <DashSidebar />
                     </section>
                 </div>
             );
