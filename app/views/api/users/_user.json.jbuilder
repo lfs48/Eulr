@@ -1,6 +1,6 @@
 json.extract! user, :id, :username, :email
 
-json.avatar "http://bestnycacupuncturist.com/wp-content/uploads/2016/11/anonymous-avatar-sm.jpg"
+json.avatar url_for(user.avatar)
 
 if logged_in? && user.id == current_user.id
     json.followingIds do
