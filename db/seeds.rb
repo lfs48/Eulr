@@ -32,39 +32,28 @@ users = User.all
 fermats_first_post = "{\"title\":\"\",\"body\":\"It is impossible to separate a cube into two cubes, or a fourth power into two fourth powers, or in general, any power higher than the second, into two like powers. I have discovered a truly marvelous proof of this, which the character limit on this post is too small to contain.\"}";
 
 post_list = [
-    [users[0].id, users[0].id, "{\"title\":\"\",\"body\":\"anyone else read ln as latural nogarithmn\"}", "text"],
-    [users[1].id, users[1].id, fermats_first_post, "text"],
-    [users[2].id, users[2].id, "{\"title\":\"Gauss is in the hauss\",\"body\":\"\"}", "text"],
-    [users[3].id, users[3].id, "{\"title\":\"Callout Post for Isaac Newton @ newton\",\"body\":\"Claims to have invented calculus even though I clearly did it first [pm me for receipts]\"}", "text"],
-    [users[4].id, users[4].id, "{\"urls\":[\"https://brewminate.com/wp-content/uploads/2018/05/050918-10-Greek-Greece-Geometry-Astronomy-Mathematics.jpg\"],\"caption\":\"\"}", "photo"],
-    [users[4].id, users[4].id, "{\"urls\":[\"https://static.interestingengineering.com/images/MARCH/sizes/Pi-Main_resize_md.jpg\"],\"caption\":\"\"}", "photo"],
-    [users[5].id, users[5].id, "{\"urls\":[\"https://www.spiritblog.net/wp-content/uploads/2016/01/adaheader.gif\"],\"caption\":\"I was writing algorithms before it was cool\"}", "photo"],
-    [users[6].id, users[6].id, "{\"title\":\"The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.\",\"body\":\"Ada Lovelace\"}", "quote"],
-    [users[6].id, users[6].id, "{\"urls\":[\"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-1.png\", \"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-2.png\"],\"caption\":\"\"}", "photo"],
-    [users[7].id, users[7].id, "{\"url\":\"https://www.cmi.ac.in/~smahanta/hilbert.html\",\"title\":\"Hilbert Problems\",\"summary\":\"23 Mathematical Problems\",\"body\":\"I just put out this really cool list of mathematics problems, check it out!\"}", "link"],
-    [users[8].id, users[8].id, "{\"urls\":[\"https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2017/58e7ac0b7b501.jpg\"],\"caption\":\"\"}", "photo"],
-    [users[8].id, users[8].id, "{\"urls\":[\"https://i2.wp.com/peterjamesthomas.com/wp-content/uploads/2017/03/solve-if-u-r-a-genius-w5001.png?resize=500%2C538&ssl=1\"],\"caption\":\"\"}", "photo"],
-    [users[9].id, users[9].id, "{\"title\":\"Logic is the foundation of the certainty of all the knowledge we acquire.\",\"body\":\"Leonard Euler\"}", "quote"]
+    [users[0].id, users[0].id, "{\"title\":\"\",\"body\":\"anyone else read ln as latural nogarithmn\"}", "text", ["math", "ln", "log"] ],
+    [users[1].id, users[1].id, fermats_first_post, "text", ["proofs", "theorems"] ],
+    [users[2].id, users[2].id, "{\"title\":\"Gauss is in the hauss\",\"body\":\"\"}", "text", [] ],
+    [users[3].id, users[3].id, "{\"title\":\"Callout Post for Isaac Newton @ newton\",\"body\":\"Claims to have invented calculus even though I clearly did it first [pm me for receipts]\"}", "text", ["callout", "drama", "newton", "calculus"] ],
+    [users[4].id, users[4].id, "{\"urls\":[\"https://brewminate.com/wp-content/uploads/2018/05/050918-10-Greek-Greece-Geometry-Astronomy-Mathematics.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty", "geometry"] ],
+    [users[4].id, users[4].id, "{\"urls\":[\"https://static.interestingengineering.com/images/MARCH/sizes/Pi-Main_resize_md.jpg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty", "geometry"] ],
+    [users[5].id, users[5].id, "{\"urls\":[\"https://www.spiritblog.net/wp-content/uploads/2016/01/adaheader.gif\"],\"caption\":\"I was writing algorithms before it was cool\"}", "photo", ["algorithms", "compsci", "hipster"] ],
+    [users[6].id, users[6].id, "{\"title\":\"The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.\",\"body\":\"Ada Lovelace\"}", "quote", [] ],
+    [users[6].id, users[6].id, "{\"urls\":[\"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-1.png\", \"https://cdncontribute.geeksforgeeks.org/wp-content/uploads/2222-2.png\"],\"caption\":\"\"}", "photo", ["turing machine", "compsci"] ],
+    [users[7].id, users[7].id, "{\"url\":\"https://www.cmi.ac.in/~smahanta/hilbert.html\",\"title\":\"Hilbert Problems\",\"summary\":\"23 Mathematical Problems\",\"body\":\"I just put out this really cool list of mathematics problems, check it out!\"}", "link", ["math"] ],
+    [users[8].id, users[8].id, "{\"urls\":[\"https://3c1703fe8d.site.internapcdn.net/newman/csz/news/800/2017/58e7ac0b7b501.jpg\"],\"caption\":\"\"}", "photo", ["zeta function", "graphs", "beauty"] ],
+    [users[8].id, users[8].id, "{\"urls\":[\"https://i2.wp.com/peterjamesthomas.com/wp-content/uploads/2017/03/solve-if-u-r-a-genius-w5001.png?resize=500%2C538&ssl=1\"],\"caption\":\"\"}", "photo", ["zeta function", "graphs", "beauty"] ],
+    [users[9].id, users[9].id, "{\"title\":\"Logic is the foundation of the certainty of all the knowledge we acquire.\",\"body\":\"Leonard Euler\"}", "quote", ["euler", "truth", "logic"] ]
 ].shuffle
 
-post_list.each do |author_id, poster_id, content, post_type|
-    Post.create(author_id: author_id, poster_id: poster_id, content: content, post_type: post_type)
+post_list.each do |author_id, poster_id, content, post_type, tags|
+    post = Post.create(author_id: author_id, poster_id: poster_id, content: content, post_type: post_type)
+    Tag.create_tags_from_strings(tags)
+    post.add_tags_from_strings(tags)
 end
 
 posts = Post.all
-
-tag_list = [
-    "math",
-    "proofs",
-    "calculus",
-    "mathisbeautiful",
-    "graphs",
-    "equations"
-]
-
-tag_list.each do |tag|
-    Tag.create(tag: tag)
-end
 
 follows_list = [
     [User.first.id, User.second.id],
