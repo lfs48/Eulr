@@ -1,20 +1,16 @@
 .explore-container {
-    display: flex;
-    justify-content: center;
     margin-top: 20px;
     margin-left: 20px;
+    display: flex;
+    justify-content: center;
 }
 
 .explore-container ul {
-    display: grid;
-    grid-template-columns: 300px 300px 300px;
-    grid-gap: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .explore-container li {
-    width: 300px;
-    background: white;
-    border-radius: 3px;
-    box-sizing: border-box;
-    font-family: sans-serif;
+    margin-left: 20px;
 }
