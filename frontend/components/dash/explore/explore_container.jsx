@@ -15,7 +15,8 @@ const msp = (state) => {
     }
     const posts = Object.values(state.entities.posts).sort(comparator).slice(0,5);
     return {
-        posts: posts
+        posts: posts,
+        loggedIn: Boolean(state.session.id)
     }
 
 
