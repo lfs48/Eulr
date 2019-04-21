@@ -25,7 +25,7 @@ class Navbar extends React.Component {
 
     render() {
         return(
-            <div className="nav-container">
+            <div id="nav-container" className="nav-container">
                 <div className="nav-left">
                 {this.props.loggedIn ?
                     <>
