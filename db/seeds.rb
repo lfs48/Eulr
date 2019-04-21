@@ -82,10 +82,10 @@ likes_list = []
 
 100.times do
     user_id = (0..19).to_a.sample
-    post_id = (0..10).to_a.sample
+    post_id = (0..20).to_a.sample
     post = posts[post_id]
     like = [user_id, post_id]
-    likes_list << like unless post.author_id == user_id || likes_list.include?(like)
+    likes_list << like unless (post.author_id == user_id || likes_list.include?(like) )
 end
 
 likes_list.each do |user_id, post_id|
