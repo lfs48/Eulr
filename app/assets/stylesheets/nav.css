@@ -3,6 +3,7 @@
     justify-content: space-between;
     align-items: center;
     border-bottom: 1px solid gray;
+    min-height: 50px;
 }
 
 .nav-left {
@@ -16,6 +17,13 @@
     margin-right: 5px;
     margin-left: 5px;
     cursor: pointer;
+}
+
+.placeholder {
+    height: 50px;
+    width: 50px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .nav-left > .static {
