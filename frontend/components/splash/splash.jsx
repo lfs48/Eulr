@@ -42,11 +42,15 @@ class Splash extends React.Component {
         const bg = bgs[idx];
         const app = document.getElementById("app");
         app.style.backgroundImage = `url(${bg})`;
+        const nav = document.getElementById("nav-container");
+        nav.style.borderBottom = "none";
     }
 
     componentWillUnmount() {
         const app = document.getElementById("app");
         app.style.backgroundImage = "none";
+        const nav = document.getElementById("nav-container");
+        nav.style.borderBottom = "1px solid gray";
     }
 
     handleDemoLogin() {
