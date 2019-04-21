@@ -27,8 +27,13 @@ class Navbar extends React.Component {
         return(
             <div className="nav-container">
                 <div className="nav-left">
+                {this.props.loggedIn ?
+                    <>
                     <img onClick={this.handleDash} className="static" src={window.eulrLogoSmallStatic}></img>
                     <img onClick={this.handleDash} className="active" src={window.eulrLogoSmallActive}></img>
+                    </>
+                    :<div className="placeholder"></div>
+                }
                     <Search />
                 </div>
                 {this.props.loggedIn ?
