@@ -1,5 +1,11 @@
 .eulr {
-    background-color: rgb(54, 70, 93);
+    background-color: rgb(14, 29, 56);
+    height: 100%;
+    background-repeat: no-repeat;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 
 .avatar {
