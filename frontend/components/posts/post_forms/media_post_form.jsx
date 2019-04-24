@@ -248,9 +248,9 @@ class MediaForm extends React.Component {
         const tags = this.state.tags.map((tag, idx) =>
             <li key={idx}>{`#${tag}`}</li>
         );
-        let disabled = false;
-        if (this.state.urls.length < 1) {
-            disabled = true;
+        let disabled = true;
+        if (this.state.urls.length > 1  || this.state.media ) {
+            disabled = false;
         }
         return(
             <ReactCSSTransitionGroup
