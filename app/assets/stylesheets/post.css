@@ -88,7 +88,7 @@
     height: auto;
 }
 
-.photo-post-body p {
+.photo-post-body p, .video-post-body p, .audio-post.body p {
     margin-left: 20px;
     margin-top: 20px;
 }
