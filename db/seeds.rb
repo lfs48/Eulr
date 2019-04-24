@@ -18,7 +18,8 @@ user_list = [
     ["ramanujan", "sramanujan@mathmail.com", "123456789", "https://www.imsc.res.in/~rao/ramanujan/images/round.jpg"],
     ["newton", "inewton@mathmail.com", "123456789", "http://www-history.mcs.st-andrews.ac.uk/BigPictures/Newton_2.jpeg"],
     ["kovalevskaya", "skovalevskaya@mathmail.com", "123456789", "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Sofja_Wassiljewna_Kowalewskaja_1.jpg/220px-Sofja_Wassiljewna_Kowalewskaja_1.jpg"],
-    ["cartwright", "mcartwright@mathmail.com", "123456789", "http://www-history.mcs.st-and.ac.uk/BigPictures/Cartwright_4.jpeg"]
+    ["cartwright", "mcartwright@mathmail.com", "123456789", "http://www-history.mcs.st-and.ac.uk/BigPictures/Cartwright_4.jpeg"],
+    ["mandelbrot", "bmandelbrot@mathmail.com", "123456789", "https://pbs.twimg.com/profile_images/723270264864153600/D7l71SY-_400x400.jpg"]
 ]
 
 user_list.each do |username, email, pw, avatarUrl|
@@ -53,6 +54,9 @@ post_list = [
     [users[10].id, users[10].id, "{\"urls\":[\"https://cdn-images-1.medium.com/max/2600/1*Fd_-KG39nKRljWkGHYHQQQ.jpeg\"],\"caption\":\"\"}", "photo", ["math", "truth", "beauty"] ],
     [users[10].id, users[10].id, "{\"urls\":[\"https://static.boredpanda.com/blog/wp-content/uploads/2016/02/fibonacci-composition-cats-furbonacci-url-4__700.jpg\"],\"caption\":\"\"}", "photo", ["cat", "kitty"] ],
     [users[11].id, users[11].id, "{\"urls\":[\"https://i.ytimg.com/vi/CxlHLqJ9I0A/maxresdefault.jpg\"],\"caption\":\"\"}", "photo", ["theorem", "physics"] ],
+    [users[12].id, users[12].id, "{\"url\":\"https://www.math.wisc.edu/~boston/869.pdf\",\"title\":\"Proof of Fermat's Last Theorem\",\"summary\":\"A brilliant proof to a centuries-long problem in mathematics\",\"body\":\"I hear the guy who came up with this proof is really cool and smart\"}", "link", ["proofs"] ],
+    [users[13].id, users[13].id, "{\"urls\":[\"http://www.continuummechanics.org/images/fourier/cartoon_fourier_cat.jpg\"],\"caption\":\"\"}", "photo", ["funny", "cats", "kitty"] ],
+    [users[14].id, users[14].id, "{\"urls\":[\"https://ai2-s2-public.s3.amazonaws.com/figures/2017-08-08/2d92621cbd54787ead8766cf51a046062c902469/24-Figure1-1.png\"],\"caption\":\"\"}", "photo", ["math","theory","groups"] ], 
 ].shuffle
 
 post_list.each do |author_id, poster_id, content, post_type, tags|
@@ -80,9 +84,9 @@ end
 
 likes_list = []
 
-100.times do
+200.times do
     user_id = (0..19).to_a.sample
-    post_id = (0..20).to_a.sample
+    post_id = (0..23).to_a.sample
     post = posts[post_id]
     like = [user_id, post_id]
     likes_list << like unless (post.author_id == user_id || likes_list.include?(like) )
