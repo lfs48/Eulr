@@ -34,7 +34,7 @@ class Navbar extends React.Component {
                     </>
                     :<div className="placeholder"></div>
                 }
-                    <Search />
+                    {/* <Search /> */}
                 </div>
                 {this.props.loggedIn ?
                 <NavControls />
