@@ -23,7 +23,7 @@
 
 ![](https://66.media.tumblr.com/d390361351787cd6d3eda5fc94017740/tumblr_ppgunpJpdf1wejsx8o2_540.gif)
 
-* The seven different types of posts use only three distinct form components: text, link, and media. Using a 
+* The seven different types of posts use only three distinct form components: text, link, and media. By building multi-purpose, reusable React components I was able to maintain a DRY codebase that is easy to debug expand upon.
 
 ## Feature Highlights
 
