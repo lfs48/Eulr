@@ -4,6 +4,7 @@
     align-items: center;
     border-bottom: 1px solid gray;
     min-height: 50px;
+    position: relative;
 }
 
 .nav-left {
@@ -124,4 +125,29 @@
 .nav-register {
     background: white;
     color: black;
+}
+
+.results-container {
+    background: white;
+    width: 491px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    padding: 0;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
+    position: absolute;
+    left: 250px;
+    top: 55px;
+    z-index: 2;
+}
+
+.results-container li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    padding: 5px 5px 5px 12px;
+}
+
+.results-container li:hover {
+    background: rgb(230, 239, 247);
 }
