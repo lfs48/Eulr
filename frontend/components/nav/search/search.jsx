@@ -4,8 +4,11 @@ class Search extends React.Component {
     constructor(props) {
         super(props);
         this.handleInput = this.handleInput.bind(this);
+        this.handleClick = this.handleClick.bind(this);
+        this.handleClose = this.handleClose.bind(this);
         this.state = {
-            search: ""
+            search: "",
+            active: false
         };
     }
 
@@ -16,7 +19,12 @@ class Search extends React.Component {
     }
 
     handleClick(event) {
-        event.currentTarget.className = "search-container-clicked"
+        event.currentTarget.className = "search-container-clicked";
+        this.setState({ active: true }, () => document.addEventListener("click", this.handleClose));
+    }
+
+    handleClose(event) {
+        this.setState({active: false}, () => document.removeEventListener("click", this.handleClose));
     }
 
     render() {
@@ -36,7 +44,7 @@ class Search extends React.Component {
                     value={this.state.search}
                     onChange={this.handleInput}
                 ></input>
-                {this.state.search.length > 0 ?
+                {this.state.search.length > 0 && this.state.active ?
                     <div className="results-container">
                         <ul>
                             {lis}
