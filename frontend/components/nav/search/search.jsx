@@ -23,7 +23,8 @@ class Search extends React.Component {
         const searchedUsers = this.props.users.filter( user => user.username.startsWith(this.state.search))
         const lis = searchedUsers.map( user => 
             <li key={user.id}>
-                {user.username}
+                <span>{user.username}</span>
+                <img className="avatar-small" src={user.avatar}/>
             </li>
         );
         return(
