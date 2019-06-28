@@ -20,7 +20,7 @@ class Search extends React.Component {
     }
 
     render() {
-        const searchedUsers = this.props.users.filter( user => user.username.startsWith(this.state.search))
+        const searchedUsers = this.props.users.filter( user => user.username.includes(this.state.search))
         const lis = searchedUsers.map( user => 
             <li key={user.id}>
                 <span>{user.username}</span>
