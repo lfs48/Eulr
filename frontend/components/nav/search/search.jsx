@@ -20,15 +20,28 @@ class Search extends React.Component {
     }
 
     render() {
+        const searchedUsers = this.props.users.filter( user => user.username.startsWith(this.state.search))
+        const lis = searchedUsers.map( user => 
+            <li key={user.id}>
+                {user.username}
+            </li>
+        );
         return(
             <div className="search-container" onClick={this.handleClick}>
-            <i className="fas fa-search"></i>
-            <input className="nav-search"
-                type="text"
-                placeholder="Search Eulr"
-                value={this.state.search}
-                onChange={this.handleInput}
-            ></input>
+                <i className="fas fa-search"></i>
+                <input className="nav-search"
+                    type="text"
+                    placeholder="Search Eulr"
+                    value={this.state.search}
+                    onChange={this.handleInput}
+                ></input>
+                {this.state.search.length > 0 ?
+                    <div className="results-container">
+                        <ul>
+                            {lis}
+                        </ul>
+                    </div>
+                :<></>}
             </div>
         );
     }
