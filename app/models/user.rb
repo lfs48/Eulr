@@ -46,6 +46,16 @@ class User < ApplicationRecord
         through: :likes,
         source: :post
 
+    has_many :sent_messages,
+        class_name: :Message,
+        primary_key: :id,
+        foreign_key: :sender_id
+
+    has_many :received_messages,
+        class_name: :Message,
+        primary_key: :id,
+        foreign_key: :receiver_id
+
     has_one_attached :avatar
 
     attr_reader :password
