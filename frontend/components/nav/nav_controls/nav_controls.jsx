@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AccountControlsIndex from './account_controls_index_container';
+import MessagesIndex from './messages_index';
 
 class NavControls extends React.Component {
     
@@ -30,9 +31,7 @@ class NavControls extends React.Component {
                         </Link>
                     </li>
                     <li>
-                        <button>
-                            <i className="fas fa-comment"></i>
-                        </button>
+                        <MessagesIndex />
                     </li>
                     <li>
                         <AccountControlsIndex />
