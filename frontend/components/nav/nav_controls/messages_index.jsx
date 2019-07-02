@@ -1,8 +1,17 @@
-import React, {userState} from 'react';
+import React, {useState} from 'react';
 
 function MessagesIndex() {
+
+    const [isOpen, switchState] = useState(false);
+
     return(
-        <i className="fas fa-comment"></i>
+        <div className="messages-index-container">
+            <i className="fas fa-comment" onClick={() => switchState(!isOpen)}></i>
+            {isOpen? 
+            <div className="message-menu-container"></div>
+            :<></>}
+        </div>
+        
     )
 }
 
