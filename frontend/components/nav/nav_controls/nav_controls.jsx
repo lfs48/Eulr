@@ -30,6 +30,11 @@ class NavControls extends React.Component {
                         </Link>
                     </li>
                     <li>
+                        <button>
+                            <i className="fas fa-comment"></i>
+                        </button>
+                    </li>
+                    <li>
                         <AccountControlsIndex />
                     </li>
                 </ul>
