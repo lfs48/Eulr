@@ -5,7 +5,6 @@ class Api::MessagesController < ApplicationController
         @messages = []
         @messages += Message.where( :sender_id => @user.id )
         @messages += Message.where( :receiver_id => @user.id )
-        debugger
         render "api/messages/index"
     end
 
