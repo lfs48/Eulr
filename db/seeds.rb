@@ -95,3 +95,13 @@ end
 likes_list.each do |user_id, post_id|
     Like.create(user_id: user_id, post_id: post_id)
 end
+
+messages_list = [
+    [User.first.id, User.second.id, "Testing"],
+    [User.first.id, User.third.id, "Testing"],
+    [User.fourth.id, User.first.id, "Testing"]
+];
+
+messages_list.each do |sender_id, receiver_id, body|
+    Message.create(sender_id: sender_id, receiver_id: receiver_id, body: body)
+end
