@@ -18,7 +18,8 @@ const MessagesIndex = props => {
     useEffect( 
         () => {
             dispatch(fetchMessages(currentUser.id));
-        }
+        },
+        []
     );
 
     const lis = {}
