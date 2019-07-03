@@ -1,4 +1,4 @@
-class Api::UsersController < ApplicationController
+class Api::MessagesController < ApplicationController
 
     def index
         @user = User.find_by(id: params[:user_id])
