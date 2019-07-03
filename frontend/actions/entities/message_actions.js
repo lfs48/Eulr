@@ -1,5 +1,7 @@
 import * as MessageAPIUtil from '../../util/entities/message_api_util';
 
+export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
+
 // Standard actions
 
 export const receiveAllMessages = (messages) => ({
