@@ -10,7 +10,7 @@ export const receiveAllMessages = (messages) => ({
 // Thunk actions
 
 export const fetchMessages = (userId) => (dispatch) => {
-    return MessageAPIUtil.fetchMessages(userId).then(
+    return MessageAPIUtil.fetchUserMessages(userId).then(
         (messages) => dispatch(receiveAllMessages(messages))
     );
 };
