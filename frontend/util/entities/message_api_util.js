@@ -1,7 +1,7 @@
 export const fetchUserMessages = (id) => {
     return $.ajax({
         method: 'GET',
-        url: `api/users/${id}/meesages`
+        url: `api/users/${id}/messages`
     });
 };
 
