@@ -26,11 +26,15 @@ const MessagesIndex = props => {
 
     const lis = messages.map( 
         message => {
+            const username = users[message.sender_id] ? users[message.sender_id].username : "";
             const url = users[message.sender_id] ? users[message.sender_id].avatar : "";
             return(
-            <li key={message.id}>
+            <li key={message.id} className="message-menu-item">
                 <img className="avatar-small" src={url} />
-                <span>{message.body}</span>
+                <div>
+                    <h5>{username}</h5>
+                    <span>{message.body}</span>
+                </div>
             </li>
             )
         }
@@ -42,8 +46,11 @@ const MessagesIndex = props => {
             {isOpen? 
             <div className="message-menu-container">
                 <ul>
-                    <li>
-                        <span>{currentUser.username}</span>
+                    <li className="message-menu-header">
+                        <div>
+                            <img className="avatar-tiny" src={currentUser.avatar}/>
+                            <span>{currentUser.username}</span>
+                        </div>
                         <button>New Message</button>
                     </li>
                     {lis}
