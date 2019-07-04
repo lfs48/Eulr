@@ -35,19 +35,34 @@ const MessagesIndex = props => {
         document.removeEventListener("click", handleClose);
     }
 
-    const lis = messages.map( 
-        message => {
-            const username = users[message.sender_id] ? users[message.sender_id].username : "";
-            const url = users[message.sender_id] ? users[message.sender_id].avatar : "";
+    const lis = Object.values(messages).map(
+        conversation => {
+            const message = conversation[conversation.length - 1];
+            let username = "";
+            let url = "";
+            let body = "";
+            if (message.receiver_id === currentUser.id) {
+                username = users[message.sender_id] ? users[message.sender_id].username : "";
+                url = users[message.sender_id] ? users[message.sender_id].avatar : "";
+                body = <span className="message-preview-text">{message.body}</span>
+            } else {
+                username = users[message.receiver_id] ? users[message.receiver_id].username : "";
+                url = users[message.receiver_id] ? users[message.receiver_id].avatar : "";
+                body = 
+                    <div className="message-preview-text-container">
+                        <h5 className="message-preview-text">{currentUser.username}: </h5>
+                        <span className="message-preview-text">{message.body}</span>
+                    </div>
+            }
             return(
             <li key={message.id} className="message-menu-item">
                 <img className="avatar-small" src={url} />
-                <div>
+                <section>
                     <h5>{username}</h5>
-                    <span>{message.body}</span>
-                </div>
+                    {body}
+                </section>
             </li>
-            )
+            );
         }
     );
 
