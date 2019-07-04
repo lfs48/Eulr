@@ -37,6 +37,9 @@ const messagesReducer = (state = {}, action) => {
                 newState[action.message.receiver_id].push(action.message);
             } else if (action.message.sender_id in newState) {
                 newState[action.message.sender_id].push(action.message);
+            } else {
+                const id = action.userId === action.message.sender_id ?  action.message.receiver_id : action.message.sender_id
+                newState[id] = [action.message];
             }
             return newState;
         }
