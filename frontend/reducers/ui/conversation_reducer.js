@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { OPEN_CONVERSATION, CLOSE_CONVERSATION } from '../../actions/ui/conversation_actions';
+import { OPEN_CONVERSATION, CLOSE_CONVERSATION, HIDE_CONVERSATION } from '../../actions/ui/conversation_actions';
 
 const navReducer = (state = {}, action) => {
     const newState = merge({}, state);
@@ -9,8 +9,15 @@ const navReducer = (state = {}, action) => {
         default: return state;
 
         case(OPEN_CONVERSATION): {
+            for (let key in newState) {
+                newState[key] = false;
+            }
             newState[action.userId] = true;
             return newState;
+        }
+
+        case(HIDE_CONVERSATION): {
+            newState[action.userId] = false;
         }
 
         case(CLOSE_CONVERSATION): {
