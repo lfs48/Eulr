@@ -113,6 +113,7 @@
     border-radius: 3px;
     box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
     margin-right: 15px;
+    background: white;
 }
 
 .active-conversation-container header {
@@ -127,9 +128,9 @@
 
 .active-conversation-container ul {
     height: 236px;
-    background: white;
     padding: 20px;
-    overflow: scroll;
+    overflow: auto;
+    border-bottom: 1px solid lightgray;
 }
 
 .active-conversation-container li {
@@ -149,4 +150,21 @@
 
 .message-text h5 {
     font-weight: bold;
+}
+
+.active-conversation-container footer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+}
+
+.active-conversation-container textarea {
+    resize: none;
+    border: none;
+    box-sizing: border-box;
+    margin: 10px;
+    min-height: 44px;
+    max-height: 150px;
+    overflow: hidden;
+    font-size: 17px;
 }
