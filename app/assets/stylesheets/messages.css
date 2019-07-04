@@ -56,11 +56,15 @@
     font-weight: bold;
 }
 
-.message-menu-item span {
+.message-preview-text-container h5 {
+    display: inline;
+}
+
+.message-preview-text {
     color: rgb(165, 165, 165);
 }
 
-.message-menu-item div {
+.message-menu-item section {
     display: flex;
     flex-direction: column;
 }
