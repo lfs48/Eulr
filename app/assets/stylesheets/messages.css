@@ -90,3 +90,13 @@
     transform: translateY(10%);
     transition: opacity 250ms, transform 250ms;
 }
+
+.conversation-container {
+    position: fixed;
+    bottom: 15px;
+    right: 15px;
+}
+
+.hidden-conversations-container li {
+    margin-top: 15px;
+}
