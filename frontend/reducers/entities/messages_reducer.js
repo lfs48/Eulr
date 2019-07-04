@@ -2,7 +2,7 @@ import { merge } from 'lodash';
 import { RECEIVE_ALL_MESSAGES } from '../../actions/entities/message_actions';
 
 const messagesReducer = (state = {}, action) => {
-    const newState = merge({}, state);
+    let newState = merge({}, state);
     Object.freeze(state);
 
     switch(action.type) {
@@ -10,7 +10,26 @@ const messagesReducer = (state = {}, action) => {
         default: return state;
 
         case(RECEIVE_ALL_MESSAGES): {
-            return action.messages;
+            newState = {};
+            const currentId = window.currentUserId;
+            Object.values(action.messages).forEach(
+                message => {
+                    if (message.sender_id === currentId) {
+                        if (message.receiver_id in newState) {
+                            newState[message.receiver_id].push(message);
+                        } else {
+                            newState[message.receiver_id] = [message];
+                        }
+                    } else {
+                        if (message.sender_id in newState) {
+                            newState[message.sender_id].push(message);
+                        } else {
+                            newState[message.sender_id] = [message];
+                        }
+                    }
+                }
+            );
+            return newState;
         }
     }
 }
