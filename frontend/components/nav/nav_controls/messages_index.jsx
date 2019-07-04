@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { fetchMessages } from '../../../actions/entities/message_actions';
 import { fetchUsers } from '../../../actions/entities/user_actions';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { openConversation } from '../../../actions/ui/conversation_actions';
 
 const MessagesIndex = props => {
 
@@ -35,27 +36,33 @@ const MessagesIndex = props => {
         document.removeEventListener("click", handleClose);
     }
 
+    const handleClickConvo = (userId) => {
+        dispatch( openConversation(userId) );
+        switchState(false);
+    }
+
     const lis = Object.values(messages).map(
         conversation => {
             const message = conversation[conversation.length - 1];
             let username = "";
             let url = "";
             let body = "";
+            let id = "";
             if (message.receiver_id === currentUser.id) {
-                username = users[message.sender_id] ? users[message.sender_id].username : "";
-                url = users[message.sender_id] ? users[message.sender_id].avatar : "";
+                id = message.sender_id;
                 body = <span className="message-preview-text">{message.body}</span>
             } else {
-                username = users[message.receiver_id] ? users[message.receiver_id].username : "";
-                url = users[message.receiver_id] ? users[message.receiver_id].avatar : "";
+                id = message.receiver_id;
                 body = 
                     <div className="message-preview-text-container">
                         <h5 className="message-preview-text">{currentUser.username}: </h5>
                         <span className="message-preview-text">{message.body}</span>
                     </div>
             }
+            username = users[id] ? users[id].username : "";
+            url = users[id] ? users[id].avatar : "";
             return(
-            <li key={message.id} className="message-menu-item">
+            <li key={message.id} className="message-menu-item" onClick={() => {handleClickConvo(id)}}>
                 <img className="avatar-small" src={url} />
                 <section>
                     <h5>{username}</h5>
