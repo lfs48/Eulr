@@ -13,7 +13,7 @@ const Conversation = props => {
         event.preventDefault();
         setInput(event.target.value);
         console.log(event.target.scrollHeight);
-        event.target.style.height = (event.target.scrollHeight - 30) + "px";
+        event.target.style.height = event.target.scrollHeight + "px";
     }
     
     const {currentUser, users, messages, openConvos} = useSelector(
@@ -76,6 +76,7 @@ const Conversation = props => {
                         <textarea 
                             onChange={event => handleInput(event)}
                             value={input}
+                            placeholder="Say your thing"
                         >
                         </textarea>
                         <span>
