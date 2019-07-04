@@ -8,7 +8,7 @@ export const fetchUserMessages = (id) => {
 export const createMessage = (message) => {
     return $.ajax({
         method: 'POST',
-        url: `api/users/${id}/messages`,
+        url: `api/messages`,
         data: { message: message }
     });
 };
