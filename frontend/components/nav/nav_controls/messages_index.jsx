@@ -38,6 +38,7 @@ const MessagesIndex = props => {
 
     const handleClickConvo = (userId) => {
         dispatch( openConversation(userId) );
+        document.removeEventListener("click", handleClose);
         switchState(false);
     }
 
@@ -74,7 +75,7 @@ const MessagesIndex = props => {
     );
 
     return(
-        <div className="messages-index-container">
+        <div className="messages-index-container" onClick={event => event.nativeEvent.stopImmediatePropagation()}>
             <i className="fas fa-comment" onClick={() => handleClick()}></i>
             {isOpen? 
             <ReactCSSTransitionGroup
@@ -84,7 +85,7 @@ const MessagesIndex = props => {
             transitionEnterTimeout={0}
             transitionLeaveTimeout={250}
             >
-            <div className="message-menu-container" key={1} onClick={event => event.nativeEvent.stopImmediatePropagation() }>
+            <div className="message-menu-container" key={1}>
                 <ul>
                     <li className="message-menu-header">
                         <div>
