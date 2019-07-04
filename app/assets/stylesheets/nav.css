@@ -4,7 +4,12 @@
     align-items: center;
     border-bottom: 1px solid gray;
     min-height: 50px;
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 2;
+    background: rgb(14, 29, 56);
+    width: 100%;
 }
 
 .nav-left {
