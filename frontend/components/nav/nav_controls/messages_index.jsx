@@ -62,7 +62,7 @@ const MessagesIndex = props => {
             transitionEnterTimeout={0}
             transitionLeaveTimeout={250}
             >
-            <div className="message-menu-container" key={1}>
+            <div className="message-menu-container" key={1} onClick={event => event.nativeEvent.stopImmediatePropagation() }>
                 <ul>
                     <li className="message-menu-header">
                         <div>
