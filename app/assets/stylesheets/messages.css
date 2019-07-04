@@ -95,8 +95,58 @@
     position: fixed;
     bottom: 15px;
     right: 15px;
+    display: flex;
+}
+
+.hidden-conversations-container {
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .hidden-conversations-container li {
     margin-top: 15px;
+}
+
+.active-conversation-container {
+    width: 280px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0 5px 10px 0 rgba(0,0,0,.1);
+    margin-right: 15px;
+}
+
+.active-conversation-container header {
+    height: 46px;
+    background: black;
+    color: white;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.active-conversation-container ul {
+    height: 236px;
+    background: white;
+    padding: 20px;
+    overflow: scroll;
+}
+
+.active-conversation-container li {
+    display: flex;
+    margin-bottom: 15px;
+}
+
+.active-conversation-container img {
+    margin-right: 10px;
+}
+
+.message-text {
+    background: lightgray;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.message-text h5 {
+    font-weight: bold;
 }
