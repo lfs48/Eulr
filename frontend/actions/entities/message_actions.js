@@ -1,6 +1,7 @@
 import * as MessageAPIUtil from '../../util/entities/message_api_util';
 
 export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
+export const RECEIVE_MESSAGE = "RECEIVE_MESSAGE";
 
 // Standard actions
 
@@ -10,6 +11,11 @@ export const receiveAllMessages = (messages, userId) => ({
     userId: userId
 });
 
+export const receiveMessage = (message) => ({
+    type: RECEIVE_MESSAGE,
+    message: message
+})
+
 // Thunk actions
 
 export const fetchMessages = (userId) => (dispatch) => {
@@ -17,3 +23,9 @@ export const fetchMessages = (userId) => (dispatch) => {
         (messages) => dispatch(receiveAllMessages(messages, userId))
     );
 };
+
+export const createMessage = (message) => (dispatch) => {
+    return MessageAPIUtil.createMessage(message).then(
+        (message) => dispatch( receiveMessage(message) )
+    );
+}
