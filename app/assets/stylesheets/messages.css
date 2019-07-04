@@ -52,6 +52,23 @@
     height: 65px;
 }
 
+.message-menu-search-field {
+    display: inline;
+}
+
+.message-menu-search-field span {
+    margin-left: 15px;
+    color: lightgray;
+}
+
+.message-menu-container input {
+    width: 70%;
+    border: none;
+    height: 51px;
+    padding: 10px;
+    font: 400 15px Arial;
+}
+
 .message-menu-item h5 {
     font-weight: bold;
 }
