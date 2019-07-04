@@ -155,16 +155,29 @@
 .active-conversation-container footer {
     display: flex;
     flex-direction: column;
-    margin-top: 10px;
 }
 
 .active-conversation-container textarea {
     resize: none;
     border: none;
+    font-family: Helvetica Neue,HelveticaNeue,Helvetica,Arial,sans-serif;
     box-sizing: border-box;
-    margin: 10px;
-    min-height: 44px;
-    max-height: 150px;
+    padding: 15px 15px 0 15px;
+    min-height: 29px;
+    max-height: 130px;
     overflow: hidden;
-    font-size: 17px;
+    font-size: 14px;
+}
+
+.active-conversation-container i {
+    color: hotpink;
+}
+
+.active-conversation-container footer span {
+    display: flex;
+    flex-direction: row-reverse;
+    font-size: 20px;
+    padding: 10px;
+    height: 43px;
+    box-sizing: border-box;
 }
