@@ -12,8 +12,18 @@ const Conversation = props => {
     const handleInput = (event) => {
         event.preventDefault();
         setInput(event.target.value);
-        console.log(event.target.scrollHeight);
         event.target.style.height = event.target.scrollHeight + "px";
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const message = {
+            sender_id: currentUser.id,
+            receiver_id: activeConvo[0],
+            body: input
+        }
+        dispatch(createMessage(message));
+        setInput("");
     }
     
     const {currentUser, users, messages, openConvos} = useSelector(
@@ -80,7 +90,7 @@ const Conversation = props => {
                         >
                         </textarea>
                         <span>
-                        <i className="fas fa-location-arrow"></i>
+                        <i className="fas fa-location-arrow" onClick={(event) => handleSubmit(event)}></i>
                         </span>
                     </footer>
                 </div>
