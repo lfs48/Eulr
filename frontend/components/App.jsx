@@ -22,6 +22,7 @@ import Conversation from './conversations/conversation';
 const App = (props) => (
     <main className="app-container">
         <Navbar />
+        <section className="below-nav-container">
         <Switch>
             <Route path="/explore" component={Explore} />
             <AuthRoute path="/login" component={LoginForm} />
@@ -34,6 +35,7 @@ const App = (props) => (
             <ProtectedRoute path="/help" component={UnderConstruction} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
+        </section>
         <Conversation />
     </main>
 );
