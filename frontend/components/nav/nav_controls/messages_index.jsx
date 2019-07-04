@@ -11,6 +11,8 @@ const MessagesIndex = props => {
 
     const [isOpen, switchState] = useState(false);
 
+    const [stage, setStage] = useState(1);
+
     const {currentUser, users, messages} = useSelector(
         state => ({
             currentUser: state.entities.users[state.session.id],
@@ -33,6 +35,7 @@ const MessagesIndex = props => {
 
     const handleClose = () => {
         switchState(false);
+        setStage(1);
         document.removeEventListener("click", handleClose);
     }
 
@@ -74,34 +77,58 @@ const MessagesIndex = props => {
         }
     );
 
+    let content = <></>
+
+    if (stage === 1) {
+        content =
+            <ul>
+                <li className="message-menu-header">
+                    <div>
+                        <img className="avatar-tiny" src={currentUser.avatar}/>
+                        <span>{currentUser.username}</span>
+                    </div>
+                    <button onClick={() => setStage(2)}>New Message</button>
+                </li>
+                {lis}
+            </ul>
+    } else if (stage === 2) {
+        content =
+        <ul>
+            <li className="message-menu-header">
+                <div>
+                    <img className="avatar-tiny" src={currentUser.avatar}/>
+                    <span>{currentUser.username}</span>
+                </div>
+                <button onClick={() => setStage(1)}>Nevermind</button>
+            </li>
+            <li className="message-menu-search-field">
+                <span>To:</span>
+                <input 
+                    type="text"
+                />
+            </li>
+        </ul>
+    }
+
     return(
-        <div className="messages-index-container" onClick={event => event.nativeEvent.stopImmediatePropagation()}>
-            <i className="fas fa-comment" onClick={() => handleClick()}></i>
-            {isOpen? 
-            <ReactCSSTransitionGroup
-            transitionName="message-menu-transition"
-            transitionAppear={true}
-            transitionAppearTimeout={250}
-            transitionEnterTimeout={0}
-            transitionLeaveTimeout={250}
-            >
-            <div className="message-menu-container" key={1}>
-                <ul>
-                    <li className="message-menu-header">
-                        <div>
-                            <img className="avatar-tiny" src={currentUser.avatar}/>
-                            <span>{currentUser.username}</span>
-                        </div>
-                        <button>New Message</button>
-                    </li>
-                    {lis}
-                </ul>
+            <div className="messages-index-container" onClick={event => event.nativeEvent.stopImmediatePropagation()}>
+                <i className="fas fa-comment" onClick={() => handleClick()}></i>
+                {isOpen? 
+                <ReactCSSTransitionGroup
+                transitionName="message-menu-transition"
+                transitionAppear={true}
+                transitionAppearTimeout={250}
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={250}
+                >
+                <div className="message-menu-container" key={1}>
+                    {content}
+                </div>
+                </ReactCSSTransitionGroup>
+                :<></>}
             </div>
-            </ReactCSSTransitionGroup>
-            :<></>}
-        </div>
-        
-    )
+    );
+
 }
 
 export default MessagesIndex;
