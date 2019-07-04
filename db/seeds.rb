@@ -99,7 +99,9 @@ end
 messages_list = [
     [User.first.id, User.second.id, "Testing"],
     [User.first.id, User.third.id, "Testing"],
-    [User.fourth.id, User.first.id, "Testing"]
+    [User.fourth.id, User.first.id, "Testing"],
+    [User.second.id, User.first.id, "responding to testing"],
+    [User.first.id, User.second.id, "third message testing"],
 ];
 
 messages_list.each do |sender_id, receiver_id, body|
