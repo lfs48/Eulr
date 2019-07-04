@@ -11,7 +11,7 @@ const messagesReducer = (state = {}, action) => {
 
         case(RECEIVE_ALL_MESSAGES): {
             newState = {};
-            const currentId = window.currentUserId;
+            const currentId = action.userId
             Object.values(action.messages).forEach(
                 message => {
                     if (message.sender_id === currentId) {
