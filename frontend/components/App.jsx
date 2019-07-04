@@ -17,6 +17,7 @@ import Logout from './session/logout';
 import FollowersIndex from '../components/follows/followers_index_container';
 import FollowingsIndex from '../components/follows/followings_index_container';
 import LikesIndex from './likes/likes_index_container';
+import Conversation from './conversations/conversation';
 
 const App = (props) => (
     <main className="app-container">
@@ -33,6 +34,7 @@ const App = (props) => (
             <ProtectedRoute path="/help" component={UnderConstruction} />
             <AuthRoute path="/" component={Splash} />
         </Switch>
+        <Conversation />
     </main>
 );
 
