@@ -24,6 +24,16 @@ const MessagesIndex = props => {
         []
     );
 
+    const handleClick = () => {
+        switchState(true);
+        document.addEventListener("click", handleClose);
+    }
+
+    const handleClose = () => {
+        switchState(false);
+        document.removeEventListener("click", handleClose);
+    }
+
     const lis = messages.map( 
         message => {
             const username = users[message.sender_id] ? users[message.sender_id].username : "";
@@ -42,9 +52,9 @@ const MessagesIndex = props => {
 
     return(
         <div className="messages-index-container">
-            <i className="fas fa-comment" onClick={() => switchState(!isOpen)}></i>
+            <i className="fas fa-comment" onClick={() => handleClick()}></i>
             {isOpen? 
-            <div className="message-menu-container">
+            <div className="message-menu-container" >
                 <ul>
                     <li className="message-menu-header">
                         <div>
