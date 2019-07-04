@@ -1,10 +1,18 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {createMessage} from '../../actions/entities/message_actions';
+import { handleInput } from '../../util/forms/post_form_util';
 
 const Conversation = props => {
 
     const dispatch = useDispatch();
 
+    const [input, setInput] = useState("");
+
+    const handleInput = (event) => {
+        event.preventDefault();
+        setInput(event.target.value);
+    }
     
     const {currentUser, users, messages, openConvos} = useSelector(
         state => ({
@@ -62,6 +70,16 @@ const Conversation = props => {
                     <ul>
                         {activeMessages}
                     </ul>
+                    <footer>
+                        <textarea 
+                            onChange={event => handleInput(event)}
+                            value={input}
+                        >
+                        </textarea>
+                        <span>
+                        <i className="fas fa-location-arrow"></i>
+                        </span>
+                    </footer>
                 </div>
                 :<></>}
                 <div className="hidden-conversations-container">
