@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_ALL_MESSAGES } from '../../actions/entities/message_actions';
+import { RECEIVE_ALL_MESSAGES, RECEIVE_MESSAGE } from '../../actions/entities/message_actions';
 
 const messagesReducer = (state = {}, action) => {
     let newState = merge({}, state);
@@ -29,6 +29,15 @@ const messagesReducer = (state = {}, action) => {
                     }
                 }
             );
+            return newState;
+        }
+
+        case(RECEIVE_MESSAGE): {
+            if (action.message.receiver_id in newState) {
+                newState[action.message.receiver_id].push(action.message);
+            } else if (action.message.sender_id in newState) {
+                newState[action.message.sender_id].push(action.message);
+            }
             return newState;
         }
     }
