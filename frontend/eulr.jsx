@@ -17,7 +17,6 @@ const cb = () => {
                 }
             }
         };
-        window.currentUserId = window.currentUser.id;
     }
     const store = configureStore(preloadedState);
     delete window.currentUser;
