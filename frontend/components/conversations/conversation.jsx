@@ -12,6 +12,8 @@ const Conversation = props => {
     const handleInput = (event) => {
         event.preventDefault();
         setInput(event.target.value);
+        console.log(event.target.scrollHeight);
+        event.target.style.height = (event.target.scrollHeight - 30) + "px";
     }
     
     const {currentUser, users, messages, openConvos} = useSelector(
