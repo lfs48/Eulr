@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchMessages } from '../../../actions/entities/message_actions';
 import { fetchUsers } from '../../../actions/entities/user_actions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 const MessagesIndex = props => {
 
@@ -54,7 +55,14 @@ const MessagesIndex = props => {
         <div className="messages-index-container">
             <i className="fas fa-comment" onClick={() => handleClick()}></i>
             {isOpen? 
-            <div className="message-menu-container" >
+            <ReactCSSTransitionGroup
+            transitionName="message-menu-transition"
+            transitionAppear={true}
+            transitionAppearTimeout={250}
+            transitionEnterTimeout={0}
+            transitionLeaveTimeout={250}
+            >
+            <div className="message-menu-container" key={1}>
                 <ul>
                     <li className="message-menu-header">
                         <div>
@@ -66,6 +74,7 @@ const MessagesIndex = props => {
                     {lis}
                 </ul>
             </div>
+            </ReactCSSTransitionGroup>
             :<></>}
         </div>
         
