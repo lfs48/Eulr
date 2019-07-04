@@ -11,9 +11,10 @@ export const receiveAllMessages = (messages, userId) => ({
     userId: userId
 });
 
-export const receiveMessage = (message) => ({
+export const receiveMessage = (message, userId) => ({
     type: RECEIVE_MESSAGE,
-    message: message
+    message: message,
+    userId: userId
 })
 
 // Thunk actions
@@ -24,8 +25,8 @@ export const fetchMessages = (userId) => (dispatch) => {
     );
 };
 
-export const createMessage = (message) => (dispatch) => {
+export const createMessage = (message, userId) => (dispatch) => {
     return MessageAPIUtil.createMessage(message).then(
-        (message) => dispatch( receiveMessage(message) )
+        (message) => dispatch( receiveMessage(message, userId) )
     );
 }

@@ -22,7 +22,7 @@ const Conversation = props => {
             receiver_id: activeConvo[0],
             body: input
         }
-        dispatch(createMessage(message));
+        dispatch(createMessage(message, currentUser.id));
         setInput("");
     }
     
