@@ -20,21 +20,25 @@ const Conversation = props => {
             const avatar = users[convo[0]] ? users[convo[0]].avatar : "";
             return(
                 <li key={convo[0]}>
-                    <img className="avatar" src={avatar}/>
+                    <img className="avatar-small" src={avatar}/>
                 </li>
             );
         }
     );
 
-    return (
-        <div className="conversation-container">
-            <div className="hidden-conversations-container">
-                <ul>
-                    {hiddenConvos}
-                </ul>
+    if (currentUser) {
+        return (
+            <div className="conversation-container">
+                <div className="hidden-conversations-container">
+                    <ul>
+                        {hiddenConvos}
+                    </ul>
+                </div>
             </div>
-        </div>
-    );
+        );
+    } else {
+        return <></>
+    }
 
 }
 
