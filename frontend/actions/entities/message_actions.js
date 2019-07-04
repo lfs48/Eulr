@@ -4,15 +4,16 @@ export const RECEIVE_ALL_MESSAGES = "RECEIVE_ALL_MESSAGES";
 
 // Standard actions
 
-export const receiveAllMessages = (messages) => ({
+export const receiveAllMessages = (messages, userId) => ({
     type: RECEIVE_ALL_MESSAGES,
-    messages: messages
+    messages: messages,
+    userId: userId
 });
 
 // Thunk actions
 
 export const fetchMessages = (userId) => (dispatch) => {
     return MessageAPIUtil.fetchUserMessages(userId).then(
-        (messages) => dispatch(receiveAllMessages(messages))
+        (messages) => dispatch(receiveAllMessages(messages, userId))
     );
 };
