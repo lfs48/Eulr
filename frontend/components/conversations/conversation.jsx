@@ -1,17 +1,41 @@
 import React, {useState} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 
-const ConversationOpen = props => {
+const Conversation = props => {
 
     const dispatch = useDispatch();
 
     
-    const {currentUser, users, messages} = useSelector(
+    const {currentUser, users, messages, openConvos} = useSelector(
         state => ({
             currentUser: state.entities.users[state.session.id],
             users: state.entities.users,
-            messages: Object.values(state.entities.messages)
+            messages: Object.values(state.entities.messages),
+            openConvos: Object.entries(state.ui.conversations)
         })
     );
 
+    const hiddenConvos = openConvos.filter(convo => !convo[1]).map( 
+        convo => {
+            const avatar = users[convo[0]] ? users[convo[0]].avatar : "";
+            return(
+                <li key={convo[0]}>
+                    <img className="avatar" src={avatar}/>
+                </li>
+            );
+        }
+    );
+
+    return (
+        <div className="conversation-container">
+            <div className="hidden-conversations-container">
+                <ul>
+                    {hiddenConvos}
+                </ul>
+            </div>
+        </div>
+    );
+
 }
+
+export default Conversation;
