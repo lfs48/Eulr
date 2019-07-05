@@ -108,6 +108,31 @@
     transition: opacity 250ms, transform 250ms;
 }
 
+.message-search-result {
+    display: flex;
+    padding: 10px;
+}
+
+.message-search-result:hover {
+    background: rgb(226, 226, 226);
+}
+
+.message-search-result div {
+    display: flex;
+    flex-direction: column;
+}
+
+.message-search-result h5 {
+    font-weight: 700;
+    margin-bottom: 7px;
+}
+
+.message-search-result span {
+    color: rgb(0, 184, 255);
+    font-weight: 700;
+    font-size: 13px;
+}
+
 .conversation-container {
     position: fixed;
     bottom: 15px;
