@@ -143,6 +143,16 @@
     align-items: center;
 }
 
+.active-messages-first-li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.active-messages-first-li h5 {
+    font-weight: 700;
+}
+
 .active-conversation-container ul {
     height: 236px;
     padding: 20px;
