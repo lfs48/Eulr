@@ -191,16 +191,8 @@
     margin-bottom: 15px;
 }
 
-.right-message {
-    flex-direction: row-reverse;
-}
-
-.left-message img {
+.active-conversation-container li img {
     margin-right: 10px;
-}
-
-.right-message img {
-    margin-left: 10px;
 }
 
 .message-text {
