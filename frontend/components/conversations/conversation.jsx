@@ -74,8 +74,8 @@ const Conversation = props => {
                     const avatar = users[message.sender_id] ? users[message.sender_id].avatar : "";
                     const side = currentUser && message.sender_id === currentUser.id ? "right-message" : "left-message"
                     return(
-                        <li key={message.id} className={side}>
-                            <img className="avatar-tiny" src={avatar}/>
+                        <li key={message.id}>
+                            <img className="avatar-chat" src={avatar}/>
                             <div className="message-text">
                                 <h5>{username}</h5>
                                 <p>{message.body}</p>
