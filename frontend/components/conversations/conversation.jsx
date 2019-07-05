@@ -50,27 +50,35 @@ const Conversation = props => {
 
     let activeConvoHeader = <></>;
     let activeMessages = <></>;
+    let activeMessagesTopLi = <></>;
     if (activeConvo) {
         activeConvoHeader = 
             <header>
                 {currentUser ? currentUser.username : ""} + {users[activeConvo[0]] ? users[activeConvo[0]].username : ""}
             </header>
-        activeMessages = messages[activeConvo[0]].map(
-            message => {
-                const username = users[message.sender_id] ? users[message.sender_id].username : "";
-                const avatar = users[message.sender_id] ? users[message.sender_id].avatar : "";
-                const side = currentUser && message.sender_id === currentUser.id ? "right-message" : "left-message"
-                return(
-                    <li key={message.id} className={side}>
-                        <img className="avatar-tiny" src={avatar}/>
-                        <div className="message-text">
-                            <h5>{username}</h5>
-                            <p>{message.body}</p>
-                        </div>
-                    </li>
-                )
-            }
-        );
+        activeMessagesTopLi = 
+            <li className="active-messages-first-li">
+                <img className="avatar-small" src={users[activeConvo[0]] ? users[activeConvo[0]].avatar : ""}/>
+                <h5>{users[activeConvo[0]] ? users[activeConvo[0]].username : ""}</h5>
+            </li>
+        if (activeConvo[0] in messages) {
+            activeMessages = messages[activeConvo[0]].map(
+                message => {
+                    const username = users[message.sender_id] ? users[message.sender_id].username : "";
+                    const avatar = users[message.sender_id] ? users[message.sender_id].avatar : "";
+                    const side = currentUser && message.sender_id === currentUser.id ? "right-message" : "left-message"
+                    return(
+                        <li key={message.id} className={side}>
+                            <img className="avatar-tiny" src={avatar}/>
+                            <div className="message-text">
+                                <h5>{username}</h5>
+                                <p>{message.body}</p>
+                            </div>
+                        </li>
+                    )
+                }
+            );
+        }
     }
 
     if (currentUser) {
@@ -80,6 +88,7 @@ const Conversation = props => {
                 <div className="active-conversation-container">
                     {activeConvoHeader}
                     <ul>
+                        {activeMessagesTopLi}
                         {activeMessages}
                     </ul>
                     <footer>
