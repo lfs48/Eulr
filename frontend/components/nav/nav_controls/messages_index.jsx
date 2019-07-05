@@ -13,6 +13,8 @@ const MessagesIndex = props => {
 
     const [stage, setStage] = useState(1);
 
+    const [searchInput, setSearchInput] = useState("");
+
     const {currentUser, users, messages} = useSelector(
         state => ({
             currentUser: state.entities.users[state.session.id],
@@ -43,6 +45,11 @@ const MessagesIndex = props => {
         dispatch( openConversation(userId) );
         document.removeEventListener("click", handleClose);
         switchState(false);
+    }
+
+    const handleSearchInput = (event) => {
+        event.preventDefault();
+        setSearchInput(event.target.value);
     }
 
     const lis = Object.values(messages).map(
@@ -105,6 +112,8 @@ const MessagesIndex = props => {
                 <span>To:</span>
                 <input 
                     type="text"
+                    onChange={event => handleSearchInput(event)}
+                    value={searchInput}
                 />
             </li>
         </ul>
