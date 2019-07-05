@@ -12,6 +12,12 @@
     margin-right: 10px;
 }
 
+.avatar-chat {
+    height: 30px;
+    width: 30px;
+    border-radius: 3px;
+}
+
 .avatar-tiny {
     height: 25px;
     width: 25px;
