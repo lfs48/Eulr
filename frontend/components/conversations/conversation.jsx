@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {createMessage} from '../../actions/entities/message_actions';
 import { handleInput } from '../../util/forms/post_form_util';
@@ -8,6 +8,8 @@ const Conversation = props => {
     const dispatch = useDispatch();
 
     const [input, setInput] = useState("");
+
+    const [lastMessage, setLastMessage] = useState();
 
     const handleInput = (event) => {
         event.preventDefault();
@@ -25,6 +27,10 @@ const Conversation = props => {
         dispatch(createMessage(message, currentUser.id));
         setInput("");
     }
+
+    useEffect(
+        () => { if (lastMessage) lastMessage.scrollIntoView({ behavior: 'smooth' }) }
+    );
     
     const {currentUser, users, messages, openConvos} = useSelector(
         state => ({
@@ -90,6 +96,7 @@ const Conversation = props => {
                     <ul>
                         {activeMessagesTopLi}
                         {activeMessages}
+                        <div ref={el => setLastMessage(el)} />
                     </ul>
                     <footer>
                         <textarea 
