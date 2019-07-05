@@ -88,9 +88,13 @@ const MessagesIndex = props => {
     let searchResults = <></>;
     if (searchInput.length > 0) {
         searchResults = searchedUsers.slice(0,5).map( user => 
-                <li key={user.id} onClick={() => handleClickConvo(user.id)}>
-                    <span>{user.username}</span>
+                <li key={user.id} className="message-search-result" onClick={() => handleClickConvo(user.id)}>
                     <img className="avatar-small" src={user.avatar}/>
+                    <div>
+                        <h5>{user.username}</h5>
+                        <span>Send a message</span>
+                    </div>
+                    
                 </li>
         );
     }
