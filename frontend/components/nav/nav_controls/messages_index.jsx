@@ -84,6 +84,17 @@ const MessagesIndex = props => {
         }
     );
 
+    const searchedUsers = Object.values(users).filter( user => user.username.includes(searchInput))
+    let searchResults = <></>;
+    if (searchInput.length > 0) {
+        searchResults = searchedUsers.slice(0,5).map( user => 
+                <li key={user.id}>
+                    <span>{user.username}</span>
+                    <img className="avatar-small" src={user.avatar}/>
+                </li>
+        );
+    }
+
     let content = <></>
 
     if (stage === 1) {
@@ -116,6 +127,7 @@ const MessagesIndex = props => {
                     value={searchInput}
                 />
             </li>
+            {searchResults}
         </ul>
     }
 
