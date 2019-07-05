@@ -146,6 +146,7 @@
 .active-messages-first-li {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
@@ -165,8 +166,16 @@
     margin-bottom: 15px;
 }
 
-.active-conversation-container img {
+.right-message {
+    flex-direction: row-reverse;
+}
+
+.left-message img {
     margin-right: 10px;
+}
+
+.right-message img {
+    margin-left: 10px;
 }
 
 .message-text {
